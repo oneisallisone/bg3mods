@@ -1,0 +1,14 @@
+{
+  "welcome": "Welcome to BG3 Mods Navigation",
+  "categories": {
+    "prerequisites": "Prerequisites",
+    "ui": "UI Optimization",
+    "gameplay": "Gameplay",
+    "appearance": "Appearance",
+    "equipment": "Equipment",
+    "dice": "Dice",
+    "rebalance": "Rebalance",
+    "class": "Class & Spells",
+    "modifiers": "Modifiers"
+  }
+}

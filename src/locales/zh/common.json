@@ -1,0 +1,14 @@
+{
+  "welcome": "欢迎使用BG3 Mods导航",
+  "categories": {
+    "prerequisites": "前置要求",
+    "ui": "界面优化",
+    "gameplay": "游戏性",
+    "appearance": "外观",
+    "equipment": "装备",
+    "dice": "骰子",
+    "rebalance": "再平衡",
+    "class": "职业与法术",
+    "modifiers": "修改器"
+  }
+}
