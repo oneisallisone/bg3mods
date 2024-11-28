@@ -1,6 +1,13 @@
 {
   "welcome": "Welcome to BG3 Mods Navigation",
   "description": "Find the perfect mods to enhance your Baldur's Gate 3 experience. We've curated the best mods for beginners to make your choice easier.",
+  
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "faq": "FAQ"
+  },
+
   "categories": {
     "prerequisites": "Prerequisites",
     "ui": "UI Optimization",
@@ -11,5 +18,73 @@
     "rebalance": "Rebalance",
     "class": "Class & Spells",
     "modifiers": "Modifiers"
+  },
+
+  "history": {
+    "title": "The Legacy of Baldur's Gate",
+    "bg_series": "The Baldur's Gate Series",
+    "bg_content": "The Baldur's Gate series has been a cornerstone of computer RPGs since 1998. Based on Dungeons & Dragons rules, these games have defined the genre with their deep storytelling, tactical combat, and rich character development. From the original Baldur's Gate to Baldur's Gate II: Shadows of Amn and its expansion Throne of Bhaal, the series has captivated millions of players worldwide.",
+    "bg3_title": "Baldur's Gate 3: A New Era",
+    "bg3_content": "Baldur's Gate 3, developed by Larian Studios, brings the beloved franchise into modern gaming with stunning graphics, complex storylines, and deep character customization. Released in 2023, BG3 features turn-based combat, extensive dialogue options, multiplayer capabilities, and unprecedented player freedom. The game incorporates D&D 5th Edition rules while adding unique elements like advantage/disadvantage systems, reaction mechanics, and environmental interactions. Keywords: RPG, D&D 5E, turn-based combat, character creation, multiplayer, choice-driven narrative, mind flayers, tactical combat, origin characters, companions.",
+    "modding_title": "The World of BG3 Modding",
+    "modding_content": "The modding community has transformed Baldur's Gate 3 with thousands of modifications that enhance and expand the game. From quality-of-life improvements to complete overhauls, mods allow players to customize their experience. Popular categories include class expansions, new races, UI improvements, visual enhancements, and gameplay tweaks. The modding scene features tools like Baldur's Gate 3 Mod Manager (BG3MM), LSLib, and various scripting utilities. Keywords: mod management, custom classes, race mods, UI mods, texture mods, gameplay overhauls, balance patches, character customization, mod compatibility, mod tools, community patches, enhancement mods, QoL improvements, performance optimization, visual upgrades."
+  },
+
+  "about": {
+    "title": "About BG3 Mods Navigation",
+    "description": "Learn about our mission to help Baldur's Gate 3 players find the perfect mods",
+    "mission": {
+      "title": "Our Mission",
+      "content": "We aim to simplify the modding experience for Baldur's Gate 3 players by providing clear, organized information about the best mods available."
+    },
+    "features": {
+      "title": "What We Offer",
+      "feature1": "Carefully curated mod selections",
+      "feature2": "Clear categorization and organization",
+      "feature3": "Beginner-friendly guides and explanations",
+      "feature4": "Regular updates and maintenance",
+      "feature5": "Community-driven recommendations"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "Have suggestions or questions? We'd love to hear from you. Reach out to us through our GitHub repository or community channels."
+    }
+  },
+
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to common questions about Baldur's Gate 3 modding",
+    "q1": {
+      "question": "How do I install mods for Baldur's Gate 3?",
+      "answer": "Most BG3 mods can be installed using the Baldur's Gate 3 Mod Manager (BG3MM). Simply download the mod files, add them to your mod manager, and activate them in the correct order."
+    },
+    "q2": {
+      "question": "Are mods compatible with the latest game version?",
+      "answer": "Mod compatibility varies with game updates. Always check the mod's page for compatibility information and updates."
+    },
+    "q3": {
+      "question": "Can I use multiple mods together?",
+      "answer": "Yes, but you need to check for compatibility between mods. Some mods may conflict with others, especially if they modify the same game elements."
+    },
+    "q4": {
+      "question": "Will using mods disable achievements?",
+      "answer": "By default, using mods will disable achievements in BG3. However, there are mods available that can re-enable achievements while using mods."
+    },
+    "q5": {
+      "question": "What should I do if a mod isn't working?",
+      "answer": "First, verify that the mod is compatible with your game version. Then check the load order, ensure all dependencies are installed, and read the mod's documentation for troubleshooting steps."
+    },
+    "q6": {
+      "question": "Can I use mods in multiplayer?",
+      "answer": "Yes, but all players need to have the same mods installed in the same order for multiplayer to work correctly."
+    },
+    "q7": {
+      "question": "How do I uninstall mods?",
+      "answer": "Use your mod manager to deactivate and remove the mods. It's recommended to start a new game after removing significant mods."
+    },
+    "q8": {
+      "question": "Will mods affect my save games?",
+      "answer": "Some mods can affect save games, especially those that add new content or modify game mechanics. Always back up your saves before installing new mods."
+    }
   }
 }
