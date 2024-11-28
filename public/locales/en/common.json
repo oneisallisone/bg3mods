@@ -21,35 +21,159 @@
     "title": "Frequently Asked Questions",
     "q1": {
       "question": "How do I install mods for Baldur's Gate 3?",
-      "answer": "Most BG3 mods can be installed using mod managers like Vortex or BG3 Mod Manager. First, download the mod file, then use the manager to install and activate it. Some mods may require manual installation - always read the mod's documentation carefully."
+      "answer": "Most BG3 mods can be installed using mod managers like Vortex or BG3 Mod Manager. First, download the mod file, then use the manager to install and activate it. Some mods may require manual installation - always read the mod's documentation carefully.",
+      "subQuestions": {
+        "1": {
+          "q": "Which mod manager should I choose?",
+          "a": "Vortex is more user-friendly for beginners, while BG3 Mod Manager offers more advanced features. Both are reliable choices."
+        },
+        "2": {
+          "q": "How do I install mods manually?",
+          "a": "Place mod files in the game's mod folder, typically located at 'Documents/Larian Studios/Baldur's Gate 3/Mods'. Ensure proper file structure is maintained."
+        },
+        "3": {
+          "q": "What's the correct load order for mods?",
+          "a": "Generally, load bug fixes first, then gameplay changes, and cosmetic mods last. Some mods may have specific load order requirements."
+        }
+      }
     },
     "q2": {
       "question": "Are mods compatible with multiplayer?",
-      "answer": "Mod compatibility in multiplayer depends on several factors. Generally, all players need to have the same mods installed in the same order. UI and visual mods are usually safer for multiplayer than gameplay-changing mods."
+      "answer": "Mod compatibility in multiplayer depends on several factors. Generally, all players need to have the same mods installed in the same order. UI and visual mods are usually safer for multiplayer than gameplay-changing mods.",
+      "subQuestions": {
+        "1": {
+          "q": "How do I sync mods with friends?",
+          "a": "Share your mod list and load order with friends, ensure everyone has the same versions installed."
+        },
+        "2": {
+          "q": "Which mods are safe for multiplayer?",
+          "a": "UI improvements, visual enhancements, and most quality-of-life mods are generally safe. Avoid major gameplay changes."
+        },
+        "3": {
+          "q": "What happens if mod versions don't match?",
+          "a": "The game may fail to connect or crash. Always ensure all players have identical mod versions."
+        }
+      }
     },
     "q3": {
       "question": "Will mods disable achievements?",
-      "answer": "By default, using mods will disable achievements in BG3. However, there are specific mods available that can re-enable achievements while using other mods."
+      "answer": "By default, using mods will disable achievements in BG3. However, there are specific mods available that can re-enable achievements while using other mods.",
+      "subQuestions": {
+        "1": {
+          "q": "How can I re-enable achievements?",
+          "a": "Use achievement enabler mods, but note that these may need updating after game patches."
+        },
+        "2": {
+          "q": "Do all mods disable achievements?",
+          "a": "Yes, by default any mod will disable achievements unless you use an achievement enabler."
+        },
+        "3": {
+          "q": "Are achievement enabler mods safe?",
+          "a": "Yes, these mods are generally safe and widely used in the community."
+        }
+      }
     },
     "q4": {
       "question": "What should I do if a mod causes crashes?",
-      "answer": "First, verify the mod's compatibility with your game version. Try disabling the mod to confirm it's the source of the crash. Check for mod conflicts, and ensure you've installed all required dependencies. If issues persist, try reinstalling the mod."
+      "answer": "First, verify the mod's compatibility with your game version. Try disabling the mod to confirm it's the source of the crash. Check for mod conflicts, and ensure you've installed all required dependencies.",
+      "subQuestions": {
+        "1": {
+          "q": "How do I identify which mod is causing crashes?",
+          "a": "Disable mods one by one until the crash stops, or start with a clean install and add mods gradually."
+        },
+        "2": {
+          "q": "Where can I find crash logs?",
+          "a": "Check the game's log folder in 'Documents/Larian Studios/Baldur's Gate 3/Crash Reports'."
+        },
+        "3": {
+          "q": "How do I report mod bugs?",
+          "a": "Contact the mod author through their mod page, providing crash logs and your mod list."
+        },
+        "4": {
+          "q": "Can game updates cause mod crashes?",
+          "a": "Yes, game updates may break mod compatibility. Always check for mod updates after game patches."
+        }
+      }
     },
     "q5": {
       "question": "Can I use multiple mods together?",
-      "answer": "Yes, but you need to be careful about compatibility. Some mods may conflict with each other, especially if they modify the same game elements. Always check mod descriptions for compatibility information and load order requirements."
+      "answer": "Yes, but you need to be careful about compatibility. Some mods may conflict with each other, especially if they modify the same game elements.",
+      "subQuestions": {
+        "1": {
+          "q": "How many mods can I use at once?",
+          "a": "There's no strict limit, but more mods increase the chance of conflicts and performance issues."
+        },
+        "2": {
+          "q": "How do I check mod compatibility?",
+          "a": "Read mod descriptions, check compatibility lists, and test combinations carefully."
+        },
+        "3": {
+          "q": "What are common mod conflicts?",
+          "a": "Mods that modify the same game features, class changes, or UI elements often conflict."
+        },
+        "4": {
+          "q": "How do I resolve mod conflicts?",
+          "a": "Adjust load order, choose one conflicting mod, or look for compatibility patches."
+        }
+      }
     },
     "q6": {
       "question": "How do I update my mods?",
-      "answer": "Most mod managers will notify you of available updates. For manual installations, you'll need to check the mod's page regularly. Always backup your saves before updating mods, and read update notes for any special instructions."
+      "answer": "Most mod managers will notify you of available updates. For manual installations, you'll need to check the mod page regularly.",
+      "subQuestions": {
+        "1": {
+          "q": "Should I update all mods immediately?",
+          "a": "Wait for confirmation that updates are stable and compatible with your other mods."
+        },
+        "2": {
+          "q": "Do I need to start a new game after updates?",
+          "a": "Depends on the mod changes. Major updates might require a new game."
+        },
+        "3": {
+          "q": "How do I backup before updating?",
+          "a": "Copy your mod folder and save games to a safe location before updating."
+        }
+      }
     },
     "q7": {
       "question": "Will mods affect my save games?",
-      "answer": "Some mods can affect save games, especially those that modify gameplay mechanics or add new content. It's recommended to backup your saves before installing new mods. Removing mods mid-playthrough may corrupt save files."
+      "answer": "Some mods can affect save games, especially those that modify gameplay mechanics or add new content.",
+      "subQuestions": {
+        "1": {
+          "q": "How do I backup save games?",
+          "a": "Copy the 'PlayerProfiles' folder from your game directory to a safe location."
+        },
+        "2": {
+          "q": "Can I remove mods mid-playthrough?",
+          "a": "It's risky and may corrupt saves. Some UI mods are safer to remove than content mods."
+        },
+        "3": {
+          "q": "How do I fix corrupted saves?",
+          "a": "Try reverting to a previous save, or restore from your backup if available."
+        },
+        "4": {
+          "q": "Which mods are safe to add mid-game?",
+          "a": "Most visual, UI, and quality-of-life mods are safe to add anytime."
+        }
+      }
     },
     "q8": {
       "question": "What do I do if my game won't start after installing mods?",
-      "answer": "Try verifying your game files through Steam/GOG, disable all mods and re-enable them one by one to identify the problematic mod. Check for mod conflicts and ensure you have all required dependencies installed."
+      "answer": "Try verifying your game files through Steam/GOG, disable all mods and re-enable them one by one to identify the problematic mod.",
+      "subQuestions": {
+        "1": {
+          "q": "How do I verify game files?",
+          "a": "Right-click BG3 in Steam/GOG, select Properties, and use the Verify option."
+        },
+        "2": {
+          "q": "How do I start in safe mode?",
+          "a": "Rename or move your mods folder temporarily to start without mods."
+        },
+        "3": {
+          "q": "What files should I delete if game won't start?",
+          "a": "Clear the shader cache and temporary files, but never delete save games."
+        }
+      }
     }
   },
   "history": {

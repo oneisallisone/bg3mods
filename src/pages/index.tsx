@@ -8,9 +8,24 @@ import { useState } from 'react'
 const Home: NextPage = () => {
   const { t } = useTranslation('common')
   const [openQuestion, setOpenQuestion] = useState<number | null>(null)
+  const [openSubQuestion, setOpenSubQuestion] = useState<{main: number | null, sub: number | null}>({main: null, sub: null})
 
   const toggleQuestion = (index: number) => {
-    setOpenQuestion(openQuestion === index ? null : index)
+    if (openQuestion === index) {
+      setOpenQuestion(null)
+      setOpenSubQuestion({main: null, sub: null})
+    } else {
+      setOpenQuestion(index)
+      setOpenSubQuestion({main: index, sub: null})
+    }
+  }
+
+  const toggleSubQuestion = (mainIndex: number, subIndex: number) => {
+    if (openSubQuestion.main === mainIndex && openSubQuestion.sub === subIndex) {
+      setOpenSubQuestion({...openSubQuestion, sub: null})
+    } else {
+      setOpenSubQuestion({main: mainIndex, sub: subIndex})
+    }
   }
 
   return (
@@ -37,6 +52,7 @@ const Home: NextPage = () => {
           <div className="space-y-4">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
               <div key={i} className="bg-gray-50 rounded-lg overflow-hidden">
+                {/* Main Question */}
                 <button
                   className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100"
                   onClick={() => toggleQuestion(i)}
@@ -52,7 +68,39 @@ const Home: NextPage = () => {
                 </button>
                 {openQuestion === i && (
                   <div className="px-6 py-4">
-                    <p className="text-gray-700">{t(`faq.q${i}.answer`)}</p>
+                    {/* Main Answer */}
+                    <p className="text-gray-700 mb-4">{t(`faq.q${i}.answer`)}</p>
+                    
+                    {/* Sub Questions */}
+                    <div className="space-y-2 ml-4">
+                      {[1, 2, 3, 4, 5].map((subI) => {
+                        const subQuestion = t(`faq.q${i}.subQuestions.${subI}.q`, { returnNull: true })
+                        if (!subQuestion) return null
+                        
+                        return (
+                          <div key={subI} className="border-l-2 border-gray-200">
+                            <button
+                              className="w-full px-4 py-2 text-left flex justify-between items-center hover:bg-gray-50"
+                              onClick={() => toggleSubQuestion(i, subI)}
+                            >
+                              <span className="text-gray-800">
+                                {subQuestion}
+                              </span>
+                              <span className={`transform transition-transform ${
+                                openSubQuestion.main === i && openSubQuestion.sub === subI ? 'rotate-180' : ''
+                              }`}>
+                                ▼
+                              </span>
+                            </button>
+                            {openSubQuestion.main === i && openSubQuestion.sub === subI && (
+                              <div className="px-4 py-2 text-gray-600">
+                                {t(`faq.q${i}.subQuestions.${subI}.a`)}
+                              </div>
+                            )}
+                          </div>
+                        )
+                      })}
+                    </div>
                   </div>
                 )}
               </div>
