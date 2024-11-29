@@ -1,13 +1,17 @@
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import type { GetStaticProps, NextPage } from 'next'
-import Layout from '@/components/Layout'
+import Head from 'next/head'
 
 const About: NextPage = () => {
   const { t } = useTranslation('common')
 
   return (
-    <Layout title={t('about.title')} description={t('about.description')}>
+    <>
+      <Head>
+        <title>{t('about.title')}</title>
+        <meta name="description" content={t('about.description')} />
+      </Head>
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
           <h1 className="text-3xl font-bold mb-6 text-center">
@@ -36,7 +40,7 @@ const About: NextPage = () => {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   )
 }
 

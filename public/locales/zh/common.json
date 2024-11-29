@@ -8,15 +8,26 @@
     "faq": "常见问题"
   },
   "categories": {
-    "prerequisites": "前置要求",
+    "title": "模组分类",
+    "all": "所有模组",
+    "prerequisites": "前置工具",
+    "prerequisites_desc": "模组必需的工具和依赖",
     "ui": "界面优化",
+    "ui_desc": "增强和自定义游戏界面",
     "gameplay": "游戏玩法",
-    "appearance": "外观",
-    "equipment": "装备",
-    "dice": "骰子",
-    "rebalance": "平衡性调整",
-    "class": "职业与法术",
-    "modifiers": "修改器"
+    "gameplay_desc": "修改和改进核心游戏机制",
+    "appearance": "角色外观",
+    "appearance_desc": "自定义角色外观和动画",
+    "equipment": "装备物品",
+    "equipment_desc": "新增武器、装备和物品",
+    "dice": "骰子系统",
+    "dice_desc": "修改骰子和随机数生成",
+    "balance": "游戏平衡",
+    "balance_desc": "调整游戏难度和机制",
+    "class": "职业法术",
+    "class_desc": "新增职业、子职业和法术",
+    "modifiers": "游戏修改",
+    "modifiers_desc": "各种游戏修改和调整"
   },
   "faq": {
     "title": "常见问题",
@@ -58,11 +69,41 @@
     "bg_series": "博德之门系列",
     "bg_content": "博德之门系列自1998年以来一直是电脑角色扮演游戏的基石。由BioWare开发的原作为视频游戏的叙事和战术战斗设立了新标准。该系列基于龙与地下城规则和被遗忘的国度战役设定，以丰富的角色发展、复杂的叙事和战略性战斗系统为特色。",
     "bg3_title": "博德之门3：新纪元",
-    "bg3_content": "由Larian Studios开发的博德之门3通过令人惊叹的视觉效果、深入的游戏机制和前所未有的玩家选择将这个备受喜爱的系列带入现代游戏时代。游戏基于D&D第五版规则的回合制战斗、广泛的角色定制、多人游戏功能和丰富的分支叙事。主要特点包括：<br><br>• 真实的D&D 5e规则实现<br>• 动态回合制战斗系统<br>• 广泛的角色创建和定制<br>• 多层次的故事线与有意义的选择<br>• 先进的图形和物理引擎<br>• 跨平台多人游戏支持<br>• 强大的模组功能",
+    "bg3_content": "由Larian Studios开发的博德之门3通过令人惊叹的视觉效果、深入的游戏机制和前所未有的玩家选择将这个备受喜爱的系列带入现代游戏时代。游戏基于D&D第五版规则的回合制战斗、广泛的角色创建和定制、多人游戏功能和丰富的分支叙事。主要特点包括：<br><br>• 真实的D&D 5e规则实现<br>• 动态回合制战斗系统<br>• 广泛的角色创建和定制<br>• 多层次的故事线与有意义的选择<br>• 先进的图形和物理引擎<br>• 跨平台多人游戏支持<br>• 强大的模组功能",
     "modding_title": "BG3模组世界",
     "modding_content": "博德之门3的模组社区已经创建了数千个以无数方式增强和扩展游戏的修改。从细微调整到重大改造，模组允许玩家根据自己的偏好定制游戏体验。流行的模组类别包括：<br><br>• 游戏玩法增强和重新平衡<br>• 新职业、子职业和法术<br>• 角色外观选项<br>• UI改进和生活质量功能<br>• 装备和物品修改<br>• 自定义战役和任务<br>• 性能优化<br>• 图形增强",
     "modding_features": "BG3支持的主要模组功能包括：<br><br>• 自定义内容创建<br>• 脚本修改<br>• UI定制<br>• 模型和纹理替换<br>• 声音和音乐添加<br>• 游戏机制调整<br>• 新物品集成<br>• 角色定制选项",
     "modding_community": "BG3模组社区继续成长和创新，创建新的工具和资源用于模组开发。主要成就包括：<br><br>• 高级模组管理工具<br>• 协作模组项目<br>• 文档和教程<br>• 定期模组更新和维护<br>• 跨模组兼容性解决方案<br>• 性能优化技术<br>• 错误修复和稳定性改进"
+  },
+  "mod_card": {
+    "no_image": "暂无图片",
+    "by": "作者",
+    "author": "作者",
+    "visit_profile": "访问主页",
+    "updated": "更新于",
+    "downloads": "下载次数",
+    "view_details": "查看详情",
+    "version": "版本",
+    "game_version": "游戏版本",
+    "rating": "评分",
+    "install": "安装指南",
+    "compatibility": "兼容性",
+    "download": "下载",
+    "nexusPage": "Nexus页面",
+    "close": "关闭",
+    "description": "描述",
+    "version_info": "版本信息",
+    "changelog": "更新日志",
+    "requirements": "前置要求",
+    "tags": "标签",
+    "no_version": "暂无版本信息",
+    "by": "作者",
+    "downloads": "总下载量",
+    "rating": "用户评分",
+    "last_updated": "最后更新",
+    "version": "版本",
+    "more_tags": "更多标签",
+    "invalid_date": "日期未知"
   },
   "about": {
     "title": "关于BG3 Mods导航",
@@ -83,5 +124,11 @@
       "title": "联系我们",
       "content": "有建议或问题？我们很乐意听取您的意见。通过我们的GitHub仓库或社区渠道联系我们。"
     }
+  },
+  "home": {
+    "latest_mods": "最新模组",
+    "popular_mods": "热门模组",
+    "no_mods_in_category": "该分类暂无模组。",
+    "show_more": "查看更多"
   }
 }

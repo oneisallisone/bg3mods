@@ -13,7 +13,6 @@ const Navbar = () => {
   const navItems = [
     { href: '/', label: 'nav.home' },
     { href: '/about', label: 'nav.about' },
-    { href: '/faq', label: 'nav.faq' },
   ]
 
   return (

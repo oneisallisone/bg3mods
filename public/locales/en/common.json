@@ -7,15 +7,26 @@
     "language": "Language"
   },
   "categories": {
-    "prerequisites": "Prerequisites",
+    "title": "Categories",
+    "all": "All Mods",
+    "prerequisites": "Prerequisites & Tools",
+    "prerequisites_desc": "Essential tools and requirements for modding",
     "ui": "UI Optimization",
-    "gameplay": "Gameplay",
-    "appearance": "Appearance",
-    "equipment": "Equipment",
-    "dice": "Dice",
-    "rebalance": "Rebalance",
-    "class": "Class & Spells",
-    "modifiers": "Modifiers"
+    "ui_desc": "Enhance and customize the game interface",
+    "gameplay": "Gameplay Enhancements",
+    "gameplay_desc": "Modify and improve core gameplay mechanics",
+    "appearance": "Character Appearance",
+    "appearance_desc": "Customize character looks and animations",
+    "equipment": "Equipment & Items",
+    "equipment_desc": "New items, weapons, and armor",
+    "dice": "Dice & RNG",
+    "dice_desc": "Modify dice rolling and random number generation",
+    "balance": "Game Balance",
+    "balance_desc": "Adjust game difficulty and mechanics",
+    "class": "Classes & Spells",
+    "class_desc": "New classes, subclasses, and spells",
+    "modifiers": "Game Modifiers",
+    "modifiers_desc": "Various game modifications and tweaks"
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -25,15 +36,15 @@
       "subQuestions": {
         "1": {
           "q": "Which mod manager should I choose?",
-          "a": "Vortex is more user-friendly for beginners, while BG3 Mod Manager offers more advanced features. Both are reliable choices."
+          "a": "For beginners, Vortex is recommended as it offers a user-friendly interface and integrates well with Nexus Mods. It features automatic downloads, easy installation, and conflict detection. BG3 Mod Manager (BG3MM) is preferred by advanced users for its powerful features like detailed load order control, mod profiles, and better handling of complex mod configurations. Both are actively maintained and support the latest game version."
         },
         "2": {
           "q": "How do I install mods manually?",
-          "a": "Place mod files in the game's mod folder, typically located at 'Documents/Larian Studios/Baldur's Gate 3/Mods'. Ensure proper file structure is maintained."
+          "a": "Manual installation involves several steps:<br><br>1. Locate your game's mod folder at 'Documents/Larian Studios/Baldur's Gate 3/Mods'<br>2. Extract the mod files from the downloaded archive<br>3. Copy the .pak files to the mods folder<br>4. Create or edit modsettings.lsx to set load order<br>5. Verify file permissions are correct<br><br>Note: Some mods may have additional files or specific installation requirements. Always check the mod's documentation for detailed instructions."
         },
         "3": {
           "q": "What's the correct load order for mods?",
-          "a": "Generally, load bug fixes first, then gameplay changes, and cosmetic mods last. Some mods may have specific load order requirements."
+          "a": "The general rule for mod load order is:<br><br>1. Engine Fixes & Libraries (e.g., Native Mod Loader)<br>2. Script Extenders & Core Mods<br>3. Bug Fixes & Patches<br>4. Gameplay Overhauls<br>5. Class & Race Mods<br>6. Item & Equipment Mods<br>7. Visual & UI Mods<br>8. Compatibility Patches<br><br>Specific mods may have their own load order requirements. Check mod descriptions and use tools like BG3MM to detect and resolve load order conflicts."
         }
       }
     },
@@ -43,15 +54,15 @@
       "subQuestions": {
         "1": {
           "q": "How do I sync mods with friends?",
-          "a": "Share your mod list and load order with friends, ensure everyone has the same versions installed."
+          "a": "To ensure proper mod synchronization:<br><br>1. Create a shared mod list document<br>2. Include exact mod versions and download links<br>3. Agree on a specific load order<br>4. Use a mod manager to export/import profiles<br>5. Test connection with a small mod set first<br><br>Tools like BG3MM can export mod lists that others can import directly. Some mod managers also support automatic version checking."
         },
         "2": {
           "q": "Which mods are safe for multiplayer?",
-          "a": "UI improvements, visual enhancements, and most quality-of-life mods are generally safe. Avoid major gameplay changes."
+          "a": "Safe mods for multiplayer include:<br><br>• UI Enhancements (inventory sorting, better tooltips)<br>• Visual Improvements (textures, character appearances)<br>• Quality of Life Features (camera adjustments, hotkey changes)<br>• Performance Optimizations<br>• Shader/Graphics Tweaks<br><br>Avoid mods that:<br>• Change core gameplay mechanics<br>• Add new items or abilities<br>• Modify game balance<br>• Change quest or story content"
         },
         "3": {
           "q": "What happens if mod versions don't match?",
-          "a": "The game may fail to connect or crash. Always ensure all players have identical mod versions."
+          "a": "Mismatched mod versions can cause:<br><br>1. Connection Failures: Game may fail to establish multiplayer connection<br>2. Desyncs: Players experience different game states<br>3. Crashes: Game may become unstable or crash<br>4. Save Corruption: Multiplayer saves might become corrupted<br><br>Always verify that all players have identical mod versions before starting a session. Use mod managers' version checking features when available."
         }
       }
     },
@@ -61,15 +72,15 @@
       "subQuestions": {
         "1": {
           "q": "How can I re-enable achievements?",
-          "a": "Use achievement enabler mods, but note that these may need updating after game patches."
+          "a": "To re-enable achievements with mods:<br><br>1. Download an Achievement Enabler mod<br>2. Install it as a high-priority mod (early in load order)<br>3. Configure the mod according to its documentation<br>4. Test achievement tracking in-game<br><br>Popular options include:<br>• Achievement Enabler by LaughingLeader<br>• Native Achievement Unlocker<br>• Achievement Manager Plus<br><br>Note: These mods may need updating after game patches."
         },
         "2": {
           "q": "Do all mods disable achievements?",
-          "a": "Yes, by default any mod will disable achievements unless you use an achievement enabler."
+          "a": "Yes, by default any modification to the game files will disable achievements. This includes:<br><br>• Gameplay Mods<br>• Visual Mods<br>• UI Modifications<br>• Custom Content<br>• Script Changes<br><br>This is a built-in security feature to maintain achievement integrity. Even minor modifications like texture changes will trigger this protection."
         },
         "3": {
           "q": "Are achievement enabler mods safe?",
-          "a": "Yes, these mods are generally safe and widely used in the community."
+          "a": "Achievement enabler mods are generally considered safe because:<br><br>1. They don't modify game content or mechanics<br>2. They only affect the achievement system<br>3. They're widely used and tested by the community<br>4. They don't impact save games or multiplayer<br><br>However, always download these mods from trusted sources and keep them updated with game patches."
         }
       }
     },
@@ -79,19 +90,19 @@
       "subQuestions": {
         "1": {
           "q": "How do I identify which mod is causing crashes?",
-          "a": "Disable mods one by one until the crash stops, or start with a clean install and add mods gradually."
+          "a": "Follow these troubleshooting steps:<br><br>1. Disable all mods and test the game<br>2. Enable mods one at a time, testing after each<br>3. Check crash logs for specific error messages<br>4. Look for common patterns (when/where crashes occur)<br>5. Verify mod load order is correct<br><br>Use mod managers' built-in tools to help identify conflicts and issues. Keep a log of which mods were active when crashes occurred."
         },
         "2": {
           "q": "Where can I find crash logs?",
-          "a": "Check the game's log folder in 'Documents/Larian Studios/Baldur's Gate 3/Crash Reports'."
+          "a": "Crash logs can be found in several locations:<br><br>1. Main Location: 'Documents/Larian Studios/Baldur's Gate 3/Crash Reports'<br>2. Game Directory: '[Steam/GOG folder]/Baldur's Gate 3/Data/Logs'<br>3. Windows Event Viewer: Under 'Windows Logs > Application'<br><br>Important information in crash logs:<br>• Error codes and messages<br>• Active mods list<br>• System specifications<br>• Game version and settings"
         },
         "3": {
           "q": "How do I report mod bugs?",
-          "a": "Contact the mod author through their mod page, providing crash logs and your mod list."
+          "a": "When reporting bugs to mod authors:<br><br>1. Provide Essential Information:<br>• Mod version<br>• Game version<br>• Complete mod list and load order<br>• Crash logs if applicable<br><br>2. Describe the Issue:<br>• Steps to reproduce<br>• Expected vs actual behavior<br>• Frequency of occurrence<br><br>3. Include Screenshots/Videos if relevant<br><br>4. Be patient and respectful - mod authors are volunteers!"
         },
         "4": {
           "q": "Can game updates cause mod crashes?",
-          "a": "Yes, game updates may break mod compatibility. Always check for mod updates after game patches."
+          "a": "Yes, game updates can affect mods in several ways:<br><br>1. Direct Impacts:<br>• Changed game functions<br>• Modified file structures<br>• Updated scripting systems<br><br>2. Common Issues:<br>• Broken mod functionality<br>• Compatibility conflicts<br>• Performance problems<br><br>Always check mod pages after game updates and wait for mod authors to update their mods before continuing to use them."
         }
       }
     },
@@ -101,19 +112,19 @@
       "subQuestions": {
         "1": {
           "q": "How many mods can I use at once?",
-          "a": "There's no strict limit, but more mods increase the chance of conflicts and performance issues."
+          "a": "The number of mods you can use depends on several factors:<br><br>1. System Resources:<br>• Available RAM<br>• CPU processing power<br>• Storage space<br><br>2. Mod Types:<br>• Content mods (more resource-intensive)<br>• UI mods (generally lighter)<br>• Texture mods (affects VRAM)<br><br>3. Practical Limits:<br>• Most stable setups use 20-50 mods<br>• Complex mods count more than simple ones<br>• Consider load times and performance impact"
         },
         "2": {
           "q": "How do I check mod compatibility?",
-          "a": "Read mod descriptions, check compatibility lists, and test combinations carefully."
+          "a": "Check compatibility through these methods:<br><br>1. Read Mod Documentation:<br>• Known compatibility issues<br>• Required dependencies<br>• Recommended load order<br><br>2. Use Community Resources:<br>• Mod compatibility spreadsheets<br>• Forum discussions<br>• Discord channels<br><br>3. Test Systematically:<br>• Start with essential mods<br>• Add one mod at a time<br>• Document any issues"
         },
         "3": {
           "q": "What are common mod conflicts?",
-          "a": "Mods that modify the same game features, class changes, or UI elements often conflict."
+          "a": "Common types of mod conflicts include:<br><br>1. File Conflicts:<br>• Multiple mods editing same files<br>• Overlapping game systems<br>• Resource conflicts<br><br>2. Functionality Conflicts:<br>• Class/race modifications<br>• UI element changes<br>• Game mechanic alterations<br><br>3. Script Conflicts:<br>• Event timing issues<br>• Resource allocation conflicts<br>• Save/load conflicts"
         },
         "4": {
           "q": "How do I resolve mod conflicts?",
-          "a": "Adjust load order, choose one conflicting mod, or look for compatibility patches."
+          "a": "Follow these steps to resolve conflicts:<br><br>1. Identify the Conflict:<br>• Use mod manager conflict detection<br>• Check error logs<br>• Test mods individually<br><br>2. Resolution Options:<br>• Adjust load order<br>• Find compatibility patches<br>• Choose alternative mods<br>• Contact mod authors<br><br>3. Prevention:<br>• Regular backup saves<br>• Document working configurations<br>• Stay informed about updates"
         }
       }
     },
@@ -123,15 +134,15 @@
       "subQuestions": {
         "1": {
           "q": "Should I update all mods immediately?",
-          "a": "Wait for confirmation that updates are stable and compatible with your other mods."
+          "a": "Consider these factors before updating:<br><br>1. Stability Concerns:<br>• Wait for user feedback<br>• Check for reported issues<br>• Verify compatibility<br><br>2. Update Priority:<br>• Critical bug fixes first<br>• Core functionality mods<br>• Optional features last<br><br>3. Best Practices:<br>• Backup saves before updating<br>• Update one mod at a time<br>• Test after each update"
         },
         "2": {
           "q": "Do I need to start a new game after updates?",
-          "a": "Depends on the mod changes. Major updates might require a new game."
+          "a": "The need for a new game depends on update type:<br><br>1. Safe to Continue:<br>• Visual updates<br>• UI modifications<br>• Minor bug fixes<br><br>2. New Game Recommended:<br>• Major gameplay changes<br>• New content additions<br>• Core system updates<br><br>3. Always Required:<br>• Save structure changes<br>• Core game updates<br>• Complete overhauls"
         },
         "3": {
           "q": "How do I backup before updating?",
-          "a": "Copy your mod folder and save games to a safe location before updating."
+          "a": "Create comprehensive backups following these steps:<br><br>1. Save Games:<br>• Copy 'PlayerProfiles' folder<br>• Archive specific character saves<br>• Backup save metadata<br><br>2. Mod Files:<br>• Export mod lists/profiles<br>• Backup mod configuration files<br>• Save current modsettings.lsx<br><br>3. Game Settings:<br>• Screenshot current configurations<br>• Note working mod combinations<br>• Document load orders"
         }
       }
     },
@@ -141,19 +152,19 @@
       "subQuestions": {
         "1": {
           "q": "How do I backup save games?",
-          "a": "Copy the 'PlayerProfiles' folder from your game directory to a safe location."
+          "a": "Follow this comprehensive backup process:<br><br>1. Locate Save Files:<br>• Main save folder: 'Documents/Larian Studios/Baldur's Gate 3/PlayerProfiles'<br>• Story saves: [Profile]/Savegames/Story<br>• Campaign saves: [Profile]/Savegames/Campaign<br><br>2. Backup Methods:<br>• Manual file copy to external drive<br>• Cloud storage sync<br>• Automated backup tools<br><br>3. Best Practices:<br>• Regular backups (daily/weekly)<br>• Version control for different mod setups<br>• Clear labeling system"
         },
         "2": {
           "q": "Can I remove mods mid-playthrough?",
-          "a": "It's risky and may corrupt saves. Some UI mods are safer to remove than content mods."
+          "a": "Removing mods mid-playthrough carries risks:<br><br>1. High-Risk Removals:<br>• Class/race mods<br>• Item mods with equipped gear<br>• Quest/story mods<br>• Character customization mods<br><br>2. Safer Removals:<br>• UI modifications<br>• Visual enhancements<br>• Sound mods<br>• Performance tweaks<br><br>3. Safety Measures:<br>• Always backup saves first<br>• Test on a separate save<br>• Document removed mods"
         },
         "3": {
           "q": "How do I fix corrupted saves?",
-          "a": "Try reverting to a previous save, or restore from your backup if available."
+          "a": "When dealing with corrupted saves:<br><br>1. Immediate Actions:<br>• Don't overwrite existing saves<br>• Check crash logs for causes<br>• Verify game file integrity<br><br>2. Recovery Options:<br>• Load earlier save backup<br>• Use save repair tools<br>• Remove problematic mods<br><br>3. Prevention:<br>• Regular save backups<br>• Test new mods on separate saves<br>• Monitor mod compatibility"
         },
         "4": {
           "q": "Which mods are safe to add mid-game?",
-          "a": "Most visual, UI, and quality-of-life mods are safe to add anytime."
+          "a": "Safe mods to add during a playthrough:<br><br>1. Visual Mods:<br>• Texture improvements<br>• Character appearances<br>• Environmental effects<br><br>2. Interface Mods:<br>• UI enhancements<br>• Information displays<br>• Control modifications<br><br>3. Quality of Life:<br>• Camera adjustments<br>• Performance optimizations<br>• Sound enhancements<br><br>Always test new mods on a backup save first!"
         }
       }
     },
@@ -163,18 +174,38 @@
       "subQuestions": {
         "1": {
           "q": "How do I verify game files?",
-          "a": "Right-click BG3 in Steam/GOG, select Properties, and use the Verify option."
+          "a": "Follow these steps to verify game files:<br><br>1. Steam Method:<br>• Right-click BG3 in library<br>• Properties > Local Files<br>• 'Verify integrity of game files'<br><br>2. GOG Method:<br>• Select BG3 in library<br>• More > Manage Installation<br>• 'Verify/Repair'<br><br>3. After Verification:<br>• Restart your computer<br>• Launch game without mods<br>• Gradually re-enable mods"
         },
         "2": {
           "q": "How do I start in safe mode?",
-          "a": "Rename or move your mods folder temporarily to start without mods."
+          "a": "To start the game in safe mode:<br><br>1. Disable Mods:<br>• Rename/move mods folder<br>• Backup modsettings.lsx<br>• Clear shader cache<br><br>2. Launch Options:<br>• Use '--skip-launcher' parameter<br>• Launch directly from game folder<br>• Use 'verify' command line option<br><br>3. Troubleshooting:<br>• Check game logs<br>• Monitor system resources<br>• Test different DirectX versions"
         },
         "3": {
           "q": "What files should I delete if game won't start?",
-          "a": "Clear the shader cache and temporary files, but never delete save games."
+          "a": "Consider cleaning these files/folders:<br><br>1. Safe to Delete:<br>• Shader cache folder<br>• Temporary files<br>• DirectX shader cache<br>• Graphics settings file<br><br>2. Never Delete:<br>• Save games<br>• Character profiles<br>• Custom content<br>• Game installation files<br><br>3. After Cleaning:<br>• Verify game files<br>• Reset graphics settings<br>• Test without mods"
         }
       }
     }
+  },
+  "mod_card": {
+    "by": "by",
+    "author": "Author",
+    "visit_profile": "Visit Profile",
+    "downloads": "Total Downloads",
+    "rating": "User Rating",
+    "version": "Version",
+    "last_updated": "Last Updated",
+    "no_version": "No version available",
+    "description": "Description",
+    "requirements": "Requirements",
+    "tags": "Tags",
+    "download": "Download",
+    "nexusPage": "Nexus Page",
+    "downloads": "downloads",
+    "rating": "rating",
+    "close": "Close",
+    "more_tags": "more tags",
+    "invalid_date": "Date unknown"
   },
   "history": {
     "title": "Baldur's Gate Legacy & Modding",
@@ -186,5 +217,9 @@
     "modding_content": "Baldur's Gate 3's modding community has created thousands of modifications that enhance and expand the game in countless ways. From subtle tweaks to major overhauls, mods allow players to customize their experience to match their preferred playstyle. Popular mod categories include: <br><br>• Gameplay enhancements and rebalancing<br>• New classes, subclasses, and spells<br>• Character appearance options<br>• UI improvements and quality of life features<br>• Equipment and item modifications<br>• Custom campaigns and quests<br>• Performance optimizations<br>• Graphical enhancements",
     "modding_features": "Key modding features supported by BG3 include: <br><br>• Custom content creation<br>• Script modifications<br>• UI customization<br>• Model and texture replacements<br>• Sound and music additions<br>• Gameplay mechanic adjustments<br>• New item integration<br>• Character customization options",
     "modding_community": "The BG3 modding community continues to grow and innovate, creating new tools and resources for mod development. Notable achievements include: <br><br>• Advanced mod management tools<br>• Collaborative modding projects<br>• Documentation and tutorials<br>• Regular mod updates and maintenance<br>• Cross-mod compatibility solutions<br>• Performance optimization techniques<br>• Bug fixing and stability improvements"
-  }
+  },
+  "latest_mods": "Latest Mods",
+  "popular_mods": "Popular Mods",
+  "no_mods_in_category": "No mods found in this category yet.",
+  "show_more": "Show More"
 }

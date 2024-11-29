@@ -7,7 +7,7 @@ const categories = [
   { id: 'appearance', icon: '👤' },
   { id: 'equipment', icon: '⚔️' },
   { id: 'dice', icon: '🎲' },
-  { id: 'rebalance', icon: '⚖️' },
+  { id: 'balance', icon: '⚖️' },
   { id: 'class', icon: '✨' },
   { id: 'modifiers', icon: '🛠️' },
 ]
