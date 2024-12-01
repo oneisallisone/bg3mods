@@ -11,7 +11,8 @@ export default async function handler(
   try {
     switch (req.method) {
       case 'GET':
-        const mods = await db.all(`
+        const { category } = req.query;
+        let query = `
           SELECT 
             m.*,
             COALESCE(
@@ -60,8 +61,11 @@ export default async function handler(
           LEFT JOIN mod_requirements mr ON m.id = mr.mod_id
           LEFT JOIN mod_features mf ON m.id = mf.mod_id
           LEFT JOIN mod_tags mt ON m.id = mt.mod_id
+          ${category ? 'WHERE m.category = ?' : ''}
           GROUP BY m.id
-        `);
+        `;
+
+        const mods = await db.all(query, category ? [category] : []);
 
         // 处理JSON字符串并移除NULL值
         const processedMods = mods.map(mod => ({

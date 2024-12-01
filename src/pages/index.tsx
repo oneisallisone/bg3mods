@@ -5,14 +5,15 @@ import CategoryGrid from '@/components/CategoryGrid'
 import { CategoryNav } from '@/components/CategoryNav'
 import { ModCard } from '@/components/ModCard'
 import { useState } from 'react'
-import { getLatestMods, getPopularMods } from '../utils/modUtils';
+import { useLatestMods, usePopularMods } from '../hooks/useMods';
 
 const Home: NextPage = () => {
   const { t } = useTranslation('common')
   const [openQuestion, setOpenQuestion] = useState<number | null>(null)
   const [openSubQuestion, setOpenSubQuestion] = useState<{main: number | null, sub: number | null}>({main: null, sub: null})
-  const latestMods = getLatestMods(6);
-  const popularMods = getPopularMods(6);
+  
+  const { mods: latestMods, loading: latestLoading } = useLatestMods(6);
+  const { mods: popularMods, loading: popularLoading } = usePopularMods(6);
 
   const toggleQuestion = (index: number) => {
     if (openQuestion === index) {
@@ -64,9 +65,15 @@ const Home: NextPage = () => {
               {t('latest_mods')}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {latestMods.map((mod) => (
-                <ModCard key={mod.id} mod={mod} />
-              ))}
+              {latestLoading ? (
+                <div className="col-span-full flex justify-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                </div>
+              ) : (
+                latestMods.map((mod) => (
+                  <ModCard key={mod.id} mod={mod} />
+                ))
+              )}
             </div>
           </section>
 
@@ -76,9 +83,15 @@ const Home: NextPage = () => {
               {t('popular_mods')}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {popularMods.map((mod) => (
-                <ModCard key={mod.id} mod={mod} />
-              ))}
+              {popularLoading ? (
+                <div className="col-span-full flex justify-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                </div>
+              ) : (
+                popularMods.map((mod) => (
+                  <ModCard key={mod.id} mod={mod} />
+                ))
+              )}
             </div>
           </section>
         </div>

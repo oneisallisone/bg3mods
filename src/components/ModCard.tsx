@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'next-i18next';
-import Image from 'next/image'
-import { Mod } from '@/types/mod'
-import { formatDate } from '@/utils/date'
-import { formatNumber } from '@/utils/number'
-import { DownloadIcon, StarIcon, TagIcon, CalendarIcon } from './icons'
+import { Mod } from '@/types/mod';
+import { DownloadIcon, StarIcon } from './icons';
 import { ModModal } from './ModModal';
-import { format, isValid } from 'date-fns';
 
 interface ModCardProps {
   mod: Mod;
@@ -16,25 +12,27 @@ export const ModCard: React.FC<ModCardProps> = ({ mod }) => {
   const { t } = useTranslation('common');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const latestVersion = mod.versions && mod.versions.length > 0 ? mod.versions[0] : null;
+  const formatNumber = (num: number) => {
+    return new Intl.NumberFormat().format(num);
+  };
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return isValid(date) ? format(date, 'yyyy-MM-dd') : t('mod_card.invalid_date');
+    return date.toLocaleDateString();
   };
 
   return (
     <>
       <div 
-        className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-1 text-sm"
+        className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-1"
         onClick={() => setIsModalOpen(true)}
       >
         {/* 模组封面图 */}
         <div className="aspect-video bg-gray-100 dark:bg-gray-700 relative">
-          {mod.screenshots && mod.screenshots.length > 0 ? (
+          {mod.images && mod.images.length > 0 ? (
             <img
-              src={mod.screenshots[0].thumbnailUrl || mod.screenshots[0].url}
-              alt={mod.screenshots[0].caption}
+              src={mod.images[0].url}
+              alt={mod.images[0].caption || mod.name}
               className="w-full h-full object-cover"
             />
           ) : (
@@ -46,69 +44,64 @@ export const ModCard: React.FC<ModCardProps> = ({ mod }) => {
           )}
           
           {/* 分类标签 */}
-          <div className="absolute top-1 right-1">
-            <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+          <div className="absolute top-2 right-2">
+            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
               {t(`categories.${mod.category}`)}
             </span>
           </div>
         </div>
 
         {/* 模组信息 */}
-        <div className="p-2">
-          <div className="flex flex-col gap-1">
-            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-1">
-              {mod.name}
-            </h3>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-                <div className="flex items-center gap-0.5">
-                  <DownloadIcon className="w-3 h-3" />
-                  <span>{formatNumber(mod.downloads)}</span>
-                </div>
-                <div className="flex items-center gap-0.5">
-                  <StarIcon className="w-3 h-3" />
-                  <span>{mod.rating.toFixed(1)}</span>
-                </div>
+        <div className="p-4">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            {mod.name}
+          </h3>
+          
+          <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
+            {mod.description}
+          </p>
+
+          <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-1">
+                <DownloadIcon className="w-4 h-4 text-gray-500" />
+                <span className="text-gray-600">{formatNumber(mod.downloads || 0)}</span>
               </div>
-              <a 
-                href={mod.downloadUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-2 py-0.5 text-xs bg-primary text-white rounded hover:bg-primary/90 transition-colors"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {t('download')}
-              </a>
+              <div className="flex items-center space-x-1">
+                <StarIcon className="w-4 h-4 text-yellow-500" />
+                <span className="text-gray-600">{(mod.rating || 0).toFixed(1)}</span>
+              </div>
             </div>
-            <p className="text-xs text-gray-600 dark:text-gray-300 line-clamp-2">
-              {mod.description}
-            </p>
-            <div className="flex flex-wrap gap-1 mt-1">
-              {mod.tags.slice(0, 3).map((tag) => (
+            
+            <a 
+              href={mod.downloadUrl} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {t('download')}
+            </a>
+          </div>
+
+          {/* Tags */}
+          {Array.isArray(mod.tags) && mod.tags.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-1">
+              {mod.tags.slice(0, 3).map((tag, index) => (
                 <span
-                  key={tag}
-                  className="px-1.5 py-0.5 text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded"
+                  key={index}
+                  className="px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded"
                 >
                   {tag}
                 </span>
               ))}
               {mod.tags.length > 3 && (
-                <span className="text-xs text-gray-500 dark:text-gray-400">
+                <span className="text-xs text-gray-500">
                   +{mod.tags.length - 3}
                 </span>
               )}
             </div>
-          </div>
-
-          {/* 作者 */}
-          <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-            <div className="flex items-center">
-              <svg className="w-3 h-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-              {mod.author.name}
-            </div>
-          </div>
+          )}
         </div>
       </div>
 
@@ -120,3 +113,5 @@ export const ModCard: React.FC<ModCardProps> = ({ mod }) => {
     </>
   );
 };
+
+export default ModCard;

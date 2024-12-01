@@ -1,18 +1,21 @@
 import CategoryCard from './CategoryCard'
-
-const categories = [
-  { id: 'prerequisites', icon: '🔧' },
-  { id: 'ui', icon: '🖥️' },
-  { id: 'gameplay', icon: '🎮' },
-  { id: 'appearance', icon: '👤' },
-  { id: 'equipment', icon: '⚔️' },
-  { id: 'dice', icon: '🎲' },
-  { id: 'balance', icon: '⚖️' },
-  { id: 'class', icon: '✨' },
-  { id: 'modifiers', icon: '🛠️' },
-]
+import { useCategories } from '../hooks/useCategory'
 
 const CategoryGrid = () => {
+  const { categories, loading } = useCategories();
+
+  if (loading) {
+    return (
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+        {[...Array(9)].map((_, i) => (
+          <div key={i} className="animate-pulse">
+            <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-[200px]"></div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
       {categories.map((category) => (
@@ -20,6 +23,7 @@ const CategoryGrid = () => {
           key={category.id}
           category={category.id}
           icon={category.icon}
+          count={category.count}
         />
       ))}
     </div>

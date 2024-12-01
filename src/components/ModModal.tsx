@@ -4,6 +4,7 @@ import { Fragment } from 'react';
 import { useTranslation } from 'next-i18next';
 import { Mod } from '@/types/mod';
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import { formatDistance, isValid, parseISO } from 'date-fns';
 
 interface ModModalProps {
   mod: Mod;
@@ -13,7 +14,18 @@ interface ModModalProps {
 
 export const ModModal: React.FC<ModModalProps> = ({ mod, isOpen, onClose }) => {
   const { t } = useTranslation('common');
-  const latestVersion = mod.versions?.[0];
+
+  const formatUpdateDate = (dateString: string) => {
+    try {
+      const date = parseISO(dateString);
+      if (!isValid(date)) {
+        return 'Unknown';
+      }
+      return formatDistance(date, new Date(), { addSuffix: true });
+    } catch (error) {
+      return 'Unknown';
+    }
+  };
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -41,134 +53,129 @@ export const ModModal: React.FC<ModModalProps> = ({ mod, isOpen, onClose }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl sm:p-6">
-                <div className="absolute right-0 top-0 pr-4 pt-4 sm:block">
+              <Dialog.Panel className="relative w-full max-w-4xl transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 p-6 text-left shadow-xl transition-all">
+                {/* Close Button */}
+                <div className="absolute right-4 top-4">
                   <button
                     type="button"
-                    className="rounded-md bg-white dark:bg-gray-800 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    className="text-gray-400 hover:text-gray-500 focus:outline-none"
                     onClick={onClose}
                   >
-                    <span className="sr-only">Close</span>
-                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    <XMarkIcon className="h-6 w-6" />
                   </button>
                 </div>
 
-                <div className="relative pb-16">
-                  <div className="sm:flex sm:items-start">
-                    {/* 模组信息 */}
-                    <div className="mt-3 sm:ml-4 sm:mt-0 text-left flex-1">
-                      <Dialog.Title
-                        as="h3"
-                        className="text-lg font-medium leading-6 text-gray-900 dark:text-white flex justify-between items-center"
-                      >
-                        <span>{mod.name}</span>
-                      </Dialog.Title>
-
-                      {/* 作者信息 */}
-                      <div className="mt-4">
-                        <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                          {t('mod_card.author')}
-                        </h4>
-                        <div className="mt-1 flex items-center">
-                          <span className="text-gray-900 dark:text-white">{mod.author.name}</span>
-                          {mod.author.profile && (
-                            <a
-                              href={mod.author.profile}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="ml-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
-                            >
-                              {t('mod_card.visit_profile')}
-                            </a>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* 统计信息 */}
-                      <div className="mt-4 grid grid-cols-3 gap-4">
-                        <div>
-                          <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                            {t('mod_card.downloads')}
-                          </h4>
-                          <p className="mt-1 text-gray-900 dark:text-white">
-                            {mod.downloads.toLocaleString()}
-                          </p>
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                            {t('mod_card.rating')}
-                          </h4>
-                          <p className="mt-1 text-gray-900 dark:text-white">
-                            {mod.rating.toFixed(1)}
-                          </p>
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                            {t('mod_card.version')}
-                          </h4>
-                          <p className="mt-1 text-gray-900 dark:text-white">
-                            {latestVersion?.version || t('mod_card.no_version')}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* 描述 */}
-                      <div className="mt-4">
-                        <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                          {t('mod_card.description')}
-                        </h4>
-                        <p className="mt-1 text-gray-900 dark:text-white whitespace-pre-line">
-                          {mod.description}
-                        </p>
-                      </div>
-
-                      {/* 标签 */}
-                      {mod.tags && mod.tags.length > 0 && (
-                        <div className="mt-4">
-                          <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-                            {t('mod_card.tags')}
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {mod.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* 依赖项 */}
-                      {mod.requirements && mod.requirements.length > 0 && (
-                        <div className="mt-4">
-                          <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-                            {t('mod_card.requirements')}
-                          </h4>
-                          <ul className="list-disc list-inside text-gray-900 dark:text-white">
-                            {mod.requirements.map((req, index) => (
-                              <li key={index}>{req}</li>
-                            ))}
-                          </ul>
-                        </div>
+                {/* Content */}
+                <div className="space-y-6">
+                  {/* Header */}
+                  <div>
+                    <Dialog.Title className="text-2xl font-bold text-gray-900 dark:text-white">
+                      {mod.name}
+                    </Dialog.Title>
+                    <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
+                      <span>By {mod.author.name}</span>
+                      <span>•</span>
+                      <span>Version {mod.version}</span>
+                      {mod.lastUpdated && (
+                        <>
+                          <span>•</span>
+                          <span>
+                            Updated {formatUpdateDate(mod.lastUpdated)}
+                          </span>
+                        </>
                       )}
                     </div>
                   </div>
 
-                  {/* 下载按钮 - 固定在右下角 */}
-                  <div className="absolute bottom-0 right-0">
+                  {/* Images */}
+                  {mod.images && mod.images.length > 0 && (
+                    <div className="relative h-96">
+                      <img
+                        src={mod.images[0].url}
+                        alt={mod.images[0].caption}
+                        className="h-full w-full object-cover rounded-lg"
+                      />
+                    </div>
+                  )}
+
+                  {/* Description */}
+                  <div className="prose dark:prose-invert max-w-none">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      {t('mod_modal.description')}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 whitespace-pre-line">
+                      {mod.description}
+                    </p>
+                  </div>
+
+                  {/* Features */}
+                  {mod.features && mod.features.length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                        {t('mod_modal.features')}
+                      </h3>
+                      <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-300">
+                        {mod.features.map((feature, index) => (
+                          <li key={index}>{feature}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Requirements */}
+                  {mod.requirements && mod.requirements.length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                        {t('mod_modal.requirements')}
+                      </h3>
+                      <ul className="space-y-2">
+                        {mod.requirements.map((req, index) => (
+                          <li key={index} className="text-gray-600 dark:text-gray-300">
+                            <a
+                              href={req.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-600 dark:text-blue-400 hover:underline"
+                            >
+                              {req.name}
+                            </a>
+                            {req.description && (
+                              <p className="mt-1 text-sm">{req.description}</p>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Tags */}
+                  {mod.tags && mod.tags.length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                        {t('mod_modal.tags')}
+                      </h3>
+                      <div className="flex flex-wrap gap-2">
+                        {mod.tags.map((tag, index) => (
+                          <span
+                            key={index}
+                            className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Download Button */}
+                  <div className="mt-6 flex justify-end">
                     <a
-                      href={latestVersion?.downloadUrl}
+                      href={mod.downloadUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-blue-600 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 min-w-[200px]"
+                      className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
-                      <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                      {t('mod_card.download')} v{latestVersion?.version}
+                      {t('mod_modal.download')}
                     </a>
                   </div>
                 </div>
@@ -180,3 +187,5 @@ export const ModModal: React.FC<ModModalProps> = ({ mod, isOpen, onClose }) => {
     </Transition>
   );
 };
+
+export default ModModal;

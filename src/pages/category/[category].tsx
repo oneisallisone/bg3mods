@@ -3,8 +3,10 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { CategoryNav } from '../../components/CategoryNav';
 import { ModCard } from '../../components/ModCard';
-import { getAllCategories, getModsByCategory } from '../../utils/modUtils';
+import { getAllCategories } from '../../utils/modUtils';
 import { ModCategory } from '../../types/mod';
+import { useMods } from '../../hooks/useMods';
+import { LoadingSkeleton } from '../../components/LoadingSkeleton';
 
 interface CategoryPageProps {
   category: ModCategory;
@@ -12,8 +14,9 @@ interface CategoryPageProps {
 
 export default function CategoryPage({ category }: CategoryPageProps) {
   const { t } = useTranslation('common');
-  const mods = getModsByCategory(category);
-  const categoryInfo = getAllCategories().find(cat => cat.id === category);
+  const { mods, loading, error } = useMods(category);
+  const categories = getAllCategories();
+  const categoryInfo = categories.find(cat => cat.id === category);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -34,15 +37,38 @@ export default function CategoryPage({ category }: CategoryPageProps) {
             </p>
           </div>
 
+          {/* 错误提示 */}
+          {error && (
+            <div className="text-center py-12">
+              <p className="text-red-500">
+                {t('error.failed_to_load')}
+              </p>
+              <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
+                {error}
+              </p>
+            </div>
+          )}
+
+          {/* 加载状态 */}
+          {loading && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[...Array(4)].map((_, i) => (
+                <LoadingSkeleton key={i} />
+              ))}
+            </div>
+          )}
+
           {/* 模组网格 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {mods.map((mod) => (
-              <ModCard key={mod.id} mod={mod} />
-            ))}
-          </div>
+          {!loading && !error && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {mods.map((mod) => (
+                <ModCard key={mod.id} mod={mod} />
+              ))}
+            </div>
+          )}
 
           {/* 无模组提示 */}
-          {mods.length === 0 && (
+          {!loading && !error && mods.length === 0 && (
             <div className="text-center py-12">
               <p className="text-gray-500 dark:text-gray-400">
                 {t('no_mods_in_category')}

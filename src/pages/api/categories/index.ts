@@ -11,8 +11,22 @@ export default async function handler(
   try {
     switch (req.method) {
       case 'GET':
-        const categories = await db.all('SELECT * FROM categories');
-        return res.status(200).json(categories);
+        const categories = await db.all(`
+          SELECT 
+            c.*,
+            COUNT(m.id) as mod_count
+          FROM categories c
+          LEFT JOIN mods m ON c.id = m.category
+          GROUP BY c.id
+        `);
+
+        // 处理结果
+        const processedCategories = categories.map(cat => ({
+          ...cat,
+          count: cat.mod_count || 0
+        }));
+
+        return res.status(200).json(processedCategories);
 
       case 'POST':
         const category = req.body as Category;
