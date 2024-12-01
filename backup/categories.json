@@ -1,0 +1,58 @@
+{
+  "categories": [
+    {
+      "id": "prerequisites",
+      "name": "前置要求",
+      "description": "必需的基础模组和依赖项",
+      "icon": "🔧"
+    },
+    {
+      "id": "ui",
+      "name": "界面优化",
+      "description": "改善游戏界面和用户体验的模组",
+      "icon": "🖥️"
+    },
+    {
+      "id": "gameplay",
+      "name": "游戏玩法",
+      "description": "修改游戏核心机制、战斗系统、等级进展等内容的模组",
+      "icon": "🎮"
+    },
+    {
+      "id": "appearance",
+      "name": "外观定制",
+      "description": "修改角色、装备、环境等视觉外观的模组",
+      "icon": "👤"
+    },
+    {
+      "id": "equipment",
+      "name": "装备物品",
+      "description": "添加或修改武器、防具、道具等装备的模组",
+      "icon": "⚔️"
+    },
+    {
+      "id": "dice",
+      "name": "骰子系统",
+      "description": "修改游戏骰子机制和概率系统的模组",
+      "icon": "🎲"
+    },
+    {
+      "id": "balance",
+      "name": "平衡调整",
+      "description": "调整游戏平衡性、难度和数值的模组",
+      "icon": "⚖️"
+    },
+    {
+      "id": "class",
+      "name": "职业扩展",
+      "description": "添加或修改职业、子职业和专长的模组",
+      "icon": "✨"
+    },
+    {
+      "id": "modifiers",
+      "name": "属性修改",
+      "description": "修改游戏属性、状态和效果的模组",
+      "icon": "🛠️"
+    }
+  ]
+}
