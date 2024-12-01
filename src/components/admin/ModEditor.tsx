@@ -421,20 +421,30 @@ const ModEditor = () => {
       <div className="mb-8 p-4 border rounded">
         <h3 className="text-lg font-semibold mb-4">添加新Mod</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <input
-            type="text"
-            placeholder="Mod名称"
-            className="border rounded p-2"
-            value={newMod.name || ''}
-            onChange={e => setNewMod({...newMod, name: e.target.value})}
-          />
-          <input
-            type="text"
-            placeholder="Mod描述"
-            className="border rounded p-2"
-            value={newMod.description || ''}
-            onChange={e => setNewMod({...newMod, description: e.target.value})}
-          />
+          {/* 基本信息 */}
+          <div className="col-span-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <input
+              type="text"
+              placeholder="Mod名称"
+              className="border rounded p-2"
+              value={newMod.name || ''}
+              onChange={e => setNewMod({...newMod, name: e.target.value})}
+            />
+            <input
+              type="text"
+              placeholder="版本号"
+              className="border rounded p-2"
+              value={newMod.version || ''}
+              onChange={e => setNewMod({...newMod, version: e.target.value})}
+            />
+            <textarea
+              placeholder="Mod描述"
+              className="border rounded p-2 col-span-2"
+              value={newMod.description || ''}
+              onChange={e => setNewMod({...newMod, description: e.target.value})}
+              rows={3}
+            />
+          </div>
           <select
             className="border rounded p-2"
             value={newMod.category || ''}
@@ -449,27 +459,313 @@ const ModEditor = () => {
           </select>
           <input
             type="text"
-            placeholder="作者名称"
-            className="border rounded p-2"
-            value={newMod.author?.name || ''}
-            onChange={e => setNewMod({
-              ...newMod,
-              author: { ...newMod.author, name: e.target.value }
-            })}
-          />
-          <input
-            type="text"
             placeholder="下载链接"
             className="border rounded p-2"
             value={newMod.downloadUrl || ''}
             onChange={e => setNewMod({...newMod, downloadUrl: e.target.value})}
           />
-          <button
-            onClick={handleAdd}
-            className="bg-green-500 text-white rounded p-2 hover:bg-green-600"
-          >
-            添加Mod
-          </button>
+
+          {/* 作者信息 */}
+          <div className="col-span-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <input
+              type="text"
+              placeholder="作者名称"
+              className="border rounded p-2"
+              value={newMod.author?.name || ''}
+              onChange={e => setNewMod({
+                ...newMod,
+                author: { ...newMod.author, name: e.target.value }
+              })}
+            />
+            <input
+              type="text"
+              placeholder="作者主页"
+              className="border rounded p-2"
+              value={newMod.author?.url || ''}
+              onChange={e => setNewMod({
+                ...newMod,
+                author: { ...newMod.author, url: e.target.value }
+              })}
+            />
+          </div>
+
+          {/* 特性和标签 */}
+          <div className="col-span-2">
+            <div className="mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1">特性</label>
+              <div className="flex flex-wrap gap-2">
+                {newMod.features?.map((feature, index) => (
+                  <div key={index} className="flex items-center bg-gray-100 rounded px-2 py-1">
+                    <span>{feature}</span>
+                    <button
+                      onClick={() => {
+                        const newFeatures = [...(newMod.features || [])];
+                        newFeatures.splice(index, 1);
+                        setNewMod({...newMod, features: newFeatures});
+                      }}
+                      className="ml-2 text-red-500 hover:text-red-700"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+                <input
+                  type="text"
+                  placeholder="添加特性"
+                  className="border rounded p-1 text-sm"
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' && e.currentTarget.value) {
+                      setNewMod({
+                        ...newMod,
+                        features: [...(newMod.features || []), e.currentTarget.value]
+                      });
+                      e.currentTarget.value = '';
+                    }
+                  }}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">标签</label>
+              <div className="flex flex-wrap gap-2">
+                {newMod.tags?.map((tag, index) => (
+                  <div key={index} className="flex items-center bg-gray-100 rounded px-2 py-1">
+                    <span>{tag}</span>
+                    <button
+                      onClick={() => {
+                        const newTags = [...(newMod.tags || [])];
+                        newTags.splice(index, 1);
+                        setNewMod({...newMod, tags: newTags});
+                      }}
+                      className="ml-2 text-red-500 hover:text-red-700"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+                <input
+                  type="text"
+                  placeholder="添加标签"
+                  className="border rounded p-1 text-sm"
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' && e.currentTarget.value) {
+                      setNewMod({
+                        ...newMod,
+                        tags: [...(newMod.tags || []), e.currentTarget.value]
+                      });
+                      e.currentTarget.value = '';
+                    }
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* 前置要求 */}
+          <div className="col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">前置要求</label>
+            <div className="space-y-2">
+              {newMod.requirements?.map((req, index) => (
+                <div key={index} className="flex gap-2 items-start">
+                  <input
+                    type="text"
+                    placeholder="名称"
+                    className="border rounded p-2 flex-1"
+                    value={req.name}
+                    onChange={e => {
+                      const newReqs = [...(newMod.requirements || [])];
+                      newReqs[index] = {...newReqs[index], name: e.target.value};
+                      setNewMod({...newMod, requirements: newReqs});
+                    }}
+                  />
+                  <input
+                    type="text"
+                    placeholder="链接"
+                    className="border rounded p-2 flex-1"
+                    value={req.url}
+                    onChange={e => {
+                      const newReqs = [...(newMod.requirements || [])];
+                      newReqs[index] = {...newReqs[index], url: e.target.value};
+                      setNewMod({...newMod, requirements: newReqs});
+                    }}
+                  />
+                  <input
+                    type="text"
+                    placeholder="描述"
+                    className="border rounded p-2 flex-1"
+                    value={req.description || ''}
+                    onChange={e => {
+                      const newReqs = [...(newMod.requirements || [])];
+                      newReqs[index] = {...newReqs[index], description: e.target.value};
+                      setNewMod({...newMod, requirements: newReqs});
+                    }}
+                  />
+                  <button
+                    onClick={() => {
+                      const newReqs = [...(newMod.requirements || [])];
+                      newReqs.splice(index, 1);
+                      setNewMod({...newMod, requirements: newReqs});
+                    }}
+                    className="text-red-500 hover:text-red-700 px-2 py-1"
+                  >
+                    删除
+                  </button>
+                </div>
+              ))}
+              <button
+                onClick={() => {
+                  setNewMod({
+                    ...newMod,
+                    requirements: [
+                      ...(newMod.requirements || []),
+                      { name: '', url: '', description: '' }
+                    ]
+                  });
+                }}
+                className="text-blue-500 hover:text-blue-700"
+              >
+                + 添加前置要求
+              </button>
+            </div>
+          </div>
+
+          {/* 图片 */}
+          <div className="col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">图片</label>
+            <div className="space-y-2">
+              {newMod.images?.map((image, index) => (
+                <div key={index} className="flex gap-2 items-start">
+                  <input
+                    type="text"
+                    placeholder="图片URL"
+                    className="border rounded p-2 flex-1"
+                    value={image.url}
+                    onChange={e => {
+                      const newImages = [...(newMod.images || [])];
+                      newImages[index] = {...newImages[index], url: e.target.value};
+                      setNewMod({...newMod, images: newImages});
+                    }}
+                  />
+                  <input
+                    type="text"
+                    placeholder="图片说明"
+                    className="border rounded p-2 flex-1"
+                    value={image.caption || ''}
+                    onChange={e => {
+                      const newImages = [...(newMod.images || [])];
+                      newImages[index] = {...newImages[index], caption: e.target.value};
+                      setNewMod({...newMod, images: newImages});
+                    }}
+                  />
+                  <button
+                    onClick={() => {
+                      const newImages = [...(newMod.images || [])];
+                      newImages.splice(index, 1);
+                      setNewMod({...newMod, images: newImages});
+                    }}
+                    className="text-red-500 hover:text-red-700 px-2 py-1"
+                  >
+                    删除
+                  </button>
+                </div>
+              ))}
+              <button
+                onClick={() => {
+                  setNewMod({
+                    ...newMod,
+                    images: [
+                      ...(newMod.images || []),
+                      { url: '', caption: '' }
+                    ]
+                  });
+                }}
+                className="text-blue-500 hover:text-blue-700"
+              >
+                + 添加图片
+              </button>
+            </div>
+          </div>
+
+          {/* 视频 */}
+          <div className="col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">视频</label>
+            <div className="space-y-2">
+              {newMod.videos?.map((video, index) => (
+                <div key={index} className="flex gap-2 items-start">
+                  <input
+                    type="text"
+                    placeholder="视频URL"
+                    className="border rounded p-2 flex-1"
+                    value={video.url}
+                    onChange={e => {
+                      const newVideos = [...(newMod.videos || [])];
+                      newVideos[index] = {...newVideos[index], url: e.target.value};
+                      setNewMod({...newMod, videos: newVideos});
+                    }}
+                  />
+                  <input
+                    type="text"
+                    placeholder="视频标题"
+                    className="border rounded p-2 flex-1"
+                    value={video.title || ''}
+                    onChange={e => {
+                      const newVideos = [...(newMod.videos || [])];
+                      newVideos[index] = {...newVideos[index], title: e.target.value};
+                      setNewMod({...newMod, videos: newVideos});
+                    }}
+                  />
+                  <select
+                    className="border rounded p-2"
+                    value={video.platform || 'other'}
+                    onChange={e => {
+                      const newVideos = [...(newMod.videos || [])];
+                      newVideos[index] = {...newVideos[index], platform: e.target.value};
+                      setNewMod({...newMod, videos: newVideos});
+                    }}
+                  >
+                    <option value="youtube">YouTube</option>
+                    <option value="bilibili">Bilibili</option>
+                    <option value="other">其他</option>
+                  </select>
+                  <button
+                    onClick={() => {
+                      const newVideos = [...(newMod.videos || [])];
+                      newVideos.splice(index, 1);
+                      setNewMod({...newMod, videos: newVideos});
+                    }}
+                    className="text-red-500 hover:text-red-700 px-2 py-1"
+                  >
+                    删除
+                  </button>
+                </div>
+              ))}
+              <button
+                onClick={() => {
+                  setNewMod({
+                    ...newMod,
+                    videos: [
+                      ...(newMod.videos || []),
+                      { url: '', title: '', platform: 'youtube' }
+                    ]
+                  });
+                }}
+                className="text-blue-500 hover:text-blue-700"
+              >
+                + 添加视频
+              </button>
+            </div>
+          </div>
+
+          {/* 提交按钮 */}
+          <div className="col-span-2 flex justify-end">
+            <button
+              onClick={handleAdd}
+              className="bg-green-500 text-white rounded px-4 py-2 hover:bg-green-600"
+            >
+              添加Mod
+            </button>
+          </div>
         </div>
       </div>
 
@@ -492,11 +788,21 @@ const ModEditor = () => {
                 <input
                   type="text"
                   className="border rounded p-2"
+                  placeholder="版本号"
+                  value={editingMod.version}
+                  onChange={e => setEditingMod({
+                    ...editingMod,
+                    version: e.target.value
+                  })}
+                />
+                <textarea
+                  className="border rounded p-2 col-span-2"
                   value={editingMod.description}
                   onChange={e => setEditingMod({
                     ...editingMod,
                     description: e.target.value
                   })}
+                  rows={3}
                 />
                 <select
                   className="border rounded p-2"
@@ -506,6 +812,7 @@ const ModEditor = () => {
                     category: e.target.value
                   })}
                 >
+                  <option value="">选择类目</option>
                   {categories.map(category => (
                     <option key={category.id} value={category.id}>
                       {category.name}
@@ -515,12 +822,35 @@ const ModEditor = () => {
                 <input
                   type="text"
                   className="border rounded p-2"
+                  placeholder="下载链接"
                   value={editingMod.downloadUrl}
                   onChange={e => setEditingMod({
                     ...editingMod,
                     downloadUrl: e.target.value
                   })}
                 />
+                <div className="col-span-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <input
+                    type="text"
+                    className="border rounded p-2"
+                    placeholder="作者名称"
+                    value={editingMod.author?.name || ''}
+                    onChange={e => setEditingMod({
+                      ...editingMod,
+                      author: { ...editingMod.author, name: e.target.value }
+                    })}
+                  />
+                  <input
+                    type="text"
+                    className="border rounded p-2"
+                    placeholder="作者主页"
+                    value={editingMod.author?.url || ''}
+                    onChange={e => setEditingMod({
+                      ...editingMod,
+                      author: { ...editingMod.author, url: e.target.value }
+                    })}
+                  />
+                </div>
                 <div className="flex gap-2">
                   <button
                     onClick={() => handleSave(editingMod)}
@@ -643,10 +973,10 @@ const ModEditor = () => {
                 <div className="mt-4">
                   <h4 className="text-lg font-semibold mb-2">前置要求</h4>
                   <div className="grid grid-cols-1 gap-2">
-                    {(editingMod.requirements || []).map((requirement, index) => (
+                    {(editingMod.requirements || []).map((req, index) => (
                       <div key={index} className="flex justify-between items-center">
-                        <a href={requirement.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">
-                          {requirement.name}
+                        <a href={req.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">
+                          {req.name}
                         </a>
                         <button
                           onClick={() => handleRemoveRequirement(editingMod, index)}
@@ -696,85 +1026,204 @@ const ModEditor = () => {
                     )}
                   </div>
                 </div>
+                <div className="mt-4">
+                  <h4 className="text-lg font-semibold mb-2">特性</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {(editingMod.features || []).map((feature, index) => (
+                      <div key={index} className="flex items-center bg-gray-100 rounded px-2 py-1">
+                        <span>{feature}</span>
+                        <button
+                          onClick={() => {
+                            const newFeatures = [...(editingMod.features || [])];
+                            newFeatures.splice(index, 1);
+                            setEditingMod({...editingMod, features: newFeatures});
+                          }}
+                          className="ml-2 text-red-500 hover:text-red-700"
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))}
+                    <input
+                      type="text"
+                      placeholder="添加特性"
+                      className="border rounded p-1 text-sm"
+                      onKeyDown={e => {
+                        if (e.key === 'Enter' && e.currentTarget.value) {
+                          setEditingMod({
+                            ...editingMod,
+                            features: [...(editingMod.features || []), e.currentTarget.value]
+                          });
+                          e.currentTarget.value = '';
+                        }
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h4 className="text-lg font-semibold mb-2">标签</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {(editingMod.tags || []).map((tag, index) => (
+                      <div key={index} className="flex items-center bg-gray-100 rounded px-2 py-1">
+                        <span>{tag}</span>
+                        <button
+                          onClick={() => {
+                            const newTags = [...(editingMod.tags || [])];
+                            newTags.splice(index, 1);
+                            setEditingMod({...editingMod, tags: newTags});
+                          }}
+                          className="ml-2 text-red-500 hover:text-red-700"
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))}
+                    <input
+                      type="text"
+                      placeholder="添加标签"
+                      className="border rounded p-1 text-sm"
+                      onKeyDown={e => {
+                        if (e.key === 'Enter' && e.currentTarget.value) {
+                          setEditingMod({
+                            ...editingMod,
+                            tags: [...(editingMod.tags || []), e.currentTarget.value]
+                          });
+                          e.currentTarget.value = '';
+                        }
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="col-span-2 flex justify-end gap-2 mt-4">
+                  <button
+                    onClick={() => handleSave(editingMod)}
+                    className="bg-green-500 text-white rounded px-4 py-2 hover:bg-green-600"
+                  >
+                    保存
+                  </button>
+                  <button
+                    onClick={() => setEditingMod(null)}
+                    className="bg-gray-500 text-white rounded px-4 py-2 hover:bg-gray-600"
+                  >
+                    取消
+                  </button>
+                </div>
               </div>
             ) : (
               <div className="flex flex-col">
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold">{mod.name}</h3>
-                  <p className="text-gray-600">{mod.description}</p>
-                  <p className="text-sm text-gray-500">
-                    类目: {categories.find(c => c.id === mod.category)?.name}
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    作者: <a href={mod.author.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">
-                      {mod.author.name}
-                    </a>
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    下载量: {mod.downloads} | 评分: {mod.rating}
-                  </p>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="text-xl font-semibold">{mod.name}</h3>
+                    <p className="text-gray-600 text-sm">版本: {mod.version}</p>
+                    <p className="text-gray-700 mt-2">{mod.description}</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => handleEdit(mod)}
+                      className="bg-blue-500 text-white rounded px-3 py-1 hover:bg-blue-600"
+                    >
+                      编辑
+                    </button>
+                    <button
+                      onClick={() => handleDelete(mod.id)}
+                      className="bg-red-500 text-white rounded px-3 py-1 hover:bg-red-600"
+                    >
+                      删除
+                    </button>
+                  </div>
                 </div>
 
-                {/* 图片预览 */}
-                {mod.images?.length > 0 && (
-                  <div className="mb-4">
-                    <h4 className="font-semibold mb-2">图片预览</h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                      {(mod.images || []).map((image, index) => (
-                        <div key={index} className="relative group">
-                          <img 
-                            src={image.url} 
-                            alt={image.caption} 
-                            className="w-full h-32 object-cover rounded"
-                          />
-                          <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <p className="text-white text-sm text-center p-2">{image.caption}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* 视频链接 */}
-                {mod.videos?.length > 0 && (
-                  <div className="mb-4">
-                    <h4 className="font-semibold mb-2">视频演示</h4>
-                    <div className="space-y-1">
-                      {(mod.videos || []).map((video, index) => (
-                        <div key={index}>
-                          <a 
-                            href={video.url} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-blue-500 hover:text-blue-600 flex items-center"
-                          >
-                            <span className="mr-2">{video.platform === 'youtube' ? '🎬' : '📺'}</span>
-                            {video.title}
+                <div className="mt-4 grid grid-cols-2 gap-4">
+                  <div>
+                    <h4 className="font-medium text-gray-700">基本信息</h4>
+                    <ul className="mt-2 space-y-1">
+                      <li>分类: {categories.find(c => c.id === mod.category)?.name || mod.category}</li>
+                      <li>
+                        作者: {mod.author.name}
+                        {mod.author.url && (
+                          <a href={mod.author.url} target="_blank" rel="noopener noreferrer" className="ml-2 text-blue-500 hover:text-blue-600">
+                            主页
                           </a>
-                        </div>
+                        )}
+                      </li>
+                      <li>下载量: {mod.downloads}</li>
+                      <li>评分: {mod.rating}</li>
+                      <li>最后更新: {mod.lastUpdated}</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-medium text-gray-700">下载</h4>
+                    <div className="mt-2">
+                      <a href={mod.downloadUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">
+                        下载链接
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {mod.features && mod.features.length > 0 && (
+                  <div className="mt-4">
+                    <h4 className="font-medium text-gray-700">特性</h4>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {mod.features.map((feature, index) => (
+                        <span key={index} className="bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                          {feature}
+                        </span>
                       ))}
                     </div>
                   </div>
                 )}
 
-                {/* 前置要求 */}
-                {mod.requirements?.length > 0 && (
-                  <div className="mb-4">
-                    <h4 className="font-semibold mb-2">前置要求</h4>
-                    <div className="space-y-1">
-                      {(mod.requirements || []).map((req, index) => (
-                        <div key={index}>
-                          <a 
-                            href={req.url} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-blue-500 hover:text-blue-600"
-                          >
+                {mod.tags && mod.tags.length > 0 && (
+                  <div className="mt-4">
+                    <h4 className="font-medium text-gray-700">标签</h4>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {mod.tags.map((tag, index) => (
+                        <span key={index} className="bg-gray-100 text-gray-800 px-2 py-1 rounded">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {mod.requirements && mod.requirements.length > 0 && (
+                  <div className="mt-4">
+                    <h4 className="font-medium text-gray-700">前置要求</h4>
+                    <ul className="mt-2 space-y-2">
+                      {mod.requirements.map((req, index) => (
+                        <li key={index} className="flex items-start">
+                          <a href={req.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">
                             {req.name}
                           </a>
                           {req.description && (
-                            <p className="text-sm text-gray-500">{req.description}</p>
+                            <span className="ml-2 text-gray-600">- {req.description}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* 图片预览 */}
+                {mod.images && mod.images.length > 0 && (
+                  <div className="mt-4">
+                    <h4 className="font-medium text-gray-700">图片预览</h4>
+                    <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                      {mod.images.map((image, index) => (
+                        <div key={index} className="relative group">
+                          <img
+                            src={image.url}
+                            alt={image.caption || ''}
+                            className="w-full h-32 object-cover rounded"
+                          />
+                          {image.caption && (
+                            <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                              <p className="text-white text-sm text-center p-2">
+                                {image.caption}
+                              </p>
+                            </div>
                           )}
                         </div>
                       ))}
@@ -782,20 +1231,37 @@ const ModEditor = () => {
                   </div>
                 )}
 
-                <div className="flex gap-2 mt-4">
-                  <button
-                    onClick={() => handleEdit(mod)}
-                    className="bg-blue-500 text-white rounded px-3 py-1 hover:bg-blue-600"
-                  >
-                    编辑
-                  </button>
-                  <button
-                    onClick={() => handleDelete(mod.id)}
-                    className="bg-red-500 text-white rounded px-3 py-1 hover:bg-red-600"
-                  >
-                    删除
-                  </button>
-                </div>
+                {/* 视频链接 */}
+                {mod.videos && mod.videos.length > 0 && (
+                  <div className="mt-4">
+                    <h4 className="font-medium text-gray-700">视频演示</h4>
+                    <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {mod.videos.map((video, index) => (
+                        <a
+                          key={index}
+                          href={video.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center p-3 bg-gray-50 rounded hover:bg-gray-100 transition-colors"
+                        >
+                          <span className="text-2xl mr-3">
+                            {video.platform === 'youtube' ? '🎬' : 
+                             video.platform === 'bilibili' ? '📺' : '🎥'}
+                          </span>
+                          <div>
+                            <div className="font-medium text-blue-600 hover:text-blue-800">
+                              {video.title}
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              {video.platform === 'youtube' ? 'YouTube' : 
+                               video.platform === 'bilibili' ? 'Bilibili' : '其他平台'}
+                            </div>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
