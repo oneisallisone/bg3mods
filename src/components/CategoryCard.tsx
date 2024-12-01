@@ -12,9 +12,9 @@ const CategoryCard = ({ category, icon, count }: CategoryCardProps) => {
 
   return (
     <Link href={`/category/${category}`} className="block">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
-        <div className="flex flex-col items-center justify-center space-y-4">
-          <div className="w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-3xl hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
+        <div className="flex flex-col items-center justify-center space-y-2">
+          <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-2xl hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">
             {icon}
           </div>
           {count !== undefined && (
@@ -23,10 +23,10 @@ const CategoryCard = ({ category, icon, count }: CategoryCardProps) => {
             </span>
           )}
           <div className="text-center">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-1">
               {t(`categories.${category}`)}
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-xs text-gray-600 dark:text-gray-300">
               {t(`categories.${category}_desc`)}
             </p>
           </div>

@@ -1,0 +1,24 @@
+{
+  "backgrounds": [
+    {
+      "id": "bfbe1a0c-8462-4409-9c67-690766d04421",
+      "url": "/backgrounds/bfbe1a0c-8462-4409-9c67-690766d04421.webp",
+      "active": false,
+      "isLocal": true,
+      "originalFormat": "webp",
+      "width": 900,
+      "height": 473,
+      "size": 41868
+    },
+    {
+      "id": "d1d11b88-f43f-47d0-99df-e9aa595044b9",
+      "url": "/backgrounds/d1d11b88-f43f-47d0-99df-e9aa595044b9.webp",
+      "active": true,
+      "isLocal": true,
+      "originalFormat": "jpeg",
+      "width": 2560,
+      "height": 1920,
+      "size": 366868
+    }
+  ]
+}

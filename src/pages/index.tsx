@@ -63,7 +63,7 @@ const Home: NextPage = () => {
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               {t('latest_mods')}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {latestMods.map((mod) => (
                 <ModCard key={mod.id} mod={mod} />
               ))}
@@ -75,7 +75,7 @@ const Home: NextPage = () => {
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               {t('popular_mods')}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {popularMods.map((mod) => (
                 <ModCard key={mod.id} mod={mod} />
               ))}
