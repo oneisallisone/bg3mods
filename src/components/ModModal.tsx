@@ -101,7 +101,7 @@ export const ModModal: React.FC<ModModalProps> = ({ mod, isOpen, onClose }) => {
                   {/* Description */}
                   <div className="prose dark:prose-invert max-w-none">
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      {t('mod_modal.description')}
+                      Description
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300 whitespace-pre-line">
                       {mod.description}
@@ -112,7 +112,7 @@ export const ModModal: React.FC<ModModalProps> = ({ mod, isOpen, onClose }) => {
                   {mod.features && mod.features.length > 0 && (
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                        {t('mod_modal.features')}
+                        Features
                       </h3>
                       <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-300">
                         {mod.features.map((feature, index) => (
@@ -126,7 +126,7 @@ export const ModModal: React.FC<ModModalProps> = ({ mod, isOpen, onClose }) => {
                   {mod.requirements && mod.requirements.length > 0 && (
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                        {t('mod_modal.requirements')}
+                        Requirements
                       </h3>
                       <ul className="space-y-2">
                         {mod.requirements.map((req, index) => (
@@ -152,7 +152,7 @@ export const ModModal: React.FC<ModModalProps> = ({ mod, isOpen, onClose }) => {
                   {mod.tags && mod.tags.length > 0 && (
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                        {t('mod_modal.tags')}
+                        Tags
                       </h3>
                       <div className="flex flex-wrap gap-2">
                         {mod.tags.map((tag, index) => (
@@ -175,7 +175,7 @@ export const ModModal: React.FC<ModModalProps> = ({ mod, isOpen, onClose }) => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
-                      {t('mod_modal.download')}
+                      Download
                     </a>
                   </div>
                 </div>
