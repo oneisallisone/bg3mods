@@ -109,13 +109,23 @@ export default async function handler(
       // 提交事务
       await db.run('COMMIT');
 
+      // 获取刚刚导入的mods
+      const importedMods = await db.all(`
+        SELECT m.*,
+               GROUP_CONCAT(DISTINCT f.feature) as features,
+               GROUP_CONCAT(DISTINCT t.tag) as tags
+        FROM mods m
+        LEFT JOIN mod_features f ON m.id = f.mod_id
+        LEFT JOIN mod_tags t ON m.id = t.mod_id
+        WHERE m.id IN (${mods.map(() => '?').join(',')})
+        GROUP BY m.id
+      `, mods.map(m => m.id));
+
       // 关闭数据库连接
       await db.close();
 
-      return res.status(200).json({ 
-        message: 'Successfully imported mods to database',
-        count: mods.length 
-      });
+      // 返回成功响应
+      res.status(200).json({ success: true, message: `Successfully imported ${mods.length} mods` });
     } catch (error) {
       // 如果出错，回滚事务
       await db.run('ROLLBACK');

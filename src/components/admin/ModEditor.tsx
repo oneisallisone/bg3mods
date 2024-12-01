@@ -61,8 +61,20 @@ const ModEditor = () => {
         if (!response.ok) throw new Error('导入失败');
   
         const result = await response.json();
-        setMods(prevMods => [...prevMods, ...result.mods]);
-        setImportStatus(`成功导入 ${result.mods.length} 个Mods`);
+        
+        if (!result.success) {
+          throw new Error(result.message || '导入失败');
+        }
+
+        // 重新获取最新的mods列表
+        const modsResponse = await fetch('/api/mods');
+        const modsData = await modsResponse.json();
+        
+        if (Array.isArray(modsData)) {
+          setMods(modsData);
+        }
+        
+        setImportStatus(result.message || '导入成功');
   
         // 3秒后清除状态消息
         setTimeout(() => setImportStatus(''), 3000);
