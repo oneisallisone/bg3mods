@@ -1,0 +1,74 @@
+{
+  "mods": [
+    {
+      "id": "example-mod-1",
+      "name": "示例Mod 1",
+      "description": "这是一个示例Mod的描述",
+      "category": "gameplay",
+      "author": {
+        "name": "作者名称",
+        "url": "https://example.com/author"
+      },
+      "downloads": 0,
+      "rating": 0,
+      "version": "1.0.0",
+      "lastUpdated": "2024-01-20",
+      "requirements": [
+        {
+          "name": "前置要求1",
+          "url": "https://example.com/requirement1",
+          "description": "这是前置要求的描述"
+        }
+      ],
+      "installGuide": "1. 下载文件\n2. 解压到游戏目录\n3. 启动游戏",
+      "downloadUrl": "https://example.com/download",
+      "features": [
+        "特性1",
+        "特性2"
+      ],
+      "tags": [
+        "标签1",
+        "标签2"
+      ],
+      "images": [
+        {
+          "url": "https://example.com/image1.jpg",
+          "caption": "图片说明"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=example",
+          "title": "视频标题",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "example-mod-2",
+      "name": "示例Mod 2",
+      "description": "另一个示例Mod的描述",
+      "category": "ui",
+      "author": {
+        "name": "另一个作者",
+        "url": "https://example.com/author2"
+      },
+      "downloads": 0,
+      "rating": 0,
+      "version": "1.0.0",
+      "lastUpdated": "2024-01-20",
+      "requirements": [],
+      "downloadUrl": "https://example.com/download2",
+      "features": [
+        "特性A",
+        "特性B"
+      ],
+      "tags": [
+        "标签A",
+        "标签B"
+      ],
+      "images": [],
+      "videos": []
+    }
+  ]
+}

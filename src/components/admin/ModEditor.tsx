@@ -23,6 +23,7 @@ const ModEditor = () => {
   const [editingField, setEditingField] = useState<keyof EditableFields | null>(null);
   const [tempFieldValue, setTempFieldValue] = useState<any>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [importStatus, setImportStatus] = useState<string>('');
   const [filters, setFilters] = useState({
     category: 'all',
     hasImages: false,
@@ -35,6 +36,41 @@ const ModEditor = () => {
     field: 'name' as keyof Mod,
     direction: 'asc' as 'asc' | 'desc'
   });
+    const handleBulkImport = async (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+  
+      try {
+        setImportStatus('正在读取文件...');
+        const fileContent = await file.text();
+        const jsonData = JSON.parse(fileContent);
+  
+        if (!jsonData.mods || !Array.isArray(jsonData.mods)) {
+          throw new Error('无效的JSON格式，需要包含mods数组');
+        }
+  
+        setImportStatus('正在导入...');
+        const response = await fetch('/api/mods/bulk', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ mods: jsonData.mods }),
+        });
+  
+        if (!response.ok) throw new Error('导入失败');
+  
+        const result = await response.json();
+        setMods(prevMods => [...prevMods, ...result.mods]);
+        setImportStatus(`成功导入 ${result.mods.length} 个Mods`);
+  
+        // 3秒后清除状态消息
+        setTimeout(() => setImportStatus(''), 3000);
+      } catch (error) {
+        console.error('导入错误:', error);
+        setImportStatus(`导入失败: ${error.message}`);
+      }
+    };
 
   useEffect(() => {
     // 从API获取数据
@@ -399,7 +435,31 @@ const ModEditor = () => {
 
   return (
     <div className="bg-white shadow rounded-lg p-6">
-      <h2 className="text-2xl font-bold mb-6">Mods管理</h2>
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-bold">Mods管理</h2>
+        <div className="flex items-center space-x-4">
+          <input
+            type="file"
+            accept=".json"
+            onChange={handleBulkImport}
+            className="hidden"
+            id="bulk-import"
+          />
+          <label
+            htmlFor="bulk-import"
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
+          >
+            批量导入Mods
+          </label>
+          {importStatus && (
+            <span className={`text-sm ${
+              importStatus.includes('失败') ? 'text-red-500' : 'text-green-500'
+            }`}>
+              {importStatus}
+            </span>
+          )}
+        </div>
+      </div>
 
       {/* 类目筛选 */}
       <div className="mb-4">

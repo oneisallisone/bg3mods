@@ -1,6 +1,6 @@
 export interface ModAuthor {
   name: string;
-  url: string;
+  url?: string;
 }
 
 export interface ModImage {
