@@ -1,94 +1,91 @@
 {
-  "mod": {
-    "basic_info": {
+  "mods": [
+    {
       "id": "unique-mod-id",              // 模组唯一标识符
       "name": "模组名称",                 // 模组显示名称
-      "description": "模组详细描述",      // 支持多段落的详细描述
-      "short_description": "简短描述",    // 用于卡片视图的简短描述
-      "category": "gameplay",             // 模组分类：prerequisites/ui/gameplay/appearance/equipment/dice/balance/class/modifiers
-      "tags": [                           // 模组标签，用于筛选和分类
+      "description": "模组详细描述",      // 详细描述
+      "category": "gameplay",             // 分类: prerequisites/ui/gameplay/appearance/equipment/dice/balance/class/modifiers
+      "author_name": "作者名称",          // 作者名称
+      "author_url": "https://...",        // 作者主页链接
+      "downloads": 0,                     // 下载次数
+      "rating": 0,                        // 评分(0-5)
+      "version": "1.0.0",                 // 版本号
+      "last_updated": "2024-01-15",       // 最后更新日期
+      "download_url": "https://...",      // 下载链接
+      
+      "images": [                         // 图片列表
+        {
+          "url": "https://...",           // 图片URL
+          "thumbnail_url": "https://...", // 缩略图URL
+          "caption": "截图说明"           // 图片说明
+        }
+      ],
+      
+      "videos": [                         // 视频列表
+        {
+          "url": "https://...",           // 视频URL
+          "title": "视频标题",            // 视频标题
+          "platform": "youtube"           // 视频平台(youtube/bilibili)
+        }
+      ],
+      
+      "requirements": [                   // 前置要求
+        {
+          "name": "依赖模组名称",          // 前置要求名称
+          "url": "https://...",           // 下载链接
+          "description": "依赖说明"       // 说明文本
+        }
+      ],
+      
+      "features": [                       // 特性列表
+        "功能1描述",
+        "功能2描述"
+      ],
+      
+      "tags": [                           // 标签列表
         "tag1",
         "tag2",
         "tag3"
       ]
-    },
-    "versions": [                         // 版本历史，按时间倒序排列
-      {
-        "version": "1.0.0",              // 版本号
-        "release_date": "2024-01-15",    // 发布日期
-        "download_url": "https://...",   // 下载链接
-        "changelog": "版本更新说明",      // 更新日志
-        "game_version": "4.1.1.3543",    // 对应的游戏版本
-        "file_size": "1.2MB"            // 文件大小
-      }
+    }
+  ],
+  
+  "schema_version": "1.2.0",             // 模板版本号
+  
+  "notes": {
+    "categories": [
+      "prerequisites - 前置要求/依赖",
+      "ui - 界面相关",
+      "gameplay - 玩法修改",
+      "appearance - 外观修改",
+      "equipment - 装备相关",
+      "dice - 骰子相关",
+      "balance - 平衡性调整",
+      "class - 职业相关",
+      "modifiers - 修改器相关"
     ],
-    "author": {
-      "name": "作者名称",                // 作者显示名称
-      "profile_url": "https://...",     // 作者主页链接
-      "contact": {                       // 联系方式（可选）
-        "email": "email@example.com",
-        "discord": "discord_username",
-        "github": "github_username"
-      }
+    "required_fields": [                  // 必填字段
+      "id",
+      "name",
+      "description",
+      "category",
+      "author_name",
+      "version",
+      "download_url"
+    ],
+    "default_values": {                   // 默认值
+      "downloads": 0,
+      "rating": 0,
+      "images": [],
+      "videos": [],
+      "requirements": [],
+      "features": [],
+      "tags": []
     },
-    "requirements": {                    // 依赖要求
-      "game_version": "4.1.1.3543",     // 需要的游戏版本
-      "dependencies": [                  // 依赖的其他模组
-        {
-          "id": "required-mod-id",
-          "name": "依赖模组名称",
-          "version": ">=1.0.0",
-          "download_url": "https://..."
-        }
-      ],
-      "incompatible": [                 // 不兼容的模组
-        {
-          "id": "incompatible-mod-id",
-          "name": "不兼容模组名称",
-          "reason": "不兼容原因说明"
-        }
-      ]
-    },
-    "installation": {                   // 安装说明
-      "steps": [
-        "步骤1：xxx",
-        "步骤2：xxx"
-      ],
-      "files": [                        // 需要修改的文件
-        {
-          "path": "path/to/file",
-          "action": "replace/modify",
-          "description": "修改说明"
-        }
-      ]
-    },
-    "media": {                          // 媒体资源
-      "screenshots": [                   // 截图
-        {
-          "url": "https://...",
-          "thumbnail_url": "https://...",
-          "caption": "截图说明"
-        }
-      ],
-      "videos": [                       // 视频
-        {
-          "url": "https://...",
-          "platform": "youtube/bilibili",
-          "title": "视频标题"
-        }
-      ]
-    },
-    "stats": {                          // 统计信息
-      "downloads": 1000,                // 下载次数
-      "rating": 4.5,                    // 评分（1-5）
-      "reviews_count": 100,             // 评论数量
-      "created_at": "2024-01-01",       // 创建时间
-      "updated_at": "2024-01-15"        // 最后更新时间
-    },
-    "support": {                        // 支持信息
-      "issues_url": "https://...",      // 问题反馈链接
-      "wiki_url": "https://...",        // 文档链接
-      "donation_url": "https://..."     // 赞助链接
+    "field_constraints": {
+      "id": "唯一标识符，只能包含字母、数字、横线",
+      "rating": "0-5之间的数值",
+      "last_updated": "YYYY-MM-DD格式的日期"
     }
   }
 }

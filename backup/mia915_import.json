@@ -1,0 +1,50 @@
+{
+  "mods": [
+    {
+      "id": "mia915",
+      "name": "mia915",
+      "description": "A comprehensive gameplay enhancement mod",
+      "category": "gameplay",
+      "author": {
+        "name": "Mia Team",
+        "url": "https://github.com/mia-team"
+      },
+      "downloads": 5000,
+      "rating": 4.7,
+      "version": "1.0.0",
+      "lastUpdated": "2024-01-20",
+      "requirements": [
+        {
+          "name": "Native Mod Loader",
+          "url": "https://example.com/native-mod-loader",
+          "description": "Required for mod installation"
+        }
+      ],
+      "downloadUrl": "https://example.com/mods/mia915",
+      "features": [
+        "Enhanced gameplay mechanics",
+        "Improved user interface",
+        "Custom animations",
+        "Performance optimizations"
+      ],
+      "tags": [
+        "gameplay",
+        "enhancement",
+        "optimization"
+      ],
+      "images": [
+        {
+          "url": "https://example.com/mia915/screenshot1.jpg",
+          "caption": "Gameplay Screenshot"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=example",
+          "title": "Mia915 Mod Showcase",
+          "platform": "youtube"
+        }
+      ]
+    }
+  ]
+}

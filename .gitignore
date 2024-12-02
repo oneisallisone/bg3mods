@@ -41,10 +41,6 @@ next-env.d.ts
 *.sqlite
 *.sqlite3
 
-# Backup files
-backup/*
-!backup/README.md
-
 # Uploads
 public/uploads/*
 !public/uploads/.gitkeep

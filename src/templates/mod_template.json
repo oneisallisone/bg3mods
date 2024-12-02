@@ -1,0 +1,94 @@
+{
+  "mods": [
+    {
+      "id": "example-mod",
+      "name": "示例Mod",
+      "description": "这是一个示例Mod的详细描述。支持多行文本格式。\n\n可以包含Mod的主要功能说明、使用方法、注意事项等。",
+      "category": "gameplay",
+      "author": {
+        "name": "作者名称",
+        "url": "https://example.com/author"
+      },
+      "downloads": 0,
+      "rating": 0,
+      "version": "1.0.0",
+      "lastUpdated": "2024-01-20",
+      "downloadUrl": "https://example.com/download",
+      "requirements": [
+        {
+          "name": "前置Mod A",
+          "url": "https://example.com/requirement-a",
+          "description": "需要安装前置Mod A v2.0以上版本"
+        }
+      ],
+      "features": [
+        "主要功能1的描述",
+        "主要功能2的描述",
+        "主要功能3的描述"
+      ],
+      "tags": [
+        "gameplay",
+        "quality-of-life",
+        "interface"
+      ],
+      "images": [
+        {
+          "url": "https://example.com/image1.jpg",
+          "caption": "截图1说明"
+        },
+        {
+          "url": "https://example.com/image2.jpg", 
+          "caption": "截图2说明"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://youtube.com/watch?v=example",
+          "title": "演示视频标题",
+          "platform": "youtube"
+        }
+      ]
+    }
+  ],
+  "schema": {
+    "version": "1.0",
+    "required": ["id", "name", "description", "category"],
+    "properties": {
+      "id": "Mod的唯一标识符",
+      "name": "Mod的显示名称",
+      "description": "Mod的详细描述",
+      "category": "Mod分类，必须是预定义分类之一",
+      "author": {
+        "name": "作者名称",
+        "url": "作者主页链接(可选)"
+      },
+      "downloads": "下载次数(默认0)",
+      "rating": "评分(0-5, 默认0)",
+      "version": "版本号",
+      "lastUpdated": "最后更新日期(YYYY-MM-DD格式)",
+      "downloadUrl": "下载链接",
+      "requirements": [
+        {
+          "name": "前置要求名称",
+          "url": "前置要求下载链接(可选)",
+          "description": "前置要求说明(可选)"
+        }
+      ],
+      "features": ["Mod主要功能列表"],
+      "tags": ["Mod标签列表"],
+      "images": [
+        {
+          "url": "图片URL",
+          "caption": "图片说明(可选)"
+        }
+      ],
+      "videos": [
+        {
+          "url": "视频URL",
+          "title": "视频标题(可选)",
+          "platform": "视频平台(youtube/bilibili等,可选)"
+        }
+      ]
+    }
+  }
+}
