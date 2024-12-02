@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'next-i18next';
-import { Mod } from '@/types/mod';
+import { Mod } from '../types';
 import { DownloadIcon, StarIcon } from './icons';
 import { ModModal } from './ModModal';
 import Image from 'next/image';

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import Image from 'next/image';
 import { Fragment } from 'react';
 import { useTranslation } from 'next-i18next';
-import { Mod } from '@/types/mod';
+import { Mod } from '../types';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { formatDistance, isValid, parseISO } from 'date-fns';
 

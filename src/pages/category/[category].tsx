@@ -1,25 +1,36 @@
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { CategoryNav } from '../../components/CategoryNav';
+import Head from 'next/head';
 import { ModCard } from '../../components/ModCard';
 import { getAllCategories } from '../../utils/modUtils';
-import { ModCategory } from '../../types/mod';
+import { Category, Mod } from '../../types';
 import { useMods } from '../../hooks/useMods';
 import { LoadingSkeleton } from '../../components/LoadingSkeleton';
+import SEO from '../../components/SEO';
+import { CategoryNav } from '../../components/CategoryNav';
 
 interface CategoryPageProps {
-  category: ModCategory;
+  categoryId: string;
 }
 
-export default function CategoryPage({ category }: CategoryPageProps) {
+export default function CategoryPage({ categoryId }: CategoryPageProps) {
   const { t } = useTranslation('common');
-  const { mods, loading, error } = useMods(category);
+  const { mods, loading, error } = useMods(categoryId);
   const categories = getAllCategories();
-  const categoryInfo = categories.find(cat => cat.id === category);
+  const category = categories.find(cat => cat.id === categoryId);
+
+  if (!category) {
+    return <div>Category not found</div>;
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <SEO 
+        title={`${category.name} - BG3 Mods`}
+        description={category.description}
+        category={category.name}
+      />
       <div className="lg:grid lg:grid-cols-4 lg:gap-8">
         {/* 侧边栏 */}
         <div className="lg:col-span-1">
@@ -30,10 +41,10 @@ export default function CategoryPage({ category }: CategoryPageProps) {
         <div className="lg:col-span-3">
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-              {t(`categories.${category}`)}
+              {t(`categories.${category.id}`)}
             </h1>
             <p className="text-gray-600 dark:text-gray-400">
-              {t(`categories.${category}_desc`)}
+              {t(`categories.${category.id}_desc`)}
             </p>
           </div>
 
@@ -92,16 +103,16 @@ export const getStaticPaths: GetStaticPaths = async ({ locales = [] }) => {
 
   return {
     paths,
-    fallback: false,
+    fallback: false
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
-  const category = params?.category as ModCategory;
+  const categoryId = params?.category as string;
 
   return {
     props: {
-      category,
+      categoryId,
       ...(await serverSideTranslations(locale ?? 'en', ['common'])),
     },
   };

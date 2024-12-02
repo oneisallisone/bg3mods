@@ -1,13 +1,36 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { categories, mods } from '../../data/mods';
 import ModEditor from '../../components/admin/ModEditor';
 import CategoryEditor from '../../components/admin/CategoryEditor';
+import type { Mod, Category } from '../../types';
 
-const Dashboard = () => {
+interface DashboardProps {
+  categories: Category[];
+  mods: Mod[];
+  activeTab: 'mods' | 'categories';
+  setActiveTab: (tab: 'mods' | 'categories') => void;
+  handleModUpdate: (mod: Mod) => void;
+  handleModAdd: (mod: Mod) => void;
+  handleModDelete: (modId: string) => void;
+  handleCategoryUpdate: (category: Category) => void;
+  handleCategoryAdd: (category: Category) => void;
+  handleCategoryDelete: (categoryId: string) => void;
+}
+
+const Dashboard = ({ 
+  categories, 
+  mods, 
+  activeTab, 
+  setActiveTab,
+  handleModUpdate,
+  handleModAdd,
+  handleModDelete,
+  handleCategoryUpdate,
+  handleCategoryAdd,
+  handleCategoryDelete 
+}: DashboardProps) => {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState('categories'); // 'categories' or 'mods'
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -47,16 +70,6 @@ const Dashboard = () => {
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   <button
-                    onClick={() => setActiveTab('categories')}
-                    className={`${
-                      activeTab === 'categories'
-                        ? 'border-indigo-500 text-gray-900'
-                        : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
-                    } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
-                  >
-                    类目管理
-                  </button>
-                  <button
                     onClick={() => setActiveTab('mods')}
                     className={`${
                       activeTab === 'mods'
@@ -65,6 +78,16 @@ const Dashboard = () => {
                     } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
                   >
                     Mods管理
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('categories')}
+                    className={`${
+                      activeTab === 'categories'
+                        ? 'border-indigo-500 text-gray-900'
+                        : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                    } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
+                  >
+                    分类管理
                   </button>
                 </div>
               </div>
@@ -82,9 +105,20 @@ const Dashboard = () => {
 
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           {activeTab === 'categories' ? (
-            <CategoryEditor categories={categories} />
+            <CategoryEditor 
+              categories={categories}
+              onUpdate={handleCategoryUpdate}
+              onAdd={handleCategoryAdd}
+              onDelete={handleCategoryDelete}
+            />
           ) : (
-            <ModEditor mods={mods} categories={categories} />
+            <ModEditor 
+              mods={mods}
+              categories={categories}
+              onUpdate={handleModUpdate}
+              onAdd={handleModAdd}
+              onDelete={handleModDelete}
+            />
           )}
         </div>
       </div>

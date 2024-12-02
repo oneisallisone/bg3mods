@@ -1,40 +1,40 @@
 import { createMod } from '../lib/modUtils';
-import { Mod } from '../types/mod';
+import { Mod } from '../types';
 
 async function createInitialMod() {
   const modLoader: Mod = {
-    id: "native-mod-loader",
-    name: "Native Mod Loader",
-    description: "Essential mod loader for BG3",
-    category: "prerequisites",
+    id: 'bg3-mod-loader',
+    name: 'BG3 Mod Manager',
+    description: 'Essential tool for managing Baldur\'s Gate 3 mods',
+    category: 'prerequisites',
+    version: '1.0.0',
     author: {
-      name: "Mod Team",
-      url: "https://example.com/author"
+      name: 'BG3 Community',
+      url: 'https://github.com/bg3-community'
     },
-    downloads: 150000,
-    rating: 4.9,
-    version: "1.2.0",
-    lastUpdated: "2024-01-15",
-    requirements: [],
-    downloadUrl: "https://example.com/download/native-mod-loader",
-    features: [
-      "Easy mod installation",
-      "Mod conflict detection",
-      "Load order management"
-    ],
-    tags: ["essential", "tool", "loader"],
     images: [],
-    videos: []
+    videos: [],
+    downloadUrl: 'https://github.com/bg3-community/bg3-mod-manager/releases',
+    lastUpdated: new Date().toISOString(),
+    downloads: 0,
+    rating: 5,
+    featured: true,
+    tags: ['tool', 'essential', 'manager'],
+    requirements: [],
+    features: [
+      'Easy mod installation',
+      'Mod conflict detection',
+      'Load order management',
+      'Profile support'
+    ]
   };
 
   try {
-    console.log('Creating Native Mod Loader...');
-    const createdMod = await createMod(modLoader);
-    console.log('✅ Mod created successfully:');
-    console.log(JSON.stringify(createdMod, null, 2));
+    await createMod(modLoader);
+    console.log('Initial mod created successfully');
   } catch (error) {
-    console.error('Failed to create mod:', error);
+    console.error('Failed to create initial mod:', error);
   }
 }
 
-createInitialMod();
+createInitialMod().catch(console.error);

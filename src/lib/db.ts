@@ -83,6 +83,22 @@ export async function getDb() {
   return db;
 }
 
+export async function getAllMods() {
+  const db = await getDb();
+  return db.all(`
+    SELECT 
+      m.*,
+      json_group_array(DISTINCT i.url) as images,
+      json_group_array(DISTINCT v.url) as videos,
+      json_group_array(DISTINCT t.name) as tags
+    FROM mods m
+    LEFT JOIN mod_images i ON m.id = i.mod_id
+    LEFT JOIN mod_videos v ON m.id = v.mod_id
+    LEFT JOIN mod_tags t ON m.id = t.mod_id
+    GROUP BY m.id
+  `);
+}
+
 export async function closeDb() {
   if (db) {
     await db.close();

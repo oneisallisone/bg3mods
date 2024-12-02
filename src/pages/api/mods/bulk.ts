@@ -120,11 +120,11 @@ export default async function handler(
     }
 
   } catch (error) {
-    console.error('批量导入错误:', error);
+    console.error('Bulk import error:', error);
     return res.status(500).json({
       success: false,
       message: '导入失败',
-      error: error.message
+      error: error instanceof Error ? error.message : '未知错误'
     });
   }
 }

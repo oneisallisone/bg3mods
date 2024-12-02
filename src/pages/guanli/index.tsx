@@ -4,15 +4,35 @@ import ModEditor from '../../components/admin/ModEditor';
 import CategoryEditor from '../../components/admin/CategoryEditor';
 import BackgroundEditor from '../../components/admin/BackgroundEditor';
 import { withAuth } from '../../components/admin/withAuth';
+import { useAdmin } from '../../hooks/useAdmin';
 
 const AdminPage = () => {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<'mods' | 'categories' | 'backgrounds'>('mods');
+  const {
+    mods,
+    categories,
+    loading,
+    handleModUpdate,
+    handleModAdd,
+    handleModDelete,
+    handleCategoryUpdate,
+    handleCategoryAdd,
+    handleCategoryDelete,
+  } = useAdmin();
 
   const handleLogout = () => {
     sessionStorage.removeItem('adminLoggedIn');
     router.push('/guanli/login');
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -69,8 +89,23 @@ const AdminPage = () => {
 
           {/* 内容区域 */}
           <div className="bg-white shadow rounded-lg p-6">
-            {activeTab === 'mods' && <ModEditor />}
-            {activeTab === 'categories' && <CategoryEditor />}
+            {activeTab === 'mods' && (
+              <ModEditor 
+                mods={mods}
+                categories={categories}
+                onUpdate={handleModUpdate}
+                onAdd={handleModAdd}
+                onDelete={handleModDelete}
+              />
+            )}
+            {activeTab === 'categories' && (
+              <CategoryEditor 
+                categories={categories}
+                onUpdate={handleCategoryUpdate}
+                onAdd={handleCategoryAdd}
+                onDelete={handleCategoryDelete}
+              />
+            )}
             {activeTab === 'backgrounds' && <BackgroundEditor />}
           </div>
         </div>

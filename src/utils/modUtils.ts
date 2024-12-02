@@ -1,4 +1,4 @@
-import { Mod, ModCategory } from '../types/mod';
+import { Mod } from '../types';
 import { sampleMods } from '../data/mods';
 
 export const getAllCategories = () => {
@@ -51,7 +51,7 @@ export const getAllCategories = () => {
   ];
 };
 
-export const getModsByCategory = (category: ModCategory | 'all'): Mod[] => {
+export const getModsByCategory = (category: string | 'all'): Mod[] => {
   if (category === 'all') {
     return sampleMods;
   }
@@ -60,7 +60,7 @@ export const getModsByCategory = (category: ModCategory | 'all'): Mod[] => {
 
 export const getLatestMods = (limit: number = 6): Mod[] => {
   return [...sampleMods]
-    .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
+    .sort((a, b) => new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime())
     .slice(0, limit);
 };
 
@@ -83,7 +83,7 @@ export function getModById(modId: string): Mod | undefined {
   return sampleMods.find(mod => mod.id === modId);
 }
 
-export function getCategoryInfo(categoryId: ModCategory): any {
+export function getCategoryInfo(categoryId: string): any {
   return getAllCategories().find(cat => cat.id === categoryId);
 }
 

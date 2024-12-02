@@ -1,20 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { Background } from '../../../types';
 import fs from 'fs';
 import path from 'path';
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'backgrounds.json');
 const BACKGROUNDS_DIR = path.join(process.cwd(), 'public', 'backgrounds');
-
-interface Background {
-  id: string;
-  url: string;
-  active: boolean;
-  isLocal: boolean;
-  originalFormat?: string;
-  width?: number;
-  height?: number;
-  size?: number;
-}
 
 // 同步数据文件和实际文件
 const syncBackgrounds = (): Background[] => {

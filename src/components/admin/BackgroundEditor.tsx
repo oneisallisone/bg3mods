@@ -1,16 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
-
-interface Background {
-  id: string;
-  url: string;
-  active: boolean;
-  isLocal: boolean;
-  originalFormat?: string;
-  width?: number;
-  height?: number;
-  size?: number;
-}
+import { Background } from '../../types';
 
 const BackgroundEditor = () => {
   const [backgrounds, setBackgrounds] = useState<Background[]>([]);
@@ -186,10 +176,7 @@ const BackgroundEditor = () => {
       }
       
       setBackgrounds(prev =>
-        prev.map(bg => ({
-          ...bg,
-          active: bg.id === id ? !bg.active : false,
-        }))
+        prev.map(bg => (bg.id === id ? { ...bg, active: !bg.active } : bg))
       );
     } catch (error) {
       console.error('操作失败:', error);

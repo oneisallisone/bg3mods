@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getDb } from '../../../lib/db';
-import { Category } from '../../../types/mod';
+import { Category } from '../../../types';
 
 export default async function handler(
   req: NextApiRequest,

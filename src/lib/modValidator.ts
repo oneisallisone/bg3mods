@@ -1,4 +1,4 @@
-import { Mod } from '../types/mod';
+import { Mod } from '../types';
 
 interface ValidationResult {
   isValid: boolean;

@@ -1,5 +1,5 @@
 import { getDb } from './db';
-import { Mod } from '../types/mod';
+import { Mod } from '../types';
 
 export async function createMod(mod: Mod) {
   const db = await getDb();

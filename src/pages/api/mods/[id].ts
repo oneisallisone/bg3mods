@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { Mod } from '../../../types';
 import { getMod, updateMod, deleteMod } from '../../../lib/modUtils';
-import { Mod } from '../../../types/mod';
 
 export default async function handler(
   req: NextApiRequest,

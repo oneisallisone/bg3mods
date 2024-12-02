@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Mod } from '../types/mod';
+import { Mod } from '../types';
 
 const SYNC_INTERVAL = 5 * 60 * 1000; // 5 minutes
 
@@ -43,7 +43,7 @@ export function useLatestMods(limit: number = 6) {
   const { mods, loading, error } = useMods();
   
   const latestMods = mods
-    .sort((a, b) => new Date(b.last_updated).getTime() - new Date(a.last_updated).getTime())
+    .sort((a, b) => new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime())
     .slice(0, limit);
 
   return { mods: latestMods, loading, error };

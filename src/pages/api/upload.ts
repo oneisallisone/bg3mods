@@ -26,23 +26,28 @@ export default async function handler(
     }
 
     const form = formidable({
-      uploadDir,
+      uploadDir: uploadDir,
       keepExtensions: true,
-      maxFileSize: 5 * 1024 * 1024, // 5MB
+      maxFileSize: 10 * 1024 * 1024, // 10MB
       filename: (name, ext, part, form) => {
         // 生成唯一文件名
         return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}${ext}`;
       },
     });
 
-    const [fields, files] = await new Promise((resolve, reject) => {
+    type ParseResult = {
+      fields: formidable.Fields;
+      files: formidable.Files;
+    };
+
+    const { fields, files } = await new Promise<ParseResult>((resolve, reject) => {
       form.parse(req, (err, fields, files) => {
         if (err) {
           console.error('Parse error:', err);
           reject(err);
           return;
         }
-        resolve([fields, files]);
+        resolve({ fields, files });
       });
     });
 

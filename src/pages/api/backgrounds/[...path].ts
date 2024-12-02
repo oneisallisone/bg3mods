@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { Background } from '../../../types';
 import fs from 'fs';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
@@ -27,17 +28,6 @@ if (!fs.existsSync(path.dirname(DATA_FILE))) {
 // 如果数据文件不存在，创建一个空的数据文件
 if (!fs.existsSync(DATA_FILE)) {
   fs.writeFileSync(DATA_FILE, JSON.stringify({ backgrounds: [] }));
-}
-
-interface Background {
-  id: string;
-  url: string;
-  active: boolean;
-  isLocal: boolean;
-  originalFormat?: string;
-  width?: number;
-  height?: number;
-  size?: number;
 }
 
 // 手动解析JSON body

@@ -1,23 +1,44 @@
-import { useState, useEffect } from 'react';
-import { Mod, Category, ModImage, ModVideo, ModRequirement } from '../../types/mod';
+import { useState } from 'react';
+import { Mod, Category, ModImage, ModVideo, ModRequirement } from '../../types';
 import ImageUploader from './ImageUploader';
 
 interface EditableFields {
+  name: string;
+  description: string;
+  version: string;
+  downloadUrl: string;
+  author: string;
+  category: string;
+  tags: string[];
   images: ModImage[];
   videos: ModVideo[];
   requirements: ModRequirement[];
+  features: string[];
 }
 
-const ModEditor = () => {
-  const [mods, setMods] = useState<Mod[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
+interface ModEditorProps {
+  mods: Mod[];
+  categories: Category[];
+  onUpdate: (mod: Mod) => void;
+  onAdd: (mod: Mod) => void;
+  onDelete: (modId: string) => void;
+}
+
+const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: ModEditorProps) => {
   const [editingMod, setEditingMod] = useState<Mod | null>(null);
   const [newMod, setNewMod] = useState<Partial<Mod>>({
     images: [],
-    videos: [],
+    tags: [],
+    downloads: 0,
+    rating: 0,
+    featured: false,
     requirements: [],
     features: [],
-    tags: []
+    videos: [],
+    author: {
+      name: '',
+      url: ''
+    }
   });
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [editingField, setEditingField] = useState<keyof EditableFields | null>(null);
@@ -90,7 +111,8 @@ const ModEditor = () => {
       const modsData = await modsResponse.json();
       
       if (Array.isArray(modsData)) {
-        setMods(modsData);
+        // 由于状态管理已移除，无法直接更新mods
+        // 请确保父组件会重新渲染ModEditor并传递最新的mods
       }
 
       setImportStatus({
@@ -110,8 +132,8 @@ const ModEditor = () => {
       console.error('导入错误:', error);
       setImportStatus({
         status: 'error',
-        message: `导入失败: ${error.message}`,
-        errors: error.errors
+        message: error instanceof Error ? error.message : '导入失败',
+        errors: (error as { errors?: string[] })?.errors || []
       });
     }
   };
@@ -144,59 +166,7 @@ const ModEditor = () => {
     );
   };
 
-  useEffect(() => {
-    // 从API获取数据
-    const fetchData = async () => {
-      try {
-        // 获取分类数据
-        const categoriesResponse = await fetch('/api/categories');
-        if (!categoriesResponse.ok) throw new Error('Failed to fetch categories');
-        const categoriesData = await categoriesResponse.json();
-        setCategories(categoriesData);
-
-        // 获取Mods数据
-        const modsResponse = await fetch('/api/mods');
-        if (!modsResponse.ok) throw new Error('Failed to fetch mods');
-        const modsData = await modsResponse.json();
-        setMods(modsData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const handleSave = async (mod: Mod) => {
-    try {
-      const response = await fetch(`/api/mods/${mod.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(mod),
-      });
-
-      if (!response.ok) throw new Error('Failed to update mod');
-
-      const updatedMod = await response.json();
-      const updatedMods = mods.map(m => 
-        m.id === updatedMod.id ? updatedMod : m
-      );
-      setMods(updatedMods);
-      setEditingMod(null);
-    } catch (error) {
-      console.error('Error saving mod:', error);
-      alert('保存失败，请重试');
-    }
-  };
-
   const handleAdd = async () => {
-    if (!newMod.name || !newMod.description || !newMod.category) {
-      alert('请填写完整的Mod信息');
-      return;
-    }
-
     try {
       const newId = Math.random().toString(36).substr(2, 9);
       const modToAdd = {
@@ -228,13 +198,17 @@ const ModEditor = () => {
       if (!response.ok) throw new Error('Failed to add mod');
 
       const addedMod = await response.json();
-      setMods([...mods, addedMod]);
+      onAdd(addedMod);
       setNewMod({
         images: [],
-        videos: [],
+        tags: [],
+        downloads: 0,
+        rating: 0,
+        featured: false,
         requirements: [],
         features: [],
-        tags: []
+        videos: [],
+        author: { name: '', url: '' }
       });
     } catch (error) {
       console.error('Error adding mod:', error);
@@ -252,14 +226,43 @@ const ModEditor = () => {
 
       if (!response.ok) throw new Error('Failed to delete mod');
 
-      setMods(mods.filter(m => m.id !== modId));
+      onDelete(modId);
     } catch (error) {
       console.error('Error deleting mod:', error);
       alert('删除失败，请重试');
     }
   };
 
-  const filteredMods = mods.filter(mod => {
+  const handleSave = async (mod: Mod) => {
+    try {
+      const modToSave = {
+        ...mod,
+        author: {
+          name: mod.author?.name || '',
+          url: mod.author?.url || ''
+        }
+      };
+
+      const response = await fetch(`/api/mods/${mod.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(modToSave),
+      });
+
+      if (!response.ok) throw new Error('Failed to update mod');
+
+      const updatedMod = await response.json();
+      onUpdate(updatedMod);
+      setEditingMod(null);
+    } catch (error) {
+      console.error('Error saving mod:', error);
+      alert('保存失败，请重试');
+    }
+  };
+
+  const filteredMods = (mods || []).filter(mod => {
     // 分类筛选
     if (filters.category !== 'all' && mod.category !== filters.category) {
       return false;
@@ -311,7 +314,11 @@ const ModEditor = () => {
       videos: mod.videos || [],
       requirements: mod.requirements || [],
       features: mod.features || [],
-      tags: mod.tags || []
+      tags: mod.tags || [],
+      author: {
+        name: mod.author?.name || '',
+        url: mod.author?.url || ''
+      }
     });
   };
 
@@ -607,7 +614,10 @@ const ModEditor = () => {
               value={newMod.author?.name || ''}
               onChange={e => setNewMod({
                 ...newMod,
-                author: { ...newMod.author, name: e.target.value }
+                author: { 
+                  name: e.target.value,
+                  url: newMod.author?.url || ''
+                }
               })}
             />
             <input
@@ -617,7 +627,10 @@ const ModEditor = () => {
               value={newMod.author?.url || ''}
               onChange={e => setNewMod({
                 ...newMod,
-                author: { ...newMod.author, url: e.target.value }
+                author: { 
+                  name: newMod.author?.name || '',
+                  url: e.target.value
+                }
               })}
             />
           </div>
@@ -850,10 +863,11 @@ const ModEditor = () => {
                   />
                   <select
                     className="border rounded p-2"
-                    value={video.platform || 'other'}
+                    value={video.platform}
                     onChange={e => {
                       const newVideos = [...(newMod.videos || [])];
-                      newVideos[index] = {...newVideos[index], platform: e.target.value};
+                      const platform = e.target.value as 'youtube' | 'bilibili' | 'other';
+                      newVideos[index] = {...newVideos[index], platform};
                       setNewMod({...newMod, videos: newVideos});
                     }}
                   >
@@ -970,7 +984,10 @@ const ModEditor = () => {
                     value={editingMod.author?.name || ''}
                     onChange={e => setEditingMod({
                       ...editingMod,
-                      author: { ...editingMod.author, name: e.target.value }
+                      author: { 
+                        name: e.target.value,
+                        url: editingMod.author?.url || ''
+                      }
                     })}
                   />
                   <input
@@ -980,20 +997,23 @@ const ModEditor = () => {
                     value={editingMod.author?.url || ''}
                     onChange={e => setEditingMod({
                       ...editingMod,
-                      author: { ...editingMod.author, url: e.target.value }
+                      author: { 
+                        name: editingMod.author?.name || '',
+                        url: e.target.value
+                      }
                     })}
                   />
                 </div>
                 <div className="flex gap-2">
                   <button
                     onClick={() => handleSave(editingMod)}
-                    className="bg-blue-500 text-white rounded p-2 hover:bg-blue-600"
+                    className="bg-blue-500 text-white rounded px-3 py-1 hover:bg-blue-600"
                   >
                     保存
                   </button>
                   <button
                     onClick={() => setEditingMod(null)}
-                    className="bg-gray-500 text-white rounded p-2 hover:bg-gray-600"
+                    className="bg-gray-500 text-white rounded px-3 py-1 hover:bg-gray-600"
                   >
                     取消
                   </button>
@@ -1074,7 +1094,7 @@ const ModEditor = () => {
                         <select
                           className="border rounded p-2"
                           value={tempFieldValue?.platform || 'youtube'}
-                          onChange={e => setTempFieldValue({...tempFieldValue, platform: e.target.value})}
+                          onChange={e => setTempFieldValue({...tempFieldValue, platform: e.target.value as 'youtube' | 'bilibili' | 'other'})}
                         >
                           <option value="youtube">YouTube</option>
                           <option value="bilibili">Bilibili</option>

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { CategoryInfo } from '../types/mod';
+import { Category } from '../types';
 
 const SYNC_INTERVAL = 5 * 60 * 1000; // 5 minutes
 
 export function useCategories() {
-  const [categories, setCategories] = useState<CategoryInfo[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

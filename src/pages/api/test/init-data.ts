@@ -1,69 +1,69 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getDb } from '../../../lib/db';
-import { Category } from '../../../types/mod';
+import { Category } from '../../../types';
 
 const sampleCategories: Category[] = [
   {
     id: 'prerequisites',
-    name: '前置要求',
-    description: '必需的基础模组和依赖项',
-    icon: '🔧',
+    name: 'Prerequisites & Tools',
+    description: 'Essential tools and prerequisites for modding',
+    icon: '',
     count: 0
   },
   {
     id: 'ui',
-    name: '界面优化',
-    description: '改善游戏界面和用户体验的模组',
-    icon: '🖥️',
+    name: 'UI Mods',
+    description: 'Interface modifications and enhancements',
+    icon: '',
     count: 0
   },
   {
     id: 'gameplay',
-    name: '游戏玩法',
-    description: '修改游戏核心机制、战斗系统、等级进展等内容的模组',
-    icon: '🎮',
+    name: 'Gameplay Mods',
+    description: 'Mods that modify gameplay mechanics',
+    icon: '',
     count: 0
   },
   {
     id: 'appearance',
-    name: '外观定制',
-    description: '修改角色、装备、环境等视觉外观的模组',
-    icon: '👤',
+    name: 'Appearance Mods',
+    description: 'Mods that modify the game\'s appearance',
+    icon: '',
     count: 0
   },
   {
     id: 'equipment',
-    name: '装备物品',
-    description: '添加或修改武器、防具、道具等装备的模组',
-    icon: '⚔️',
+    name: 'Equipment Mods',
+    description: 'Mods that add or modify equipment',
+    icon: '',
     count: 0
   },
   {
     id: 'dice',
-    name: '骰子系统',
-    description: '修改游戏骰子机制和概率系统的模组',
-    icon: '🎲',
+    name: 'Dice Mods',
+    description: 'Mods that modify the game\'s dice mechanics',
+    icon: '',
     count: 0
   },
   {
     id: 'balance',
-    name: '平衡调整',
-    description: '调整游戏平衡性、难度和数值的模组',
-    icon: '⚖️',
+    name: 'Balance Mods',
+    description: 'Mods that modify the game\'s balance',
+    icon: '',
     count: 0
   },
   {
     id: 'class',
-    name: '职业扩展',
-    description: '添加或修改职业、子职业和专长的模组',
-    icon: '✨',
+    name: 'Class Mods',
+    description: 'Mods that add or modify classes',
+    icon: '',
     count: 0
   },
   {
     id: 'modifiers',
-    name: '属性修改',
-    description: '修改游戏属性、状态和效果的模组',
-    icon: '🛠️',
+    name: 'Modifier Mods',
+    description: 'Mods that modify the game\'s modifiers',
+    icon: '',
     count: 0
   }
 ];
