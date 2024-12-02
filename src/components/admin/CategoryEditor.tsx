@@ -93,9 +93,13 @@ const CategoryEditor = () => {
       }
 
       setCategories(categories.filter(c => c.id !== categoryId));
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error deleting category:', error);
-      alert(error.message || '删除失败，请重试');
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert('删除失败，请重试');
+      }
     }
   };
 
