@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://bg3mods.com/sitemap.xml
+
+# Disallow admin and management routes
+Disallow: /guanli/
+Disallow: /api/
