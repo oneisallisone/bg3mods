@@ -48,3 +48,7 @@ public/uploads/*
 # Test files
 test_mods/*
 !test_mods/README.md
+
+# backup files
+/backup/
+*.bak
