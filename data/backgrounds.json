@@ -3,7 +3,7 @@
     {
       "id": "bfbe1a0c-8462-4409-9c67-690766d04421",
       "url": "/backgrounds/bfbe1a0c-8462-4409-9c67-690766d04421.webp",
-      "active": false,
+      "active": true,
       "isLocal": true,
       "originalFormat": "webp",
       "width": 900,
@@ -13,7 +13,7 @@
     {
       "id": "d1d11b88-f43f-47d0-99df-e9aa595044b9",
       "url": "/backgrounds/d1d11b88-f43f-47d0-99df-e9aa595044b9.webp",
-      "active": true,
+      "active": false,
       "isLocal": true,
       "originalFormat": "jpeg",
       "width": 2560,

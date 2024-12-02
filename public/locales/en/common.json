@@ -221,5 +221,24 @@
   "latest_mods": "Latest Mods",
   "popular_mods": "Popular Mods",
   "no_mods_in_category": "No mods found in this category yet.",
-  "show_more": "Show More"
+  "show_more": "Show More",
+  "about": {
+    "title": "About BG3 Mods Navigation",
+    "mission": {
+      "title": "Our Mission",
+      "content": "Our mission is to provide a comprehensive and user-friendly platform for Baldur's Gate 3 mod enthusiasts. We strive to make mod discovery, installation, and management as seamless as possible, while fostering a vibrant community of modders and players."
+    },
+    "features": {
+      "title": "Key Features",
+      "feature1": "Curated mod collections organized by categories",
+      "feature2": "Detailed mod information with screenshots and videos",
+      "feature3": "Easy-to-follow installation guides",
+      "feature4": "Compatibility information and requirements",
+      "feature5": "Regular updates and community feedback integration"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "Have questions, suggestions, or want to contribute? Feel free to reach out to us through our GitHub repository or join our community discord server."
+    }
+  }
 }

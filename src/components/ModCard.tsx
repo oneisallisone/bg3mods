@@ -3,6 +3,7 @@ import { useTranslation } from 'next-i18next';
 import { Mod } from '@/types/mod';
 import { DownloadIcon, StarIcon } from './icons';
 import { ModModal } from './ModModal';
+import Image from 'next/image';
 
 interface ModCardProps {
   mod: Mod;
@@ -11,29 +12,28 @@ interface ModCardProps {
 export const ModCard: React.FC<ModCardProps> = ({ mod }) => {
   const { t } = useTranslation('common');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const formatNumber = (num: number) => {
     return new Intl.NumberFormat().format(num);
   };
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString();
-  };
-
   return (
     <>
       <div 
-        className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-200 cursor-pointer hover:-translate-y-1"
+        className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg 
+                   transition-all duration-200 cursor-pointer hover:-translate-y-1 h-full flex flex-col"
         onClick={() => setIsModalOpen(true)}
       >
-        {/* 模组封面图 */}
-        <div className="aspect-video bg-gray-100 dark:bg-gray-700 relative">
-          {mod.images && mod.images.length > 0 ? (
+        {/* 封面图区域 - 固定16:9比例 */}
+        <div className="relative aspect-video bg-gray-100 dark:bg-gray-700">
+          {mod.images && mod.images.length > 0 && !imageError ? (
             <img
               src={mod.images[0].url}
               alt={mod.images[0].caption || mod.name}
               className="w-full h-full object-cover"
+              onError={() => setImageError(true)}
+              loading="lazy"
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center text-gray-400">
@@ -44,71 +44,81 @@ export const ModCard: React.FC<ModCardProps> = ({ mod }) => {
           )}
           
           {/* 分类标签 */}
-          <div className="absolute top-2 right-2">
-            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+          <div className="absolute top-2 left-2 flex gap-2">
+            <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium 
+                           bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
               {t(`categories.${mod.category}`)}
             </span>
           </div>
+
+          {/* 评分和下载量 */}
+          <div className="absolute bottom-2 left-2 right-2 flex justify-between items-center">
+            <div className="flex items-center gap-3 bg-black/50 rounded-full px-3 py-1">
+              <div className="flex items-center gap-1">
+                <DownloadIcon className="w-3.5 h-3.5 text-gray-200" />
+                <span className="text-xs font-medium text-gray-200">{formatNumber(mod.downloads || 0)}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <StarIcon className="w-3.5 h-3.5 text-yellow-400" />
+                <span className="text-xs font-medium text-gray-200">{(mod.rating || 0).toFixed(1)}</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* 模组信息 */}
-        <div className="p-4">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+        {/* 内容区域 */}
+        <div className="p-4 flex flex-col flex-grow">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-1">
             {mod.name}
           </h3>
           
-          <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
+          <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2 flex-grow">
             {mod.description}
           </p>
 
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-1">
-                <DownloadIcon className="w-4 h-4 text-gray-500" />
-                <span className="text-gray-600">{formatNumber(mod.downloads || 0)}</span>
+          {/* 标签和下载按钮 */}
+          <div className="mt-auto">
+            {/* 标签 */}
+            {Array.isArray(mod.tags) && mod.tags.length > 0 && (
+              <div className="flex flex-wrap gap-1 mb-3">
+                {mod.tags.slice(0, 3).map((tag, index) => (
+                  <span
+                    key={index}
+                    className="px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 
+                             text-gray-600 dark:text-gray-300 rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+                {mod.tags.length > 3 && (
+                  <span className="text-xs text-gray-500 px-1">
+                    +{mod.tags.length - 3}
+                  </span>
+                )}
               </div>
-              <div className="flex items-center space-x-1">
-                <StarIcon className="w-4 h-4 text-yellow-500" />
-                <span className="text-gray-600">{(mod.rating || 0).toFixed(1)}</span>
-              </div>
-            </div>
-            
-            <a 
-              href={mod.downloadUrl} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {t('download')}
-            </a>
-          </div>
+            )}
 
-          {/* Tags */}
-          {Array.isArray(mod.tags) && mod.tags.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-1">
-              {mod.tags.slice(0, 3).map((tag, index) => (
-                <span
-                  key={index}
-                  className="px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded"
-                >
-                  {tag}
-                </span>
-              ))}
-              {mod.tags.length > 3 && (
-                <span className="text-xs text-gray-500">
-                  +{mod.tags.length - 3}
-                </span>
-              )}
-            </div>
-          )}
+            {/* 下载按钮 */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open(mod.downloadUrl, '_blank');
+              }}
+              className="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md 
+                         transition-colors duration-200 flex items-center justify-center gap-2"
+            >
+              <DownloadIcon className="w-4 h-4" />
+              {t('mod_card.download')}
+            </button>
+          </div>
         </div>
       </div>
 
+      {/* 详情模态框 */}
       <ModModal
-        mod={mod}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        mod={mod}
       />
     </>
   );
