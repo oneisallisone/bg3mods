@@ -102,7 +102,7 @@ export const ModCard: React.FC<ModCardProps> = ({ mod }) => {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                window.open(mod.downloadUrl, '_blank');
+                window.open(mod.download_url, '_blank');
               }}
               className="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md 
                          transition-colors duration-200 flex items-center justify-center gap-2"

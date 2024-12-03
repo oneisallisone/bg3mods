@@ -1,12 +1,23 @@
 import { getDb } from './db';
 import { Mod } from '../types';
 
+export async function checkModExists(modId: string): Promise<boolean> {
+  const db = await getDb();
+  const result = await db.get('SELECT 1 FROM mods WHERE id = ?', modId);
+  return !!result;
+}
+
 export async function createMod(mod: Mod) {
   const db = await getDb();
   
   await db.run('BEGIN TRANSACTION');
   
   try {
+    // 检查ID是否已存在
+    if (await checkModExists(mod.id)) {
+      throw new Error('Mod ID already exists');
+    }
+
     // 插入主要 mod 信息
     await db.run(`
       INSERT INTO mods (
@@ -19,13 +30,13 @@ export async function createMod(mod: Mod) {
       mod.name,
       mod.description,
       mod.category,
-      mod.author.name,
-      mod.author.url,
+      mod.author_name,
+      mod.author_url,
       mod.downloads || 0,
       mod.rating || 0,
       mod.version,
-      mod.lastUpdated,
-      mod.downloadUrl
+      mod.last_updated,
+      mod.download_url
     ]);
 
     // 插入图片
@@ -50,7 +61,7 @@ export async function createMod(mod: Mod) {
       await videoStmt.finalize();
     }
 
-    // 插入需求
+    // 插入要求
     if (mod.requirements && mod.requirements.length > 0) {
       const reqStmt = await db.prepare(
         'INSERT INTO mod_requirements (mod_id, name, url, description) VALUES (?, ?, ?, ?)'
@@ -84,9 +95,85 @@ export async function createMod(mod: Mod) {
     }
 
     await db.run('COMMIT');
-    return mod;
+
+    // 返回完整的mod数据
+    const result = await getMod(mod.id);
+    if (!result) {
+      throw new Error('Failed to retrieve created mod');
+    }
+    return result;
+
   } catch (error) {
     await db.run('ROLLBACK');
+    console.error('Error in createMod:', error);
+    throw error;
+  }
+}
+
+export async function getMod(modId: string): Promise<Mod | null> {
+  const db = await getDb();
+  
+  try {
+    // 获取主要mod信息
+    const modRow = await db.get(`
+      SELECT 
+        m.*,
+        json_group_array(DISTINCT json_object(
+          'url', i.url,
+          'caption', i.caption
+        )) as images,
+        json_group_array(DISTINCT json_object(
+          'url', v.url,
+          'title', v.title,
+          'platform', v.platform
+        )) as videos,
+        json_group_array(DISTINCT json_object(
+          'name', r.name,
+          'url', r.url,
+          'description', r.description
+        )) as requirements,
+        json_group_array(DISTINCT f.feature) as features,
+        json_group_array(DISTINCT t.tag) as tags
+      FROM mods m
+      LEFT JOIN mod_images i ON m.id = i.mod_id
+      LEFT JOIN mod_videos v ON m.id = v.mod_id
+      LEFT JOIN mod_requirements r ON m.id = r.mod_id
+      LEFT JOIN mod_features f ON m.id = f.mod_id
+      LEFT JOIN mod_tags t ON m.id = t.mod_id
+      WHERE m.id = ?
+      GROUP BY m.id
+    `, modId);
+
+    if (!modRow) return null;
+
+    // 解析JSON字符串
+    const images = JSON.parse(modRow.images);
+    const videos = JSON.parse(modRow.videos);
+    const requirements = JSON.parse(modRow.requirements);
+    const features = JSON.parse(modRow.features);
+    const tags = JSON.parse(modRow.tags);
+
+    // 构造返回对象
+    return {
+      id: modRow.id,
+      name: modRow.name,
+      description: modRow.description,
+      category: modRow.category,
+      author_name: modRow.author_name,
+      author_url: modRow.author_url,
+      downloads: modRow.downloads,
+      rating: modRow.rating,
+      version: modRow.version,
+      last_updated: modRow.last_updated,
+      download_url: modRow.download_url,
+      images: images[0] === null ? [] : images,
+      videos: videos[0] === null ? [] : videos,
+      requirements: requirements[0] === null ? [] : requirements,
+      features: features[0] === null ? [] : features,
+      tags: tags[0] === null ? [] : tags
+    };
+  } catch (error) {
+    console.error('Error in getMod:', error);
     throw error;
   }
 }
@@ -115,13 +202,13 @@ export async function updateMod(mod: Mod) {
       mod.name,
       mod.description,
       mod.category,
-      mod.author.name,
-      mod.author.url,
+      mod.author_name,
+      mod.author_url,
       mod.downloads || 0,
       mod.rating || 0,
       mod.version,
-      mod.lastUpdated,
-      mod.downloadUrl,
+      mod.last_updated,
+      mod.download_url,
       mod.id
     ]);
 
@@ -217,74 +304,6 @@ export async function deleteMod(modId: string) {
     await db.run('ROLLBACK');
     throw error;
   }
-}
-
-export async function getMod(modId: string): Promise<Mod | null> {
-  const db = await getDb();
-  
-  // 获取主要 mod 信息
-  const mod = await db.get(`
-    SELECT * FROM mods WHERE id = ?
-  `, modId);
-  
-  if (!mod) return null;
-  
-  // 获取图片
-  const images = await db.all(`
-    SELECT url, caption FROM mod_images WHERE mod_id = ?
-  `, modId);
-  
-  // 获取视频
-  const videos = await db.all(`
-    SELECT url, title, platform FROM mod_videos WHERE mod_id = ?
-  `, modId);
-  
-  // 获取需求
-  const requirements = await db.all(`
-    SELECT name, url, description FROM mod_requirements WHERE mod_id = ?
-  `, modId);
-  
-  // 获取特性
-  const features = await db.all(`
-    SELECT feature FROM mod_features WHERE mod_id = ?
-  `, modId);
-  
-  // 获取标签
-  const tags = await db.all(`
-    SELECT tag FROM mod_tags WHERE mod_id = ?
-  `, modId);
-  
-  return {
-    id: mod.id,
-    name: mod.name,
-    description: mod.description,
-    category: mod.category,
-    author: {
-      name: mod.author_name,
-      url: mod.author_url
-    },
-    downloads: mod.downloads,
-    rating: mod.rating,
-    version: mod.version,
-    lastUpdated: mod.last_updated,
-    downloadUrl: mod.download_url,
-    images: images.map(img => ({
-      url: img.url,
-      caption: img.caption || ''
-    })),
-    videos: videos.map(vid => ({
-      url: vid.url,
-      title: vid.title || '',
-      platform: vid.platform || 'other'
-    })),
-    requirements: requirements.map(req => ({
-      name: req.name,
-      url: req.url || '',
-      description: req.description || ''
-    })),
-    features: features.map(f => f.feature),
-    tags: tags.map(t => t.tag)
-  };
 }
 
 export async function listMods(category?: string): Promise<Mod[]> {

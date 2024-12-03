@@ -6,8 +6,9 @@ interface EditableFields {
   name: string;
   description: string;
   version: string;
-  downloadUrl: string;
-  author: string;
+  download_url: string;
+  author_name: string;
+  author_url: string;
   category: string;
   tags: string[];
   images: ModImage[];
@@ -19,9 +20,9 @@ interface EditableFields {
 interface ModEditorProps {
   mods: Mod[];
   categories: Category[];
-  onUpdate: (mod: Mod) => void;
-  onAdd: (mod: Mod) => void;
-  onDelete: (modId: string) => void;
+  onUpdate: (mod: Mod) => Promise<Mod | null>;
+  onAdd: (mod: Partial<Mod>) => Promise<Mod | null>;
+  onDelete: (modId: string) => Promise<void>;
 }
 
 const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: ModEditorProps) => {
@@ -31,14 +32,11 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
     tags: [],
     downloads: 0,
     rating: 0,
-    featured: false,
     requirements: [],
     features: [],
     videos: [],
-    author: {
-      name: '',
-      url: ''
-    }
+    author_name: '',
+    author_url: ''
   });
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [editingField, setEditingField] = useState<keyof EditableFields | null>(null);
@@ -58,8 +56,6 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
     hasVideos: false,
     hasRequirements: false
   });
-
-  // 添加排序功能
   const [sortConfig, setSortConfig] = useState({
     field: 'name' as keyof Mod,
     direction: 'asc' as 'asc' | 'desc'
@@ -175,16 +171,9 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
         downloads: 0,
         rating: 0,
         version: '1.0.0',
-        lastUpdated: new Date().toISOString().split('T')[0],
-        author: {
-          name: newMod.author?.name || 'Unknown',
-          url: newMod.author?.url || ''
-        },
-        images: [],
-        videos: [],
-        requirements: [],
-        features: [],
-        tags: []
+        last_updated: new Date().toISOString().split('T')[0],
+        author_name: newMod.author_name || 'Unknown',
+        author_url: newMod.author_url || ''
       } as Mod;
 
       const response = await fetch('/api/mods', {
@@ -204,11 +193,11 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
         tags: [],
         downloads: 0,
         rating: 0,
-        featured: false,
         requirements: [],
         features: [],
         videos: [],
-        author: { name: '', url: '' }
+        author_name: '',
+        author_url: ''
       });
     } catch (error) {
       console.error('Error adding mod:', error);
@@ -233,14 +222,64 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
     }
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setImportStatus({ status: 'loading', message: 'Processing...' });
+    
+    try {
+      if (editingMod) {
+        const updated = await onUpdate({
+          ...editingMod,
+          ...tempFieldValue
+        });
+        if (updated) {
+          setEditingMod(null);
+          setTempFieldValue(null);
+          setEditingField(null);
+          setImportStatus({ status: 'success', message: 'Mod updated successfully' });
+        } else {
+          setImportStatus({ 
+            status: 'error', 
+            message: 'Failed to update mod'
+          });
+        }
+      } else {
+        const result = await onAdd(newMod);
+        if (result) {
+          setNewMod({
+            images: [],
+            tags: [],
+            downloads: 0,
+            rating: 0,
+            requirements: [],
+            features: [],
+            videos: [],
+            author_name: '',
+            author_url: ''
+          });
+          setImportStatus({ status: 'success', message: 'Mod added successfully' });
+        } else {
+          setImportStatus({ 
+            status: 'idle', 
+            message: '' 
+          });
+        }
+      }
+    } catch (error) {
+      console.error('Error submitting mod:', error);
+      setImportStatus({ 
+        status: 'error', 
+        message: error instanceof Error ? error.message : 'An error occurred'
+      });
+    }
+  };
+
   const handleSave = async (mod: Mod) => {
     try {
       const modToSave = {
         ...mod,
-        author: {
-          name: mod.author?.name || '',
-          url: mod.author?.url || ''
-        }
+        author_name: mod.author_name || '',
+        author_url: mod.author_url || ''
       };
 
       const response = await fetch(`/api/mods/${mod.id}`, {
@@ -285,7 +324,7 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
       return (
         mod.name.toLowerCase().includes(searchLower) ||
         mod.description?.toLowerCase().includes(searchLower) ||
-        mod.author.name.toLowerCase().includes(searchLower) ||
+        mod.author_name.toLowerCase().includes(searchLower) ||
         mod.tags?.some(tag => tag.toLowerCase().includes(searchLower)) ||
         mod.features?.some(feature => feature.toLowerCase().includes(searchLower))
       );
@@ -315,10 +354,8 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
       requirements: mod.requirements || [],
       features: mod.features || [],
       tags: mod.tags || [],
-      author: {
-        name: mod.author?.name || '',
-        url: mod.author?.url || ''
-      }
+      author_name: mod.author_name || '',
+      author_url: mod.author_url || ''
     });
   };
 
@@ -502,7 +539,7 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
         <SortButton field="name">名称</SortButton>
         <SortButton field="downloads">下载量</SortButton>
         <SortButton field="rating">评分</SortButton>
-        <SortButton field="lastUpdated">更新时间</SortButton>
+        <SortButton field="last_updated">更新时间</SortButton>
       </div>
 
       {/* 显示筛选结果数量 */}
@@ -601,8 +638,8 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
             type="text"
             placeholder="下载链接"
             className="border rounded p-2"
-            value={newMod.downloadUrl || ''}
-            onChange={e => setNewMod({...newMod, downloadUrl: e.target.value})}
+            value={newMod.download_url || ''}
+            onChange={e => setNewMod({...newMod, download_url: e.target.value})}
           />
 
           {/* 作者信息 */}
@@ -611,26 +648,22 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
               type="text"
               placeholder="作者名称"
               className="border rounded p-2"
-              value={newMod.author?.name || ''}
+              value={newMod.author_name || ''}
               onChange={e => setNewMod({
                 ...newMod,
-                author: { 
-                  name: e.target.value,
-                  url: newMod.author?.url || ''
-                }
+                author_name: e.target.value,
+                author_url: newMod.author_url || ''
               })}
             />
             <input
               type="text"
               placeholder="作者主页"
               className="border rounded p-2"
-              value={newMod.author?.url || ''}
+              value={newMod.author_url || ''}
               onChange={e => setNewMod({
                 ...newMod,
-                author: { 
-                  name: newMod.author?.name || '',
-                  url: e.target.value
-                }
+                author_name: newMod.author_name || '',
+                author_url: e.target.value
               })}
             />
           </div>
@@ -970,10 +1003,10 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
                   type="text"
                   className="border rounded p-2"
                   placeholder="下载链接"
-                  value={editingMod.downloadUrl}
+                  value={editingMod.download_url}
                   onChange={e => setEditingMod({
                     ...editingMod,
-                    downloadUrl: e.target.value
+                    download_url: e.target.value
                   })}
                 />
                 <div className="col-span-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -981,26 +1014,22 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
                     type="text"
                     className="border rounded p-2"
                     placeholder="作者名称"
-                    value={editingMod.author?.name || ''}
+                    value={editingMod.author_name || ''}
                     onChange={e => setEditingMod({
                       ...editingMod,
-                      author: { 
-                        name: e.target.value,
-                        url: editingMod.author?.url || ''
-                      }
+                      author_name: e.target.value,
+                      author_url: editingMod.author_url || ''
                     })}
                   />
                   <input
                     type="text"
                     className="border rounded p-2"
                     placeholder="作者主页"
-                    value={editingMod.author?.url || ''}
+                    value={editingMod.author_url || ''}
                     onChange={e => setEditingMod({
                       ...editingMod,
-                      author: { 
-                        name: editingMod.author?.name || '',
-                        url: e.target.value
-                      }
+                      author_name: editingMod.author_name || '',
+                      author_url: e.target.value
                     })}
                   />
                 </div>
@@ -1286,23 +1315,23 @@ const ModEditor = ({ mods = [], categories = [], onUpdate, onAdd, onDelete }: Mo
                     <ul className="mt-2 space-y-1">
                       <li>分类: {categories.find(c => c.id === mod.category)?.name || mod.category}</li>
                       <li>
-                        作者: {mod.author.name}
-                        {mod.author.url && (
-                          <a href={mod.author.url} target="_blank" rel="noopener noreferrer" className="ml-2 text-blue-500 hover:text-blue-600">
+                        作者: {mod.author_name}
+                        {mod.author_url && (
+                          <a href={mod.author_url} target="_blank" rel="noopener noreferrer" className="ml-2 text-blue-500 hover:text-blue-600">
                             主页
                           </a>
                         )}
                       </li>
                       <li>下载量: {mod.downloads}</li>
                       <li>评分: {mod.rating}</li>
-                      <li>最后更新: {mod.lastUpdated}</li>
+                      <li>最后更新: {mod.last_updated}</li>
                     </ul>
                   </div>
 
                   <div>
                     <h4 className="font-medium text-gray-700">下载</h4>
                     <div className="mt-2">
-                      <a href={mod.downloadUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">
+                      <a href={mod.download_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">
                         下载链接
                       </a>
                     </div>

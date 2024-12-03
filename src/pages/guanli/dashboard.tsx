@@ -10,12 +10,12 @@ interface DashboardProps {
   mods: Mod[];
   activeTab: 'mods' | 'categories';
   setActiveTab: (tab: 'mods' | 'categories') => void;
-  handleModUpdate: (mod: Mod) => void;
-  handleModAdd: (mod: Mod) => void;
-  handleModDelete: (modId: string) => void;
-  handleCategoryUpdate: (category: Category) => void;
-  handleCategoryAdd: (category: Category) => void;
-  handleCategoryDelete: (categoryId: string) => void;
+  handleModUpdate: (mod: Mod) => Promise<Mod | null>;
+  handleModAdd: (mod: Partial<Mod>) => Promise<Mod | null>;
+  handleModDelete: (modId: string) => Promise<void>;
+  handleCategoryUpdate: (category: Category) => Promise<void>;
+  handleCategoryAdd: (category: Category) => Promise<void>;
+  handleCategoryDelete: (categoryId: string) => Promise<void>;
 }
 
 const Dashboard = ({ 

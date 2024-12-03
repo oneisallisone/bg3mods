@@ -74,14 +74,14 @@ export const ModModal: React.FC<ModModalProps> = ({ mod, isOpen, onClose }) => {
                       {mod.name}
                     </Dialog.Title>
                     <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
-                      <span>By {mod.author.name}</span>
+                      <span>By {mod.author_name}</span>
                       <span>•</span>
                       <span>Version {mod.version}</span>
-                      {mod.lastUpdated && (
+                      {mod.last_updated && (
                         <>
                           <span>•</span>
                           <span>
-                            Updated {formatUpdateDate(mod.lastUpdated)}
+                            Updated {formatUpdateDate(mod.last_updated)}
                           </span>
                         </>
                       )}
@@ -171,7 +171,7 @@ export const ModModal: React.FC<ModModalProps> = ({ mod, isOpen, onClose }) => {
                   {/* Download Button */}
                   <div className="mt-6 flex justify-end">
                     <a
-                      href={mod.downloadUrl}
+                      href={mod.download_url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"

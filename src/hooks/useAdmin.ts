@@ -1,14 +1,31 @@
 import { useState, useEffect } from 'react';
 import type { Mod, Category } from '../types';
 
+interface ApiError {
+  error: string;
+  details?: string;
+}
+
+interface AdminState {
+  mods: Mod[];
+  categories: Category[];
+  loading: boolean;
+  error: string | null;
+}
+
 export const useAdmin = () => {
-  const [mods, setMods] = useState<Mod[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [state, setState] = useState<AdminState>({
+    mods: [],
+    categories: [],
+    loading: true,
+    error: null
+  });
 
   // 获取所有数据
   const fetchData = async () => {
     try {
+      setState(prev => ({ ...prev, loading: true, error: null }));
+      
       const [modsRes, categoriesRes] = await Promise.all([
         fetch('/api/mods'),
         fetch('/api/categories')
@@ -23,69 +40,124 @@ export const useAdmin = () => {
         categoriesRes.json()
       ]);
 
-      setMods(modsData);
-      setCategories(categoriesData);
+      setState(prev => ({
+        ...prev,
+        mods: modsData,
+        categories: categoriesData,
+        loading: false,
+        error: null
+      }));
     } catch (error) {
       console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
+      setState(prev => ({
+        ...prev,
+        loading: false,
+        error: error instanceof Error ? error.message : 'Failed to fetch data'
+      }));
     }
   };
 
-  // 更新mod
-  const handleModUpdate = async (updatedMod: Mod) => {
+  // Mod 相关操作
+  const handleModUpdate = async (mod: Mod): Promise<Mod | null> => {
     try {
-      const response = await fetch(`/api/mods/${updatedMod.id}`, {
+      setState(prev => ({ ...prev, loading: true, error: null }));
+
+      const response = await fetch(`/api/mods/${mod.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(updatedMod),
+        body: JSON.stringify(mod),
       });
 
-      if (!response.ok) throw new Error('Failed to update mod');
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to update mod');
+      }
 
-      const updated = await response.json();
-      setMods(mods.map(mod => mod.id === updated.id ? updated : mod));
+      const updatedMod = await response.json();
+      setState(prev => ({
+        ...prev,
+        mods: prev.mods.map(m => m.id === mod.id ? updatedMod : m),
+        loading: false,
+        error: null
+      }));
+
+      return updatedMod;
     } catch (error) {
       console.error('Error updating mod:', error);
-      throw error;
+      setState(prev => ({
+        ...prev,
+        loading: false,
+        error: error instanceof Error ? error.message : 'Failed to update mod'
+      }));
+      return null;
     }
   };
 
-  // 添加mod
-  const handleModAdd = async (newMod: Mod) => {
+  const handleModAdd = async (mod: Partial<Mod>): Promise<Mod | null> => {
     try {
+      setState(prev => ({ ...prev, loading: true, error: null }));
+
       const response = await fetch('/api/mods', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newMod),
+        body: JSON.stringify(mod),
       });
 
-      if (!response.ok) throw new Error('Failed to add mod');
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to add mod');
+      }
 
-      const added = await response.json();
-      setMods([...mods, added]);
+      const newMod = await response.json();
+      setState(prev => ({
+        ...prev,
+        mods: [...prev.mods, newMod],
+        loading: false,
+        error: null
+      }));
+
+      return newMod;
     } catch (error) {
       console.error('Error adding mod:', error);
-      throw error;
+      setState(prev => ({
+        ...prev,
+        loading: false,
+        error: error instanceof Error ? error.message : 'Failed to add mod'
+      }));
+      return null;
     }
   };
 
-  // 删除mod
-  const handleModDelete = async (modId: string) => {
+  const handleModDelete = async (modId: string): Promise<void> => {
     try {
+      setState(prev => ({ ...prev, loading: true, error: null }));
+
       const response = await fetch(`/api/mods/${modId}`, {
         method: 'DELETE',
       });
 
-      if (!response.ok) throw new Error('Failed to delete mod');
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to delete mod');
+      }
 
-      setMods(mods.filter(mod => mod.id !== modId));
+      setState(prev => ({
+        ...prev,
+        mods: prev.mods.filter(m => m.id !== modId),
+        loading: false,
+        error: null
+      }));
     } catch (error) {
       console.error('Error deleting mod:', error);
+      setState(prev => ({
+        ...prev,
+        loading: false,
+        error: error instanceof Error ? error.message : 'Failed to delete mod'
+      }));
       throw error;
     }
   };
@@ -93,6 +165,8 @@ export const useAdmin = () => {
   // 更新分类
   const handleCategoryUpdate = async (updatedCategory: Category) => {
     try {
+      setState(prev => ({ ...prev, loading: true, error: null }));
+
       const response = await fetch(`/api/categories/${updatedCategory.id}`, {
         method: 'PUT',
         headers: {
@@ -101,12 +175,27 @@ export const useAdmin = () => {
         body: JSON.stringify(updatedCategory),
       });
 
-      if (!response.ok) throw new Error('Failed to update category');
+      const data = await response.json();
 
-      const updated = await response.json();
-      setCategories(categories.map(cat => cat.id === updated.id ? updated : cat));
+      if (!response.ok) {
+        throw new Error(data.details || data.error || 'Failed to update category');
+      }
+
+      setState(prev => ({
+        ...prev,
+        categories: prev.categories.map(cat => cat.id === data.id ? data : cat),
+        loading: false,
+        error: null
+      }));
+
+      return data;
     } catch (error) {
       console.error('Error updating category:', error);
+      setState(prev => ({
+        ...prev,
+        loading: false,
+        error: error instanceof Error ? error.message : 'Failed to update category'
+      }));
       throw error;
     }
   };
@@ -114,31 +203,37 @@ export const useAdmin = () => {
   // 添加分类
   const handleCategoryAdd = async (newCategory: Category) => {
     try {
-      // 确保新分类包含必要的字段
-      const categoryToAdd = {
-        ...newCategory,
-        count: 0, // 初始化count为0
-        id: newCategory.id || Math.random().toString(36).substr(2, 9)
-      };
+      setState(prev => ({ ...prev, loading: true, error: null }));
 
       const response = await fetch('/api/categories', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(categoryToAdd),
+        body: JSON.stringify(newCategory),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to add category');
+        throw new Error(data.details || data.error || 'Failed to add category');
       }
 
-      const added = await response.json();
-      setCategories([...categories, added]);
-      return added;
+      setState(prev => ({
+        ...prev,
+        categories: [...prev.categories, data],
+        loading: false,
+        error: null
+      }));
+
+      return data;
     } catch (error) {
       console.error('Error adding category:', error);
+      setState(prev => ({
+        ...prev,
+        loading: false,
+        error: error instanceof Error ? error.message : 'Failed to add category'
+      }));
       throw error;
     }
   };
@@ -146,15 +241,30 @@ export const useAdmin = () => {
   // 删除分类
   const handleCategoryDelete = async (categoryId: string) => {
     try {
+      setState(prev => ({ ...prev, loading: true, error: null }));
+
       const response = await fetch(`/api/categories/${categoryId}`, {
         method: 'DELETE',
       });
 
-      if (!response.ok) throw new Error('Failed to delete category');
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.details || data.error || 'Failed to delete category');
+      }
 
-      setCategories(categories.filter(cat => cat.id !== categoryId));
+      setState(prev => ({
+        ...prev,
+        categories: prev.categories.filter(cat => cat.id !== categoryId),
+        loading: false,
+        error: null
+      }));
     } catch (error) {
       console.error('Error deleting category:', error);
+      setState(prev => ({
+        ...prev,
+        loading: false,
+        error: error instanceof Error ? error.message : 'Failed to delete category'
+      }));
       throw error;
     }
   };
@@ -164,14 +274,13 @@ export const useAdmin = () => {
   }, []);
 
   return {
-    mods,
-    categories,
-    loading,
+    ...state,
     handleModUpdate,
     handleModAdd,
     handleModDelete,
     handleCategoryUpdate,
     handleCategoryAdd,
     handleCategoryDelete,
+    refreshData: fetchData
   };
 };

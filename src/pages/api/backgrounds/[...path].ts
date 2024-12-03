@@ -157,15 +157,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const metadata = await downloadAndConvertToWebP(url, webpPath);
         
         const backgrounds = loadBackgrounds();
-        const newBackground = {
+        const newBackground: Background = {
           id,
           url: `/backgrounds/${webpFileName}`,
-          active: backgrounds.length === 0,
-          isLocal: true, // 现在我们总是存储为本地文件
-          originalFormat: validation.metadata?.format,
+          filename: webpFileName,
+          size: fs.statSync(webpPath).size,
           width: metadata.width,
           height: metadata.height,
-          size: fs.statSync(webpPath).size,
+          uploaded_at: new Date().toISOString(),
+          mime_type: 'image/webp',
+          active: backgrounds.length === 0,
+          originalFormat: validation.metadata?.format
         };
 
         backgrounds.push(newBackground);
@@ -210,15 +212,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           await safeUnlink(file.filepath);
 
           const backgrounds = loadBackgrounds();
-          const newBackground = {
+          const newBackground: Background = {
             id,
             url: `/backgrounds/${webpFileName}`,
-            active: backgrounds.length === 0,
-            isLocal: true,
-            originalFormat,
+            filename: webpFileName,
+            size: fs.statSync(webpPath).size,
             width: metadata.width,
             height: metadata.height,
-            size: fs.statSync(webpPath).size,
+            uploaded_at: new Date().toISOString(),
+            mime_type: 'image/webp',
+            active: backgrounds.length === 0,
+            originalFormat
           };
 
           backgrounds.push(newBackground);

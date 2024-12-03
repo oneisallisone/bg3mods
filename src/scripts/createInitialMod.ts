@@ -8,17 +8,14 @@ async function createInitialMod() {
     description: 'Essential tool for managing Baldur\'s Gate 3 mods',
     category: 'prerequisites',
     version: '1.0.0',
-    author: {
-      name: 'BG3 Community',
-      url: 'https://github.com/bg3-community'
-    },
+    author_name: 'BG3 Community',
+    author_url: 'https://github.com/bg3-community',
     images: [],
     videos: [],
-    downloadUrl: 'https://github.com/bg3-community/bg3-mod-manager/releases',
-    lastUpdated: new Date().toISOString(),
+    download_url: 'https://github.com/bg3-community/bg3-mod-manager/releases',
+    last_updated: new Date().toISOString(),
     downloads: 0,
     rating: 5,
-    featured: true,
     tags: ['tool', 'essential', 'manager'],
     requirements: [],
     features: [

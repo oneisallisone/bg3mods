@@ -60,7 +60,7 @@ export const getModsByCategory = (category: string | 'all'): Mod[] => {
 
 export const getLatestMods = (limit: number = 6): Mod[] => {
   return [...sampleMods]
-    .sort((a, b) => new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime())
+    .sort((a, b) => new Date(b.last_updated).getTime() - new Date(a.last_updated).getTime())
     .slice(0, limit);
 };
 
@@ -72,10 +72,10 @@ export const getPopularMods = (limit: number = 6): Mod[] => {
 
 export const searchMods = (query: string): Mod[] => {
   const searchTerm = query.toLowerCase();
-  return sampleMods.filter(mod => 
+  return sampleMods.filter(mod =>
     mod.name.toLowerCase().includes(searchTerm) ||
     mod.description.toLowerCase().includes(searchTerm) ||
-    mod.author.name.toLowerCase().includes(searchTerm)
+    mod.author_name.toLowerCase().includes(searchTerm)
   );
 };
 
