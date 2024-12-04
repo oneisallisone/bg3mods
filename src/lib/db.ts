@@ -88,18 +88,44 @@ export async function getAllMods() {
     const db = await getDb();
     console.log('Database connected successfully');
     
+    // 获取所有mods的基本信息
     const mods = await db.all(`
-      SELECT id, name, description, category, last_updated
-      FROM mods
-      ORDER BY last_updated DESC
+      SELECT 
+        m.id, 
+        m.name, 
+        m.description, 
+        m.category, 
+        m.author_name,
+        m.last_updated
+      FROM mods m
+      ORDER BY m.last_updated DESC
     `);
+
+    // 为每个mod获取图片和视频
+    for (const mod of mods) {
+      // 获取图片
+      const images = await db.all(`
+        SELECT url, caption
+        FROM mod_images
+        WHERE mod_id = ?
+      `, [mod.id]);
+      mod.images = images;
+
+      // 获取视频
+      const videos = await db.all(`
+        SELECT url, title, platform
+        FROM mod_videos
+        WHERE mod_id = ?
+      `, [mod.id]);
+      mod.videos = videos;
+    }
     
     console.log(`Found ${mods?.length || 0} mods in database`);
     if (mods?.length > 0) {
       console.log('First mod:', JSON.stringify(mods[0], null, 2));
     }
     
-    return mods || [];
+    return mods;
   } catch (error) {
     console.error('Error in getAllMods:', error);
     return [];
