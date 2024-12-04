@@ -1,11 +1,15 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getAllMods, getDb } from '@/lib/db'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 const LANGUAGES = ['en', 'zh', 'ja', 'ko']
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
+    // Get host from request headers
+    const protocol = req.headers['x-forwarded-proto'] || 'https'
+    const host = req.headers['x-forwarded-host'] || req.headers.host || process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000'
+    const SITE_URL = `${protocol}://${host}`
+
     // Get mods
     const mods = await getAllMods()
     console.log(`Found ${mods.length} mods for sitemap`)
