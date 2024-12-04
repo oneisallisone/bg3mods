@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.2.0",
+  "mods": [
+    {
+      "id": "no-intro",
+      "name": "No Intro",
+      "description": "Removes the intro videos, allowing players to start the game faster.",
+      "category": "ui",
+      "author_name": "Caites",
+      "author_url": "https://www.nexusmods.com/users/2134567",
+      "downloads": 75000,
+      "rating": 4.7,
+      "version": "1.0.0",
+      "last_updated": "2023-11-12",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/680",
+      "requirements": [],
+      "features": [
+        "Skips all intro videos.",
+        "Speeds up game launch times."
+      ],
+      "tags": [
+        "ui",
+        "optimization",
+        "quality of life"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/680/680-1723455781-390672827.png",
+          "caption": "bg3 mods No Intro"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=ab0rdJol6cs",
+          "title": "Skipping the Nautiloid",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "customizers-compendium",
+      "name": "Customizer's Compendium",
+      "description": "Adds new customization options to the character creation screen, such as additional hairstyles and visual features.",
+      "category": "ui",
+      "author_name": "Padme4000",
+      "author_url": "https://www.nexusmods.com/users/454321",
+      "downloads": 92000,
+      "rating": 4.8,
+      "version": "2.1.5",
+      "last_updated": "2023-11-30",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/10",
+      "requirements": [],
+      "features": [
+        "Expands customization options.",
+        "Compatible with other appearance mods."
+      ],
+      "tags": [
+        "ui",
+        "character customization",
+        "appearance"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/3986_1699226194.jpg",
+          "caption": "bg3 mods Customizer's Compendium"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=oEilwGe6mM0",
+          "title": "Baldur's Gate 3 - How The Game Can Be Better, And Mods Do That! Character Creation, Spells + More!",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "pavelks-ui-improvements",
+      "name": "Pavelk's UI Improvements",
+      "description": "A modular mod allowing players to tweak different UI elements, including inventory and sidebar design.",
+      "category": "ui",
+      "author_name": "Pavelk",
+      "author_url": "https://www.nexusmods.com/users/342678",
+      "downloads": 86000,
+      "rating": 4.7,
+      "version": "1.4.0",
+      "last_updated": "2023-11-25",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/776",
+      "requirements": [],
+      "features": [
+        "Customizable inventory layout.",
+        "Enhanced readability and visuals."
+      ],
+      "tags": [
+        "ui",
+        "modular",
+        "optimization"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/4597/4597-1723723229-952485260.png",
+          "caption": "bg3 mods Pavelk's UI Improvements"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=1ZoTxEUZz94",
+          "title": "ESSENTIAL MODS FOR BALDUR'S GATE 3! BEST UI MODS AND MUCH MORE!",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "vivid-landscapes-ui-addon",
+      "name": "Vivid Landscapes UI Addon",
+      "description": "Enhances the visual style of the UI to match the high-definition textures added by the Vivid Landscapes mod.",
+      "category": "ui",
+      "author_name": "Hein84",
+      "author_url": "https://www.nexusmods.com/users/172346",
+      "downloads": 73000,
+      "rating": 4.6,
+      "version": "1.0.2",
+      "last_updated": "2023-10-15",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/6473",
+      "requirements": [
+        {
+          "name": "Vivid Landscapes Core",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/43",
+          "description": "Main mod for environment textures."
+        }
+      ],
+      "features": [
+        "Stylized UI matching high-definition landscapes.",
+        "Supports modular installation."
+      ],
+      "tags": [
+        "ui",
+        "visual enhancement",
+        "optimization"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/6473_1707072376.jpg",
+          "caption": "bg3 mods Vivid Landscapes UI Addon"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=z8YvNBurdYk",
+          "title": "Baldur's Gate 3 ULTIMATE Best Mods You Need to Get NOW! Patch 7 Official and Unofficial MODS",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "enhanced-nude-bodies", 
+      "name": "Enhanced Nude Bodies",
+      "description": "Modifies body proportions for female characters, including buttocks, thighs, and overall body shape.",
+      "category": "appearance",
+      "author_name": "BodyRealistic",
+      "author_url": "https://www.nexusmods.com/users/modauthor",
+      "downloads": 60000,
+      "rating": 4.7,
+      "version": "2.0.0", 
+      "last_updated": "2024-01-20",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/652",
+      "requirements": [
+        {
+          "name": "Script Extender",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+          "description": "A required utility for most mods."
+        }
+      ],
+      "features": [
+        "Realistic body proportions",
+        "Adjustable body shapes", 
+        "Works with multiple races"
+      ],
+      "tags": [
+        "nude",
+        "appearance", 
+        "body"
+      ],
+      "images": [
+        {
+          "url": "https://i.ytimg.com/vi/oEsno8ffkx0/sddefault.jpg",
+          "caption": "bg3 mods Enhanced Nude Bodies Preview"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=oEsno8ffkx0",
+          "title": "Baldur's Gate 3 Full Nudity Character Creation",
+          "platform": "youtube"
+        }
+      ]
+    }
+  ]
+}

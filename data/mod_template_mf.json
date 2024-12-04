@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.2.0",
+  "mods": [
+    {
+      "id": "hide-as-bonus-action",
+      "name": "Hide as a Bonus Action",
+      "description": "Restores the 'Hide' mechanic to a bonus action, making stealth more dynamic and fluid during combat.",
+      "category": "modifiers",
+      "author_name": "ShadowMaster",
+      "author_url": "https://www.nexusmods.com/users/654321",
+      "downloads": 68000,
+      "rating": 4.6,
+      "version": "1.0.5",
+      "last_updated": "2023-11-20",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/561",
+      "requirements": [],
+      "features": [
+        "Reverts Hide to a bonus action.",
+        "Balances stealth mechanics with other abilities."
+      ],
+      "tags": [
+        "stealth",
+        "modifiers",
+        "combat"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/561/561-1691175316-85546364.jpeg",
+          "caption": "bg3 mods Hide as a Bonus Action"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=2fDdeirjE8E",
+          "title": "baldur's gate 3 Hide/stealth is the most op skill",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "varied-ac-dex",
+      "name": "Varied AC and Dex Modifiers",
+      "description": "Introduces mechanics from D&D 3rd Edition, diversifying armor class and dexterity interactions.",
+      "category": "modifiers",
+      "author_name": "Krenich",
+      "author_url": "https://www.nexusmods.com/users/987654",
+      "downloads": 56000,
+      "rating": 4.5,
+      "version": "1.0.0",
+      "last_updated": "2024-01-18",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/6004",
+      "requirements": [],
+      "features": [
+        "Adds mechanics from D&D 3rd Edition.",
+        "Adjusts armor and dexterity interactions."
+      ],
+      "tags": [
+        "armor",
+        "dexterity",
+        "modifiers"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/6004/6004-1705578757-490220031.jpeg",
+          "caption": "bg3 mods Varied AC and Dex Modifiers"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=uRWdLeXUTY8",
+          "title": "Spellcasting Modifier EXPLAINED in Baldur's Gate 3",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "fast-xp",
+      "name": "Fast XP",
+      "description": "Provides accelerated leveling options with double XP modes for early or entire campaigns.",
+      "category": "modifiers",
+      "author_name": "QuickLevelUp",
+      "author_url": "https://www.nexusmods.com/users/456789",
+      "downloads": 67000,
+      "rating": 4.7,
+      "version": "1.0.1",
+      "last_updated": "2023-11-18",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/555",
+      "requirements": [],
+      "features": [
+        "Double XP for early levels or full campaigns.",
+        "Customizable XP scaling options."
+      ],
+      "tags": [
+        "leveling",
+        "modifiers",
+        "gameplay"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/555/555-1691149880-602454093.jpeg",
+          "caption": "bg3 mods Fast XP"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?app=desktop&v=kYkgJkrZnmQ",
+          "title": "How much XP and talking MODS - Baldur's Gate 3",
+          "platform": "youtube"
+        }
+      ]
+    }
+  ]
+}

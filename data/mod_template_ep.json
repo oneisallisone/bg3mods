@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.2.0",
+  "mods": [
+    {
+      "id": "transmog",
+      "name": "Transmog",
+      "description": "Allows you to retain the appearance of any equipment while using the stats of a different piece, providing maximum customization without sacrificing power.",
+      "category": "equipment",
+      "author_name": "LaughingLeader",
+      "author_url": "https://www.nexusmods.com/users/1831398",
+      "downloads": 100000,
+      "rating": 4.8,
+      "version": "1.3.0",
+      "last_updated": "2023-11-15",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/2922",
+      "requirements": [
+        {
+          "name": "Script Extender",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+          "description": "A required utility for most mods."
+        }
+      ],
+      "features": [
+        "Preserves equipment stats with different appearances.",
+        "Works with base and modded equipment."
+      ],
+      "tags": [
+        "customization",
+        "armor",
+        "equipment"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/2922/2922-1696458319-2051243193.png",
+          "caption": "bg3 mods Transmog"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=cXt-o-j42nI",
+          "title": "Baldur's Gate 3 Transmog System - Overview&FAST Install!",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "all-items",
+      "name": "All Items",
+      "description": "Adds a container to your camp that includes all weapons, armor, and equipment from the game for immediate use.",
+      "category": "equipment",
+      "author_name": "Mharius",
+      "author_url": "https://www.nexusmods.com/users/234567",
+      "downloads": 95000,
+      "rating": 4.7,
+      "version": "1.0.0",
+      "last_updated": "2023-11-10",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/856",
+      "requirements": [
+        {
+          "name": "Script Extender",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+          "description": "A required utility for most mods."
+        }
+      ],
+      "features": [
+        "Provides access to all in-game items from the start.",
+        "Great for testing and creative builds."
+      ],
+      "tags": [
+        "items",
+        "equipment",
+        "testing"
+      ],
+      "images": [
+        {
+          "url": "https://img.game8.co/3738544/1539a711791057298a3ff68f94d2828e.png/original",
+          "caption": "bg3 mods All Items"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=dYTDrxhZoAU",
+          "title": "Add All Items Mod - Baldur's Gate 3",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "bags-bags-bags",
+      "name": "Bags Bags Bags",
+      "description": "Adds additional inventory management options with specialized containers for various item types, helping declutter your inventory.",
+      "category": "equipment",
+      "author_name": "InventorSmith",
+      "author_url": "https://www.nexusmods.com/users/987654",
+      "downloads": 87000,
+      "rating": 4.6,
+      "version": "1.2.0",
+      "last_updated": "2023-11-18",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/880",
+      "requirements": [
+        {
+          "name": "Script Extender",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+          "description": "A required utility for most mods."
+        }
+      ],
+      "features": [
+        "Adds categorized bags for inventory items.",
+        "Improves organization and usability."
+      ],
+      "tags": [
+        "inventory",
+        "management",
+        "equipment"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/5422_1704389852.jpg",
+          "caption": "bg3 mods Bags Bags Bags"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=4ZSlTodJysw",
+          "title": "Baldur's Gate 3 Mods Bags Bags Bags BG3 Mod of the Year?",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "gold-zero-weight",
+      "name": "Gold Zero Weight",
+      "description": "Reduces the carry weight of gold to zero, allowing players to focus on adventure without being encumbered by wealth.",
+      "category": "equipment",
+      "author_name": "WealthWizard",
+      "author_url": "https://www.nexusmods.com/users/765432",
+      "downloads": 80000,
+      "rating": 4.8,
+      "version": "1.1.0",
+      "last_updated": "2023-12-01",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/616",
+      "requirements": [
+        {
+          "name": "Baldur's Gate 3 Mod Fixer",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+          "description": "A required utility for most mods."
+        }
+      ],
+      "features": [
+        "Eliminates weight restrictions for gold.",
+        "Enhances inventory management."
+      ],
+      "tags": [
+        "inventory",
+        "gold",
+        "equipment"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/616/616-1691357144-2073999123.jpeg",
+          "caption": "bg3 mods Gold Zero Weight"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=S4UkM3kRA1A",
+          "title": "15 BEST Baldur's Gate 3 PC Mods You Absolutely NEED To Try Out",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "noble-tricksters-garments",
+      "name": "Noble Trickster's Garments",
+      "description": "Adds a stylish armor set with unique stats and customization options, including exclusive dyes.",
+      "category": "equipment",
+      "author_name": "AthurRevan",
+      "author_url": "https://www.nexusmods.com/users/987123",
+      "downloads": 73000,
+      "rating": 4.5,
+      "version": "1.0.5",
+      "last_updated": "2023-10-25",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/734",
+      "requirements": [
+        {
+          "name": "Baldur's Gate 3 Mod Fixer",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+          "description": "You need this for mods to work."
+        },
+        {
+          "name": "Tutorial Chest Summoning",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/457",
+          "description": "Tutorial Chest Summoning"
+        }
+      ],
+      "features": [
+        "Introduces a new armor set with unique bonuses.",
+        "Includes exclusive customization dyes."
+      ],
+      "tags": [
+        "armor",
+        "style",
+        "equipment"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/734/734-1699894073-214407593.jpeg",
+          "caption": "bg3 mods Noble Trickster's Garments"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=RIS0ZYemoZI",
+          "title": "Baldur's Gate 3 - 17 More AMAZING Mods you NEED to try",
+          "platform": "youtube"
+        }
+      ]
+    }
+  ]
+}

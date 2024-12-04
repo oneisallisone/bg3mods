@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.2.0",
+  "mods": [
+    {
+      "id": "dice-set-expansion",
+      "name": "Dice Set Expansion",
+      "description": "Expands the existing dice selection with 14 new standalone skins, offering a variety of colors and designs to enhance the dice-rolling experience.",
+      "category": "dice",
+      "author_name": "Koriik",
+      "author_url": "https://www.nexusmods.com/users/123456",
+      "downloads": 50000,
+      "rating": 4.7,
+      "version": "1.2.0",
+      "last_updated": "2023-11-10",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/802",
+      "requirements": [],
+      "features": [
+        "Adds 14 new dice skins.",
+        "Compatible with future dice sets."
+      ],
+      "tags": [
+        "dice",
+        "customization",
+        "visuals"
+      ],
+      "images": [
+        {
+          "url": "https://cdn.mos.cms.futurecdn.net/bTfmxQyuKFV52iWus9pWhK.jpg",
+          "caption": "bg3 mods Dice Set Expansion"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=p9otigDhOVg",
+          "title": "[BG3] HOW TO GET NEW DICE to spice up your adventure!",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "rewards-dice-emporium",
+      "name": "REWard's Dice Emporium",
+      "description": "Offers a collection of uniquely designed dice, including themes like Sparkle Dice and Lady Pastel, allowing players to personalize their dice-rolling visuals.",
+      "category": "dice",
+      "author_name": "PrimoREWard",
+      "author_url": "https://www.nexusmods.com/users/789012",
+      "downloads": 45000,
+      "rating": 4.6,
+      "version": "1.1.0",
+      "last_updated": "2023-11-15",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/2609",
+      "requirements": [],
+      "features": [
+        "Includes various themed dice sets.",
+        "Regular updates with new designs."
+      ],
+      "tags": [
+        "dice",
+        "themes",
+        "visuals"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/2609_1698388771.jpg",
+          "caption": "bg3 mods REWard's Dice Emporium"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=5qPudADl_t8",
+          "title": "Baldur's Gate 3 - Where's My Digital Deluxe Edition Custom Dice Skin?",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "peculiar-dices-collection",
+      "name": "Peculiar Dices Collection",
+      "description": "A collection of uniquely designed dice with 3D effects, offering a distinctive aesthetic for dice rolls.",
+      "category": "dice",
+      "author_name": "Anec",
+      "author_url": "https://www.nexusmods.com/users/345678",
+      "downloads": 40000,
+      "rating": 4.5,
+      "version": "1.0.0",
+      "last_updated": "2023-11-05",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/1771",
+      "requirements": [],
+      "features": [
+        "Features dice with 3D visual effects.",
+        "Includes both released and unreleased designs."
+      ],
+      "tags": [
+        "dice",
+        "3D effects",
+        "visuals"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/1771_1693589265.jpg",
+          "caption": "bg3 mods Peculiar Dices Collection"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=qa6o6HA8xEA",
+          "title": "Baldur's Gate 3 - Peculiar Dices Installation - dice mod bg3",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "custom-dice",
+      "name": "Custom Dice",
+      "description": "Provides 18 new d20 variants with various colors and designs, allowing players to personalize their dice-rolling experience.",
+      "category": "dice",
+      "author_name": "clintmich",
+      "author_url": "https://www.nexusmods.com/users/567890",
+      "downloads": 55000,
+      "rating": 4.8,
+      "version": "1.2.0",
+      "last_updated": "2023-11-20",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/31",
+      "requirements": [],
+      "features": [
+        "Offers 18 new d20 dice variants.",
+        "Enhances the visual appeal of dice rolls."
+      ],
+      "tags": [
+        "dice",
+        "customization",
+        "visuals"
+      ],
+      "images": [
+        {
+          "url": "https://static1.thegamerimages.com/wordpress/wp-content/uploads/2023/12/baldur-s-gate-3-how-to-change-the-appearance-of-your-dice-featured-image.jpg",
+          "caption": "bg3 mods Custom Dice"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=m16bvANcLm4",
+          "title": "How To Change Custom Dice Skin In Baldur's Gate 3",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "mystral-magic-full-dice-set",
+      "name": "Mystral Magic - Full Dice Set",
+      "description": "A set of 12 recolors of the original Mystral Magic dice skin, themed around the Weave, providing vibrant colors and glowing numbers.",
+      "category": "dice",
+      "author_name": "Moonlilia",
+      "author_url": "https://www.nexusmods.com/users/678901",
+      "downloads": 42000,
+      "rating": 4.6,
+      "version": "1.0.0",
+      "last_updated": "2023-11-12",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/10717",
+      "requirements": [],
+      "features": [
+        "Includes 12 recolored dice skins.",
+        "Themed around the magical Weave."
+      ],
+      "tags": [
+        "dice",
+        "magic",
+        "visuals"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/5422_1704389852.jpg",
+          "caption": "bg3 mods Bags Bags Bags"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=4ZSlTodJysw",
+          "title": "Baldur's Gate 3 Mods Bags Bags Bags BG3 Mod of the Year?",
+          "platform": "youtube"
+        }
+      ]
+    }
+  ]
+}

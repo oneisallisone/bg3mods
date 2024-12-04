@@ -7,6 +7,14 @@ const nextConfig = {
   images: {
     domains: ['your-image-domain.com'], // Add your image domains here
   },
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap.xml',
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

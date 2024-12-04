@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.2.0",
+  "mods": [
+    {
+      "id": "eldritch-knight-plus",
+      "name": "Eldritch Knight Plus",
+      "description": "Rebalances the Eldritch Knight subclass by modifying spell progression, enhancing passives, and ensuring a balanced playstyle without relying heavily on multiclassing.",
+      "category": "balance",
+      "author_name": "Wayden",
+      "author_url": "https://www.nexusmods.com/users/893456",
+      "downloads": 65000,
+      "rating": 4.7,
+      "version": "4.0.0",
+      "last_updated": "2023-11-25",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/11807",
+      "requirements": [],
+      "features": [
+        "Improves spell list and cantrip options.",
+        "Adds new passives like Battlemage Casting and Empowered Cantrips.",
+        "Balances power scaling across all acts."
+      ],
+      "tags": [
+        "subclass",
+        "balance",
+        "combat"
+      ],
+      "images": [
+        {
+          "url": "https://static1.srcdn.com/wordpress/wp-content/uploads/2024/01/eldritch-knights-combine-combat-and-magic-in-baldurs-gate-3.jpg?q=50&fit=crop&w=1140&h=&dpr=1.5",
+          "caption": "bg3 mods Eldritch Knight Plus"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=PhicCh1xw8Q",
+          "title": "BG3 Eldritch Knight Build Guide - Blazing Battlemage",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "artificer-class",
+      "name": "Artificer Class Rebalance",
+      "description": "Introduces the Artificer class with balanced crafting mechanics and spell progression, maintaining harmony within Baldur's Gate 3.",
+      "category": "balance",
+      "author_name": "KiderionLykon",
+      "author_url": "https://www.nexusmods.com/users/278901",
+      "downloads": 60000,
+      "rating": 4.6,
+      "version": "1.0.2",
+      "last_updated": "2023-11-30",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/1779",
+      "requirements": [],
+      "features": [
+        "Adds Artificer class with four subclasses.",
+        "Balances crafting and spellcasting mechanics."
+      ],
+      "tags": [
+        "class",
+        "balance",
+        "crafting"
+      ],
+      "images": [
+        {
+          "url": "https://i.ytimg.com/vi/l9nR_IG_Jrk/maxresdefault.jpg",
+          "caption": "bg3 mods Artificer Class Rebalance"
+        }
+      ],
+      "videos": [
+        {
+          "url": "www.youtube.com/watch?app=desktop&v=l9nR_IG_Jrk",
+          "title": "Baldur's Gate 3: Artificer Class Guide ALL Subclasses | Mod",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "party-limit-rebalance",
+      "name": "Party Limit Rebalance",
+      "description": "Increases the party size limit to six, ensuring a balanced gameplay experience without overpowering the group.",
+      "category": "balance",
+      "author_name": "BalanceMaker",
+      "author_url": "https://www.nexusmods.com/users/347890",
+      "downloads": 50000,
+      "rating": 4.5,
+      "version": "2.0.0",
+      "last_updated": "2023-11-20",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/11939",
+      "requirements": [],
+      "features": [
+        "Increases party size to six for strategic depth.",
+        "Balances encounter difficulty accordingly."
+      ],
+      "tags": [
+        "party",
+        "balance",
+        "gameplay"
+      ],
+      "images": [
+        {
+          "url": "https://i.ytimg.com/vi/aZJsqikBezk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCax4K6Jf-K4YxB1wSAp8GlaLM5Cw",
+          "caption": "bg3 mods Party Limit Rebalance"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=QCa5X2m6dsg",
+          "title": "Baldur's Gate 3 Patch 7 Mod Showcase - Adjustable Party Limit With Wolfheart",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "carry-weight-adjustment",
+      "name": "Carry Weight Adjustment",
+      "description": "Modifies encumbrance mechanics to offer a fairer balance for looting and exploration without breaking game difficulty.",
+      "category": "balance",
+      "author_name": "Mharius",
+      "author_url": "https://www.nexusmods.com/users/324567",
+      "downloads": 58000,
+      "rating": 4.6,
+      "version": "1.3.0",
+      "last_updated": "2023-12-02",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/522",
+      "requirements": [],
+      "features": [
+        "Adjustable carry weight limits.",
+        "Maintains game difficulty balance."
+      ],
+      "tags": [
+        "inventory",
+        "balance",
+        "exploration"
+      ],
+      "images": [
+        {
+          "url": "https://i.ytimg.com/vi/_FncASMbGmk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC7Ari_emIoEVbg27llb07urXJcbw",
+          "caption": "bg3 mods Carry Weight Adjustment"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=_FncASMbGmk",
+          "title": "Baldur's Gate 3 - Carry Weight Increase MOD",
+          "platform": "youtube"
+        }
+      ]
+    }
+  ]
+}

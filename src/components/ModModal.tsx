@@ -28,6 +28,18 @@ export const ModModal: React.FC<ModModalProps> = ({ mod, isOpen, onClose }) => {
     }
   };
 
+  const getYoutubeVideoId = (url: string) => {
+    const regex = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    const match = url.match(regex);
+    return match && match[7].length === 11 ? match[7] : false;
+  };
+
+  const getBilibiliVideoId = (url: string) => {
+    const regex = /^.*((bilibili.com\/video\/)|(b23.tv\/))([^#&?]*).*/;
+    const match = url.match(regex);
+    return match && match[3] ? match[3] : false;
+  };
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
@@ -96,6 +108,50 @@ export const ModModal: React.FC<ModModalProps> = ({ mod, isOpen, onClose }) => {
                         alt={mod.images[0].caption}
                         className="h-full w-full object-cover rounded-lg"
                       />
+                    </div>
+                  )}
+
+                  {/* Videos */}
+                  {mod.videos && mod.videos.length > 0 && (
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        Videos
+                      </h3>
+                      <div className="grid grid-cols-1 gap-4">
+                        {mod.videos.map((video, index) => (
+                          <div key={index} className="relative">
+                            {video.platform === 'youtube' ? (
+                              <iframe
+                                className="w-full aspect-video rounded-lg"
+                                src={`https://www.youtube.com/embed/${getYoutubeVideoId(video.url)}?enablejsapi=0&origin=${window.location.origin}`}
+                                title={video.title || `Video ${index + 1}`}
+                                frameBorder="0"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              />
+                            ) : video.platform === 'bilibili' ? (
+                              <iframe
+                                className="w-full aspect-video rounded-lg"
+                                src={`https://player.bilibili.com/player.html?bvid=${getBilibiliVideoId(video.url)}`}
+                                title={video.title || `Video ${index + 1}`}
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              />
+                            ) : (
+                              <a
+                                href={video.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 dark:text-blue-400 hover:underline"
+                              >
+                                {video.title || video.url}
+                              </a>
+                            )}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   )}
 

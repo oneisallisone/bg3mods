@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.2.0",
+  "mods": [
+    {
+      "id": "mystic-class",
+      "name": "Mystic Class",
+      "description": "Introduces the Mystic class from Unearthed Arcana, featuring psionic talents, disciplines, and subclasses tailored for Baldur's Gate 3.",
+      "category": "class",
+      "author_name": "PsionicDreamer",
+      "author_url": "https://www.nexusmods.com/users/789456",
+      "downloads": 85000,
+      "rating": 4.9,
+      "version": "1.1.1",
+      "last_updated": "2023-11-30",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/2786",
+      "requirements": [],
+      "features": [
+        "Supports progression up to level 20 with psionic disciplines.",
+        "Includes custom icons and tooltips for abilities.",
+        "Extensive versatility for role-playing and combat."
+      ],
+      "tags": [
+        "class",
+        "psionics",
+        "customization"
+      ],
+      "images": [
+        {
+          "url": "https://i.ytimg.com/vi/Wz_r4CqPOXM/maxresdefault.jpg",
+          "caption": "bg3 mods Mystic Class"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=Wz_r4CqPOXM",
+          "title": "Baldurs Gate 3 Mystic Class Guide",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "artificer-class-full",
+      "name": "Artificer Class",
+      "description": "Adds the Artificer class, including all four subclasses with support for crafting and utility-focused gameplay.",
+      "category": "class",
+      "author_name": "KiderionLykon",
+      "author_url": "https://www.nexusmods.com/users/678901",
+      "downloads": 92000,
+      "rating": 4.8,
+      "version": "2.3.1",
+      "last_updated": "2023-11-29",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/1779",
+      "requirements": [],
+      "features": [
+        "Includes Alchemist, Armorer, Artillerist, and Battle Smith subclasses.",
+        "Custom icons and tools for enhanced gameplay."
+      ],
+      "tags": [
+        "class",
+        "crafting",
+        "utility"
+      ],
+      "images": [
+        {
+          "url": "https://i.ytimg.com/vi/ktGHN0YrWt0/maxresdefault.jpg",
+          "caption": "bg3 mods Artificer Class"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=ktGHN0YrWt0",
+          "title": "Baldur's Gate 3: ARTIFICER Class Mod Deep Dive & Guide | Full Features & Installation",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "warlock-overhaul",
+      "name": "Pactbound - A Warlock Overhaul",
+      "description": "Rebalances the Warlock class by enhancing invocations, adding new passives, and diversifying playstyles.",
+      "category": "class",
+      "author_name": "HexbladeMaster",
+      "author_url": "https://www.nexusmods.com/users/456789",
+      "downloads": 78000,
+      "rating": 4.7,
+      "version": "1.2.0",
+      "last_updated": "2023-11-20",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/12618",
+      "requirements": [],
+      "features": [
+        "Enhances Eldritch Invocations for broader utility.",
+        "Adds new pact-specific abilities."
+      ],
+      "tags": [
+        "class",
+        "balance",
+        "warlock"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/12618_1727832361.jpg",
+          "caption": "bg3 mods Pactbound - A Warlock Overhaul"
+        }
+      ],
+      "videos": [
+
+      ]
+    },
+    {
+      "id": "druid-2024",
+      "name": "Druid 2024",
+      "description": "Updates the Druid class to align with the 2024 PHB changes, including Circle of the Sea and other subclasses.",
+      "category": "class",
+      "author_name": "NatureMaster",
+      "author_url": "https://www.nexusmods.com/users/112233",
+      "downloads": 68000,
+      "rating": 4.6,
+      "version": "1.2.0",
+      "last_updated": "2023-11-28",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/13197",
+      "requirements": [],
+      "features": [
+        "Includes custom spells like Moonlight Step.",
+        "Adds subclass-specific progression changes."
+      ],
+      "tags": [
+        "class",
+        "druid",
+        "nature"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/13197/13197-1730304379-1816863449.png",
+          "caption": "bg3 mods Druid 2024"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=tLiT-nk5seM",
+          "title": "Baldur's Gate 3- TOP 10 AMAZING MODS for February 2024 showcase, you NEED to TRY this out! BG3",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "college-of-dance",
+      "name": "College of Dance - Bard Subclass",
+      "description": "Introduces a new Bard subclass, College of Dance, focused on movement and crowd control abilities.",
+      "category": "class",
+      "author_name": "BardicSoul",
+      "author_url": "https://www.nexusmods.com/users/334455",
+      "downloads": 72000,
+      "rating": 4.7,
+      "version": "1.0.1",
+      "last_updated": "2023-11-22",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/12558",
+      "requirements": [],
+      "features": [
+        "Unique abilities for mobility and battlefield control.",
+        "Compatible with other bard-centric mods."
+      ],
+      "tags": [
+        "class",
+        "bard",
+        "subclass"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/12558/12558-1727427424-1918863947.png",
+          "caption": "bg3 mods College of Dance - Bard Subclass"
+        }
+      ],
+      "videos": [
+
+      ]
+    }
+  ]
+}

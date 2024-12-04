@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.2.0",
+  "mods": [
+    {
+      "id": "bg3-mod-manager",
+      "name": "BG3 Mod Manager",
+      "description": "Official mod management tool for BG3",
+      "category": "prerequisites",
+      "author_name": "LaughingLeader",
+      "author_url": "https://github.com/LaughingLeader",
+      "downloads": 1245789,
+      "rating": 4.9,
+      "version": "1.0.12.0",
+      "last_updated": "2024-10-27",
+      "download_url": "https://bg3modmanager.net/download",
+      "requirements": [
+        {
+          "name": ".NET Framework 4.7.2",
+          "url": "https://dotnet.microsoft.com/download/dotnet-framework/4.7.2",
+          "description": "Required framework"
+        },
+        {
+          "name": ".NET 7.0.13",
+          "url": "https://dotnet.microsoft.com/download/dotnet/7.0",
+          "description": "Required framework"
+        }
+      ],
+      "features": [
+        "Facilitates organizing mods, allows for easy importing and exporting of mod load orders, automatic recognition of game files, and improves overall mod management. Users can also enable or disable mods as needed."
+      ],
+      "tags": ["essential", "tool", "management"],
+      "images": [
+        {
+          "url": "https://bg3modmanager.net/wp-content/uploads/2024/02/Screenshot-2024-02-24-163940.png",
+          "caption": "bg3modmanager.net"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=AZ6kci4NJV0",
+          "title": "How to Mod Baldur's Gate 3 Using BG3 Mod Manager",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "script-extender",
+      "name": "Script Extender",
+      "description": "Extends scripting capabilities for BG3",
+      "category": "prerequisites",
+      "author_name": "Norbyte",
+      "author_url": "https://github.com/Norbyte",
+      "downloads": 987654,
+      "rating": 4.8,
+      "version": "1.0.0",
+      "last_updated": "2024-10-20",
+      "download_url": "https://github.com/Norbyte/bg3se/releases",
+      "requirements": [
+        {
+          "name": "BG3 Base Game",
+          "description": "Latest version required"
+        }
+      ],
+      "features": [
+        "Lua support",
+        "Osiris script support",
+        "Extended modding capabilities"
+      ],
+      "tags": ["essential", "script", "tool"],
+      "images": [
+        {
+          "url": "https://i.ytimg.com/vi/MV2j4YrSsWA/maxresdefault.jpg",
+          "caption": " Install Baldur's Gate 3 Script Extender + Console Commands"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=MV2j4YrSsWA",
+          "title": "How to Mod Baldur's Gate 3 Using BG3 Mod Manager",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "improved-ui",
+      "name": "Improved UI",
+      "description": "Enhanced user interface modifications",
+      "category": "ui",
+      "author_name": "DJ",
+      "author_url": "https://nexusmods.com/users/DJ",
+      "downloads": 67800,
+      "rating": 4.0,
+      "version": "2.7.0",
+      "last_updated": "2024-01-01",
+      "download_url": "https://github.com/TheRealDjmr/BG3ImprovedUI/releases/tag/1.5.0.32",
+      "features": [
+        "UI optimization",
+        "Error prevention",
+        "Story compatibility"
+      ],
+      "tags": ["ui", "essential", "interface"],
+      "images": [
+        {
+          "url": "https://i.imgur.com/6Zso95t.png",
+          "caption": "ImprovedUI | Thunderstore - The Baldur's Gate 3 Mod Database"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=ACrua2uOiuA",
+          "title": "Baldur's Gate 3 - Presentation Mode (Improved UI)",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "mod-fixer",
+      "name": "Full Release Mod Fixer",
+      "description": "Fixes compatibility issues for mods",
+      "category": "prerequisites",
+      "author_name": "figs999",
+      "author_url": "https://nexusmods.com/users/figs999",
+      "downloads": 2810,
+      "rating": 4.5,
+      "version": "1.1.0",
+      "last_updated": "2023-09-05",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/141",
+      "features": [
+        "mod compatibility fixes",
+        "version alignment",
+        "error resolution"
+      ],
+      "tags": ["compatibility", "fix", "tool"],
+      "images": [
+        {
+          "url": "https://i.ytimg.com/vi/5IQxk2KD6oU/maxresdefault.jpg",
+          "caption": "How to Install Baldur's Gate 3 MOD FIXER"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=5IQxk2KD6oU",
+          "title": "How to Install Baldur's Gate 3 MOD FIXER",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "achievement-enabler",
+      "name": "Achievement Enabler",
+      "description": "Enables achievements while using mods",
+      "category": "gameplay",
+      "author_name": "dukethedropkicker",
+      "author_url": "https://nexusmods.com/users/dukethedropkicker",
+      "downloads": 156789,
+      "rating": 4.7,
+      "version": "1.0.0",
+      "last_updated": "2024-01-15",
+      "download_url": "https://github.com/gottyduke/BG3_AchievementEnabler",
+      "features": [
+        "achievement support",
+        "mod compatibility",
+        "no restrictions"
+      ],
+      "tags": ["achievement", "gameplay", "utility"],
+      "images": [
+        {
+          "url": "https://opengraph.githubassets.com/2a6452f4c3ee9ab894cff744dc0dcd6887a1f819645dd112d988c5c733941257/gottyduke/BG3_AchievementEnabler",
+          "caption": "BG3_AchievementEnabler"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?app=desktop&v=Dik4Ch4NTOY",
+          "title": "Achievements Mod Enabler Installation Guide",
+          "platform": "youtube"
+        }
+      ]
+    }
+  
+  ]
+}

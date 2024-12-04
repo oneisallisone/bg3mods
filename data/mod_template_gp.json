@@ -1,0 +1,232 @@
+{
+  "schema_version": "1.2.0",
+  "mods": [
+    {
+      "id": "5e-spells",
+      "name": "5e Spells",
+      "description": "Expands the game by adding spells from Dungeons & Dragons 5th Edition, including levels 1-6, and introduces unique effects from Tasha's Cauldron of Everything.",
+      "category": "gameplay",
+      "author_name": "Gamer Bros.",
+      "author_url": "https://www.nexusmods.com/users/123456",
+      "downloads": 210000,
+      "rating": 4.9,
+      "version": "2.2.0",
+      "last_updated": "2023-12-01",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/125",
+      "requirements": [
+        {
+          "name": "BG3 Script Extender",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+          "description": "Required for mod functionality"
+        }
+      ],
+      "features": [
+        "Adds dozens of new spells.",
+        "Balances and improves existing spells.",
+        "Compatible with most mods."
+      ],
+      "tags": [
+        "spells",
+        "magic",
+        "gameplay"
+      ],
+      "images": [
+        {
+          "url": "https://i.ytimg.com/vi/3J-EjLnDSZA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDeyNgIeqiSQnMj2AlshiQMUui8KA",
+          "caption": "bg3 mods 5e spells"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=3J-EjLnDSZA",
+          "title": "5E Spells - Cantrips Showcase! Best Baldur's Gate 3 mods!",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "party-size-begone",
+      "name": "Party Size Begone",
+      "description": "Allows players to expand their party size from 4 to 8 members, enhancing team-based strategies.",
+      "category": "gameplay",
+      "author_name": "NexusDreamer",
+      "author_url": "https://www.nexusmods.com/users/123789",
+      "downloads": 180000,
+      "rating": 4.8,
+      "version": "1.3.0",
+      "last_updated": "2023-11-18",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/327",
+      "requirements": [
+        {
+          "name": "BG3 Mod Manager",
+          "url": "https://github.com/LaughingLeader/BG3ModManager",
+          "description": "Required for mod installation"
+        },
+        {
+          "name": "BG3 Script Extender",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+          "description": "Required for mod functionality"
+        }
+      ],
+      "features": [
+        "Increases party size limit.",
+        "Only functional in single-player mode."
+      ],
+      "tags": [
+        "party",
+        "strategy",
+        "gameplay"
+      ],
+      "images": [
+        {
+          "url": "https://i.ytimg.com/vi/-dXdCT_5FKo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBP186e2nCcSdLQcK6ycGHj5qLK7A",
+          "caption": "bg3 mods party size begone"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=-dXdCT_5FKo",
+          "title": "BG3 Party Limit Begone Legacy MOD (How To)",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "fantastical-multiverse",
+      "name": "Fantastical Multiverse",
+      "description": "Adds a variety of playable races from different universes, enriching character customization and world exploration.",
+      "category": "gameplay",
+      "author_name": "DiverseModder",
+      "author_url": "https://www.nexusmods.com/users/456789",
+      "downloads": 140000,
+      "rating": 4.7,
+      "version": "1.5.2",
+      "last_updated": "2023-11-30",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/215",
+      "requirements": [
+        {
+          "name": "5e Spells",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/125",
+          "description": "Required for additional race abilities"
+        },
+        {
+          "name": "ImprovedUI",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/366",
+          "description": "Required for UI compatibility"
+        },
+        {
+          "name": "Fantastical Core",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/215",
+          "description": "Core module required for all Fantastical mods"
+        }
+      ],
+      "features": [
+        "Introduces races from Etharis, Eorzea, and Krynn.",
+        "Compatible with character appearance mods."
+      ],
+      "tags": [
+        "races",
+        "customization",
+        "gameplay"
+      ],
+      "images": [
+        {
+          "url": "https://i.ytimg.com/vi/onOQMzzQUhU/maxresdefault.jpg",
+          "caption": "bg3 mods fantastical multiverse"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=onOQMzzQUhU",
+          "title": "Fantastical Multiverse (54+ Races) - Baldur's Gate 3 Race Mod",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "lone-wolf",
+      "name": "Lone Wolf",
+      "description": "Optimized for solo adventurers, this mod increases XP rates and raises the level cap to 20, supporting solo gameplay styles.",
+      "category": "gameplay",
+      "author_name": "SoloModder",
+      "author_url": "https://www.nexusmods.com/users/567890",
+      "downloads": 150000,
+      "rating": 4.8,
+      "version": "2.0.0",
+      "last_updated": "2023-12-02",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/815",
+      "requirements": [
+        {
+          "name": "BG3 Script Extender",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+          "description": "Required for mod functionality"
+        }
+      ],
+      "features": [
+        "Boosts XP rates for solo players.",
+        "Raises the level cap to 20."
+      ],
+      "tags": [
+        "solo",
+        "level cap",
+        "gameplay"
+      ],
+      "images": [
+        {
+          "url": "https://assetsio.gnwcdn.com/baldurs-gate-3-lone-wolf-mode-mod.png?width=690&quality=80&format=jpg&auto=webp",
+          "caption": "bg3 mods lone wolf"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?app=desktop&v=N12VfAo6WNk",
+          "title": "Can You Play Baldur's Gate 3 Solo? (Lone Wolf)",
+          "platform": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "trials-of-tav",
+      "name": "Trials of Tav - a roguelike mode",
+      "description": "Transforms the game into a roguelike experience with 38 maps, progressive difficulty, and randomized loot.",
+      "category": "gameplay",
+      "author_name": "AdventureMaker",
+      "author_url": "https://www.nexusmods.com/users/678901",
+      "downloads": 120000,
+      "rating": 4.6,
+      "version": "1.0.1",
+      "last_updated": "2023-11-25",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/9907",
+      "requirements": [
+        {
+          "name": "BG3 Script Extender",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+          "description": "Required for core functionality"
+        }
+      ],
+      "features": [
+        "Features 38 unique roguelike maps.",
+        "Progressive enemy difficulty.",
+        "Randomized loot drops."
+      ],
+      "tags": [
+        "roguelike",
+        "maps",
+        "gameplay"
+      ],
+      "images": [
+        {
+          "url": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/10/trials-of-tav.jpg?q=70&fit=crop&w=1140&h=&dpr=1",
+          "caption": "bg3 mods Trials of Tav - a roguelike mode"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=BttO0z_3CfI",
+          "title": "【Baldur's Gate 3】 Trials of Tav Mod with a Full Party",
+          "platform": "youtube"
+        }
+      ]
+    }
+  ]
+}

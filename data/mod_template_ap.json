@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.2.0",
+  "mods": [
+    {
+      "id": "tavs-hair-salon",
+      "name": "Tav's Hair Salon",
+      "description": "A mod adding a large variety of hairstyles for different body types and races, enhancing customization options.",
+      "category": "appearance",
+      "author_name": "Toarie",
+      "author_url": "https://www.nexusmods.com/users/6367221",
+      "downloads": 125000,
+      "rating": 4.8,
+      "version": "3.1.0",
+      "last_updated": "2023-11-12",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/213",
+      "requirements": [
+        {
+          "name": "Script Extender",
+          "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+          "description": "A required utility for most mods."
+        }
+      ],
+      "features": [
+        "Adds over 50 new hairstyles.",
+        "Supports body types 1 and 2.",
+        "Improved hair physics."
+      ],
+      "tags": [
+        "hair",
+        "customization",
+        "appearance"
+      ],
+      "images": [
+        {
+          "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/213_1650381555.jpg",
+          "caption": "Sample hairstyles from Tav's Hair Salon bg3 mods."
+        }
+      ],
+      "videos": [
+
+      ]
+    },
+    {
+      "id": "orin-hair-variant",
+      "name": "Variant of Orin's Hair",
+      "description": "A mod introducing variations of Orin's iconic hairstyle, including options without accessories.",
+      "category": "appearance",
+      "author_name": "amicanon9",
+      "author_url": "https://www.nexusmods.com/users/7335221",
+      "downloads": 85000,
+      "rating": 4.6,
+      "version": "1.0.0",
+      "last_updated": "2023-10-20",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/1287",
+      "requirements": [],
+      "features": [
+        "Offers multiple variations of Orin's hairstyle.",
+        "Customizable with and without accessories."
+      ],
+      "tags": [
+        "hair",
+        "style",
+        "appearance"
+      ],
+      "images": [        {
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/1287/1287-1692634500-2072295486.jpeg",
+        "caption": "Variant of Orin's Hair bg3 mods"
+      }],
+      "videos": []
+    },
+    {
+      "id": "dyes-unlimited",
+      "name": "Everybody Dyes Unlimited Dyeing",
+      "description": "This mod makes dye usage unlimited, allowing players to customize their armor colors freely.",
+      "category": "appearance",
+      "author_name": "Loktide",
+      "author_url": "https://www.nexusmods.com/users/212342",
+      "downloads": 100000,
+      "rating": 4.7,
+      "version": "2.0.0",
+      "last_updated": "2023-12-01",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/936",
+      "requirements": [],
+      "features": [
+        "Unlimited dye usage for all armor.",
+        "Compatible with other cosmetic mods."
+      ],
+      "tags": [
+        "dyes",
+        "customization",
+        "appearance"
+      ],
+      "images": [        {
+        "url": "https://preview.redd.it/how-can-i-get-more-drake-general-dye-it-looks-insane-v0-7siidzjcorgb1.png?auto=webp&s=ab33c646781c06a76f9d3053aecec53178d5f41f",
+        "caption": "Everybody Dyes Unlimited Dyeing bg3 mods"
+      }],
+      "videos": []
+    },
+    {
+      "id": "shirts-dresses-corsets",
+      "name": "Shirts Dresses Corsets",
+      "description": "A mod that adds a variety of fashionable clothing options for camp wear.",
+      "category": "appearance",
+      "author_name": "Cerberry",
+      "author_url": "https://www.nexusmods.com/users/448893",
+      "downloads": 90000,
+      "rating": 4.5,
+      "version": "1.5.0",
+      "last_updated": "2023-11-15",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/5981",
+      "requirements": [],
+      "features": [
+        "Introduces elegant dresses, shirts, and corsets.",
+        "Allows players to enhance their character's style in camp."
+      ],
+      "tags": [
+        "clothing",
+        "style",
+        "appearance"
+      ],
+      "images": [        {
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/5981/5981-1705507194-1960238929.png",
+        "caption": "Shirts Dresses Corsets bg3 mods"
+      }],
+      "videos": []
+    },
+    {
+      "id": "new-character-presets",
+      "name": "New Character Creation Presets",
+      "description": "A mod adding improved and new face presets to enhance character creation.",
+      "category": "appearance",
+      "author_name": "Toarie",
+      "author_url": "https://www.nexusmods.com/users/6367221",
+      "downloads": 130000,
+      "rating": 4.9,
+      "version": "1.0.1",
+      "last_updated": "2023-10-30",
+      "download_url": "https://www.nexusmods.com/baldursgate3/mods/205",
+      "requirements": [],
+      "features": [
+        "Adds multiple new face presets.",
+        "Compatible with most existing mods."
+      ],
+      "tags": [
+        "face",
+        "character creation",
+        "appearance"
+      ],
+      "images": [        {
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/205/205-1715209290-2043742630.png",
+        "caption": "New Character Creation Presets bg3 mods"
+      }],
+      "videos": []
+    }
+  ]
+}

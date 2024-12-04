@@ -84,19 +84,26 @@ export async function getDb() {
 }
 
 export async function getAllMods() {
-  const db = await getDb();
-  return db.all(`
-    SELECT 
-      m.*,
-      json_group_array(DISTINCT i.url) as images,
-      json_group_array(DISTINCT v.url) as videos,
-      json_group_array(DISTINCT t.name) as tags
-    FROM mods m
-    LEFT JOIN mod_images i ON m.id = i.mod_id
-    LEFT JOIN mod_videos v ON m.id = v.mod_id
-    LEFT JOIN mod_tags t ON m.id = t.mod_id
-    GROUP BY m.id
-  `);
+  try {
+    const db = await getDb();
+    console.log('Database connected successfully');
+    
+    const mods = await db.all(`
+      SELECT id, name, description, category, last_updated
+      FROM mods
+      ORDER BY last_updated DESC
+    `);
+    
+    console.log(`Found ${mods?.length || 0} mods in database`);
+    if (mods?.length > 0) {
+      console.log('First mod:', JSON.stringify(mods[0], null, 2));
+    }
+    
+    return mods || [];
+  } catch (error) {
+    console.error('Error in getAllMods:', error);
+    return [];
+  }
 }
 
 export async function closeDb() {
