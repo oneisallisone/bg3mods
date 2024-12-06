@@ -244,5 +244,82 @@
       "title": "Contact Us",
       "content": "Have questions, suggestions, or want to contribute? Feel free to reach out to us through our GitHub repository or join our community discord server."
     }
+  },
+  "footer": {
+    "about": {
+      "title": "About Us",
+      "description": "BG3 Mods Navigation is your comprehensive guide to Baldur's Gate 3 modifications, helping you discover and manage the best mods to enhance your gaming experience."
+    },
+    "links": {
+      "title": "Quick Links",
+      "home": "Home",
+      "about": "About"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "rights": "All rights reserved."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "Learn how we collect, use, and protect your personal information.",
+    "collection": {
+      "title": "Information Collection",
+      "content": "We collect information that you voluntarily provide when using our services, including but not limited to your email address and usage data."
+    },
+    "use": {
+      "title": "Information Use",
+      "content": "We use your information to provide and improve our services, communicate with you, and ensure a better user experience."
+    },
+    "cookies": {
+      "title": "Cookies and Tracking",
+      "content": "We use cookies and similar tracking technologies to enhance your browsing experience and analyze site usage."
+    },
+    "security": {
+      "title": "Data Security",
+      "content": "We implement appropriate security measures to protect your personal information from unauthorized access or disclosure."
+    },
+    "changes": {
+      "title": "Policy Changes",
+      "content": "We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about this privacy policy, please contact us."
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "description": "Please read these terms carefully before using our services.",
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "content": "By accessing or using our services, you agree to be bound by these terms and conditions. If you disagree with any part of these terms, you may not access the service."
+    },
+    "services": {
+      "title": "Services Description",
+      "content": "We provide a platform for discovering, sharing, and managing Baldur's Gate 3 modifications. Our services are provided 'as is' and we make no warranties about the reliability, availability, or accuracy of the content provided through our platform."
+    },
+    "content": {
+      "title": "User Content",
+      "content": "You are responsible for any content you submit to our platform and must ensure it complies with our guidelines. You retain ownership of your content, but grant us a license to use, modify, and display it in connection with our services."
+    },
+    "intellectual": {
+      "title": "Intellectual Property",
+      "content": "The service and its original content (excluding user-submitted content) are and will remain the exclusive property of BG3 Mods Navigation and its licensors. Our service may contain links to third-party websites or services that are not owned or controlled by us."
+    },
+    "liability": {
+      "title": "Limitation of Liability",
+      "content": "In no event shall BG3 Mods Navigation, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use or inability to use the service."
+    },
+    "modifications": {
+      "title": "Modifications to Terms",
+      "content": "We reserve the right to modify or replace these terms at any time. If a revision is material, we will try to provide at least 30 days' notice prior to any new terms taking effect."
+    },
+    "governing": {
+      "title": "Governing Law",
+      "content": "These terms shall be governed by and construed in accordance with the laws of New Zealand, without regard to its conflict of law provisions."
+    }
   }
 }

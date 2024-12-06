@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Navbar from './Navbar'
+import Footer from './Footer'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -26,11 +27,7 @@ const Layout = ({
         <main className="flex-grow bg-gray-50">
           {children}
         </main>
-        <footer className="bg-gray-800 text-white py-4">
-          <div className="container mx-auto px-4 text-center">
-            <p>© 2024 BG3 Mods Navigation. All rights reserved.</p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   )
