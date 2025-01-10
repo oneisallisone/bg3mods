@@ -1,7 +1,7 @@
-﻿import { promises as fs } from "fs";
+﻿﻿import { promises as fs } from "fs";
 import path from "path";
 import { IFileStore } from "./IFileStore";
-import { FileMetadata, StorageError, StorageOptions, ReadOptions, WriteOptions } from "@/types/storage";
+import { FileMetadata, StorageError, StorageOptions, ReadOptions, WriteOptions } from "../../types/storage";
 
 export class FileStore implements IFileStore {
   private basePath: string;

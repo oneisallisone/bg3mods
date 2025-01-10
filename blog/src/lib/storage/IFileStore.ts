@@ -1,4 +1,4 @@
-﻿import { FileMetadata, ReadOptions, WriteOptions } from "@/types/storage";
+﻿import { FileMetadata, ReadOptions, WriteOptions } from "../../types/storage";
 
 export interface IFileStore {
   /**

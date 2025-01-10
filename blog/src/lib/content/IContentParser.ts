@@ -1,4 +1,4 @@
-﻿import { Post, PostMetadata } from "@/types/content";
+﻿import { Post, PostMetadata } from "../../types/content";
 
 export interface IContentParser {
   /**
