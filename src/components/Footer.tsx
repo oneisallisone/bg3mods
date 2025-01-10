@@ -1,9 +1,10 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
+import backLinks from '../../back-link.json';
 
 export default function Footer() {
-  const { t } = useTranslation('common');
-  const currentYear = new Date().getFullYear();
+  const { t, i18n } = useTranslation('common');
+  const currentLanguage = i18n.language as 'en' | 'zh';
 
   return (
     <footer className="bg-gray-900 text-gray-400">
@@ -32,6 +33,15 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Back Links */}
+          <div>
+            <Link href="/back-links">
+              <button className="text-white text-lg font-bold mb-4 hover:underline">
+                {backLinks.title[currentLanguage]}
+              </button>
+            </Link>
+          </div>
+
           {/* Legal */}
           <div>
             <h3 className="text-white text-lg font-bold mb-4">{t('footer.legal.title')}</h3>
@@ -53,7 +63,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-sm">
-            &copy; {currentYear} BG3 Mods. {t('footer.rights')}
+            &copy; {new Date().getFullYear()} BG3 Mods. {t('footer.rights')}
           </p>
         </div>
       </div>

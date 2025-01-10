@@ -1,0 +1,45 @@
+{
+  "title": {
+    "en": "Useful Links",
+    "zh": "友情链接"
+  },
+  "description": {
+    "en": "This is an example back links content",
+    "zh": "这是一个示例友情链接内容"
+  },
+  "links": [
+    {
+      "name": {
+        "en": "Lady Calculator",
+        "zh": "女性健康计算器"
+      },
+      "description": {
+        "en": "Women's Health Calculator - Your Personal Health Assistant. LadyCalculator.top is an online calculator platform focused on women's health, providing comprehensive calculation tools from physiological health to pregnancy management, helping women better understand and take care of their bodies.",
+        "zh": "女性健康计算器 - 您的个人健康助手。LadyCalculator.top 是一个专注于女性健康的在线计算器平台，提供从生理健康到孕期管理的全面计算工具，帮助女性更好地了解和照顾自己的身体。"
+      },
+      "url": "https://ladycalculator.top/"
+    },
+    {
+      "name": {
+        "en": "Profit Calculator",
+        "zh": "利润计算器"
+      },
+      "description": {
+        "en": "Calculate your potential profits and risks in real-time",
+        "zh": "实时计算您的潜在利润和风险"
+      },
+      "url": "https://profitcalculator.top/"
+    },
+    {
+      "name": {
+        "en": "Appel Game",
+        "zh": "苹果游戏"
+      },
+      "description": {
+        "en": "A challenging platformer game where players navigate through levels, collect apples, and create their own adventures",
+        "zh": "一款具有挑战性的平台游戏，玩家可以闯关、收集苹果并创造自己的冒险"
+      },
+      "url": "https://appel-game.top/"
+    }
+  ]
+}

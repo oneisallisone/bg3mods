@@ -4,6 +4,7 @@ import { appWithTranslation } from 'next-i18next'
 import { ThemeProvider } from 'next-themes'
 import Layout from '@/components/Layout'
 import Head from 'next/head'
+import '@/lib/i18n'
 
 function App({ Component, pageProps }: AppProps) {
   return (
