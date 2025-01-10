@@ -1,6 +1,7 @@
 # BG3 Mods Navigation Website
 (https://bg3mods.com)
 (https://profitcalculator.top)
+(https://ladycalculator.top)
 
 A comprehensive website for discovering and exploring Baldur's Gate 3 modifications, built with Next.js 13, TypeScript, and Tailwind CSS.
 
