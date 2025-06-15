@@ -26,7 +26,7 @@ export default async function handler(
     }
 
     return res.status(200).json({
-      tables: tables.map(t => t.name),
+      tables: tables.map((t: any) => t.name),
       data
     });
   } catch (error) {
