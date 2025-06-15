@@ -153,15 +153,30 @@ export async function getDb() {
     // 返回一个兼容的接口
     return {
       all: async (query: string, ...params: any[]) => {
-        const result = await sql.query(query, params);
+        // 转换SQLite语法为PostgreSQL语法
+        const pgQuery = query.replace(/\?/g, (match, offset) => {
+          const paramIndex = query.substring(0, offset).split('?').length;
+          return `$${paramIndex}`;
+        });
+        const result = await sql.query(pgQuery, params);
         return result.rows;
       },
       get: async (query: string, ...params: any[]) => {
-        const result = await sql.query(query + ' LIMIT 1', params);
+        // 转换SQLite语法为PostgreSQL语法
+        const pgQuery = query.replace(/\?/g, (match, offset) => {
+          const paramIndex = query.substring(0, offset).split('?').length;
+          return `$${paramIndex}`;
+        });
+        const result = await sql.query(pgQuery + ' LIMIT 1', params);
         return result.rows[0] || null;
       },
       run: async (query: string, ...params: any[]) => {
-        await sql.query(query, params);
+        // 转换SQLite语法为PostgreSQL语法  
+        const pgQuery = query.replace(/\?/g, (match, offset) => {
+          const paramIndex = query.substring(0, offset).split('?').length;
+          return `$${paramIndex}`;
+        });
+        await sql.query(pgQuery, params);
       },
       exec: async (query: string) => {
         await sql.query(query);
@@ -169,7 +184,12 @@ export async function getDb() {
       prepare: (query: string) => {
         return {
           run: async (...params: any[]) => {
-            await sql.query(query, params);
+            // 转换SQLite语法为PostgreSQL语法
+            const pgQuery = query.replace(/\?/g, (match, offset) => {
+              const paramIndex = query.substring(0, offset).split('?').length;
+              return `$${paramIndex}`;
+            });
+            await sql.query(pgQuery, params);
           },
           finalize: async () => {
             // PostgreSQL不需要finalize
