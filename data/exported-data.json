@@ -1,0 +1,2453 @@
+{
+  "timestamp": "2025-06-15T12:01:17.787Z",
+  "tables": {
+    "categories": [
+      {
+        "id": "prerequisites",
+        "name": "前置要求",
+        "description": "必需的基础模组和依赖项",
+        "icon": "🔧",
+        "count": 0
+      },
+      {
+        "id": "ui",
+        "name": "界面优化",
+        "description": "改善游戏界面和用户体验的模组",
+        "icon": "🖥️",
+        "count": 0
+      },
+      {
+        "id": "gameplay",
+        "name": "游戏玩法",
+        "description": "修改游戏核心机制、战斗系统、等级进展等内容的模组",
+        "icon": "🎮",
+        "count": 0
+      },
+      {
+        "id": "appearance",
+        "name": "外观定制",
+        "description": "修改角色、装备、环境等视觉外观的模组",
+        "icon": "👤",
+        "count": 1
+      },
+      {
+        "id": "equipment",
+        "name": "装备物品",
+        "description": "添加或修改武器、防具、道具等装备的模组",
+        "icon": "⚔️",
+        "count": 0
+      },
+      {
+        "id": "dice",
+        "name": "骰子系统",
+        "description": "修改游戏骰子机制和概率系统的模组",
+        "icon": "🎲",
+        "count": 0
+      },
+      {
+        "id": "balance",
+        "name": "平衡调整",
+        "description": "调整游戏平衡性、难度和数值的模组",
+        "icon": "⚖️",
+        "count": 0
+      },
+      {
+        "id": "class",
+        "name": "职业扩展",
+        "description": "添加或修改职业、子职业和专长的模组",
+        "icon": "✨",
+        "count": 0
+      },
+      {
+        "id": "modifiers",
+        "name": "属性修改",
+        "description": "修改游戏属性、状态和效果的模组",
+        "icon": "🛠️",
+        "count": 0
+      }
+    ],
+    "mods": [
+      {
+        "id": "tavs-hair-salon",
+        "name": "Tav's Hair Salon",
+        "description": "A mod adding a large variety of hairstyles for different body types and races, enhancing customization options.",
+        "category": "appearance",
+        "author_name": "Toarie",
+        "author_url": "https://www.nexusmods.com/users/6367221",
+        "downloads": 125000,
+        "rating": 4.8,
+        "version": "3.1.0",
+        "last_updated": "2023-11-12",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/213",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "orin-hair-variant",
+        "name": "Variant of Orin's Hair",
+        "description": "A mod introducing variations of Orin's iconic hairstyle, including options without accessories.",
+        "category": "appearance",
+        "author_name": "amicanon9",
+        "author_url": "https://www.nexusmods.com/users/7335221",
+        "downloads": 85000,
+        "rating": 4.6,
+        "version": "1.0.0",
+        "last_updated": "2023-10-20",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/1287",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "dyes-unlimited",
+        "name": "Everybody Dyes Unlimited Dyeing",
+        "description": "This mod makes dye usage unlimited, allowing players to customize their armor colors freely.",
+        "category": "appearance",
+        "author_name": "Loktide",
+        "author_url": "https://www.nexusmods.com/users/212342",
+        "downloads": 100000,
+        "rating": 4.7,
+        "version": "2.0.0",
+        "last_updated": "2023-12-01",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/936",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "shirts-dresses-corsets",
+        "name": "Shirts Dresses Corsets",
+        "description": "A mod that adds a variety of fashionable clothing options for camp wear.",
+        "category": "appearance",
+        "author_name": "Cerberry",
+        "author_url": "https://www.nexusmods.com/users/448893",
+        "downloads": 90000,
+        "rating": 4.5,
+        "version": "1.5.0",
+        "last_updated": "2023-11-15",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/5981",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "new-character-presets",
+        "name": "New Character Creation Presets",
+        "description": "A mod adding improved and new face presets to enhance character creation.",
+        "category": "appearance",
+        "author_name": "Toarie",
+        "author_url": "https://www.nexusmods.com/users/6367221",
+        "downloads": 130000,
+        "rating": 4.9,
+        "version": "1.0.1",
+        "last_updated": "2023-10-30",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/205",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "eldritch-knight-plus",
+        "name": "Eldritch Knight Plus",
+        "description": "Rebalances the Eldritch Knight subclass by modifying spell progression, enhancing passives, and ensuring a balanced playstyle without relying heavily on multiclassing.",
+        "category": "balance",
+        "author_name": "Wayden",
+        "author_url": "https://www.nexusmods.com/users/893456",
+        "downloads": 65000,
+        "rating": 4.7,
+        "version": "4.0.0",
+        "last_updated": "2023-11-25",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/11807",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "artificer-class",
+        "name": "Artificer Class Rebalance",
+        "description": "Introduces the Artificer class with balanced crafting mechanics and spell progression, maintaining harmony within Baldur's Gate 3.",
+        "category": "balance",
+        "author_name": "KiderionLykon",
+        "author_url": "https://www.nexusmods.com/users/278901",
+        "downloads": 60000,
+        "rating": 4.6,
+        "version": "1.0.2",
+        "last_updated": "2023-11-30",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/1779",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "party-limit-rebalance",
+        "name": "Party Limit Rebalance",
+        "description": "Increases the party size limit to six, ensuring a balanced gameplay experience without overpowering the group.",
+        "category": "balance",
+        "author_name": "BalanceMaker",
+        "author_url": "https://www.nexusmods.com/users/347890",
+        "downloads": 50000,
+        "rating": 4.5,
+        "version": "2.0.0",
+        "last_updated": "2023-11-20",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/11939",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "carry-weight-adjustment",
+        "name": "Carry Weight Adjustment",
+        "description": "Modifies encumbrance mechanics to offer a fairer balance for looting and exploration without breaking game difficulty.",
+        "category": "balance",
+        "author_name": "Mharius",
+        "author_url": "https://www.nexusmods.com/users/324567",
+        "downloads": 58000,
+        "rating": 4.6,
+        "version": "1.3.0",
+        "last_updated": "2023-12-02",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/522",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "mystic-class",
+        "name": "Mystic Class",
+        "description": "Introduces the Mystic class from Unearthed Arcana, featuring psionic talents, disciplines, and subclasses tailored for Baldur's Gate 3.",
+        "category": "class",
+        "author_name": "PsionicDreamer",
+        "author_url": "https://www.nexusmods.com/users/789456",
+        "downloads": 85000,
+        "rating": 4.9,
+        "version": "1.1.1",
+        "last_updated": "2023-11-30",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/2786",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "artificer-class-full",
+        "name": "Artificer Class",
+        "description": "Adds the Artificer class, including all four subclasses with support for crafting and utility-focused gameplay.",
+        "category": "class",
+        "author_name": "KiderionLykon",
+        "author_url": "https://www.nexusmods.com/users/678901",
+        "downloads": 92000,
+        "rating": 4.8,
+        "version": "2.3.1",
+        "last_updated": "2023-11-29",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/1779",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "warlock-overhaul",
+        "name": "Pactbound - A Warlock Overhaul",
+        "description": "Rebalances the Warlock class by enhancing invocations, adding new passives, and diversifying playstyles.",
+        "category": "class",
+        "author_name": "HexbladeMaster",
+        "author_url": "https://www.nexusmods.com/users/456789",
+        "downloads": 78000,
+        "rating": 4.7,
+        "version": "1.2.0",
+        "last_updated": "2023-11-20",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/12618",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "druid-2024",
+        "name": "Druid 2024",
+        "description": "Updates the Druid class to align with the 2024 PHB changes, including Circle of the Sea and other subclasses.",
+        "category": "class",
+        "author_name": "NatureMaster",
+        "author_url": "https://www.nexusmods.com/users/112233",
+        "downloads": 68000,
+        "rating": 4.6,
+        "version": "1.2.0",
+        "last_updated": "2023-11-28",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/13197",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "college-of-dance",
+        "name": "College of Dance - Bard Subclass",
+        "description": "Introduces a new Bard subclass, College of Dance, focused on movement and crowd control abilities.",
+        "category": "class",
+        "author_name": "BardicSoul",
+        "author_url": "https://www.nexusmods.com/users/334455",
+        "downloads": 72000,
+        "rating": 4.7,
+        "version": "1.0.1",
+        "last_updated": "2023-11-22",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/12558",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "dice-set-expansion",
+        "name": "Dice Set Expansion",
+        "description": "Expands the existing dice selection with 14 new standalone skins, offering a variety of colors and designs to enhance the dice-rolling experience.",
+        "category": "dice",
+        "author_name": "Koriik",
+        "author_url": "https://www.nexusmods.com/users/123456",
+        "downloads": 50000,
+        "rating": 4.7,
+        "version": "1.2.0",
+        "last_updated": "2023-11-10",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/802",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "rewards-dice-emporium",
+        "name": "REWard's Dice Emporium",
+        "description": "Offers a collection of uniquely designed dice, including themes like Sparkle Dice and Lady Pastel, allowing players to personalize their dice-rolling visuals.",
+        "category": "dice",
+        "author_name": "PrimoREWard",
+        "author_url": "https://www.nexusmods.com/users/789012",
+        "downloads": 45000,
+        "rating": 4.6,
+        "version": "1.1.0",
+        "last_updated": "2023-11-15",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/2609",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "peculiar-dices-collection",
+        "name": "Peculiar Dices Collection",
+        "description": "A collection of uniquely designed dice with 3D effects, offering a distinctive aesthetic for dice rolls.",
+        "category": "dice",
+        "author_name": "Anec",
+        "author_url": "https://www.nexusmods.com/users/345678",
+        "downloads": 40000,
+        "rating": 4.5,
+        "version": "1.0.0",
+        "last_updated": "2023-11-05",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/1771",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "custom-dice",
+        "name": "Custom Dice",
+        "description": "Provides 18 new d20 variants with various colors and designs, allowing players to personalize their dice-rolling experience.",
+        "category": "dice",
+        "author_name": "clintmich",
+        "author_url": "https://www.nexusmods.com/users/567890",
+        "downloads": 55000,
+        "rating": 4.8,
+        "version": "1.2.0",
+        "last_updated": "2023-11-20",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/31",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "mystral-magic-full-dice-set",
+        "name": "Mystral Magic - Full Dice Set",
+        "description": "A set of 12 recolors of the original Mystral Magic dice skin, themed around the Weave, providing vibrant colors and glowing numbers.",
+        "category": "dice",
+        "author_name": "Moonlilia",
+        "author_url": "https://www.nexusmods.com/users/678901",
+        "downloads": 42000,
+        "rating": 4.6,
+        "version": "1.0.0",
+        "last_updated": "2023-11-12",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/10717",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "transmog",
+        "name": "Transmog",
+        "description": "Allows you to retain the appearance of any equipment while using the stats of a different piece, providing maximum customization without sacrificing power.",
+        "category": "equipment",
+        "author_name": "LaughingLeader",
+        "author_url": "https://www.nexusmods.com/users/1831398",
+        "downloads": 100000,
+        "rating": 4.8,
+        "version": "1.3.0",
+        "last_updated": "2023-11-15",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/2922",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "all-items",
+        "name": "All Items",
+        "description": "Adds a container to your camp that includes all weapons, armor, and equipment from the game for immediate use.",
+        "category": "equipment",
+        "author_name": "Mharius",
+        "author_url": "https://www.nexusmods.com/users/234567",
+        "downloads": 95000,
+        "rating": 4.7,
+        "version": "1.0.0",
+        "last_updated": "2023-11-10",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/856",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "bags-bags-bags",
+        "name": "Bags Bags Bags",
+        "description": "Adds additional inventory management options with specialized containers for various item types, helping declutter your inventory.",
+        "category": "equipment",
+        "author_name": "InventorSmith",
+        "author_url": "https://www.nexusmods.com/users/987654",
+        "downloads": 87000,
+        "rating": 4.6,
+        "version": "1.2.0",
+        "last_updated": "2023-11-18",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/880",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "gold-zero-weight",
+        "name": "Gold Zero Weight",
+        "description": "Reduces the carry weight of gold to zero, allowing players to focus on adventure without being encumbered by wealth.",
+        "category": "equipment",
+        "author_name": "WealthWizard",
+        "author_url": "https://www.nexusmods.com/users/765432",
+        "downloads": 80000,
+        "rating": 4.8,
+        "version": "1.1.0",
+        "last_updated": "2023-12-01",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/616",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "noble-tricksters-garments",
+        "name": "Noble Trickster's Garments",
+        "description": "Adds a stylish armor set with unique stats and customization options, including exclusive dyes.",
+        "category": "equipment",
+        "author_name": "AthurRevan",
+        "author_url": "https://www.nexusmods.com/users/987123",
+        "downloads": 73000,
+        "rating": 4.5,
+        "version": "1.0.5",
+        "last_updated": "2023-10-25",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/734",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "5e-spells",
+        "name": "5e Spells",
+        "description": "Expands the game by adding spells from Dungeons & Dragons 5th Edition, including levels 1-6, and introduces unique effects from Tasha's Cauldron of Everything.",
+        "category": "gameplay",
+        "author_name": "Gamer Bros.",
+        "author_url": "https://www.nexusmods.com/users/123456",
+        "downloads": 210000,
+        "rating": 4.9,
+        "version": "2.2.0",
+        "last_updated": "2023-12-01",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/125",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "party-size-begone",
+        "name": "Party Size Begone",
+        "description": "Allows players to expand their party size from 4 to 8 members, enhancing team-based strategies.",
+        "category": "gameplay",
+        "author_name": "NexusDreamer",
+        "author_url": "https://www.nexusmods.com/users/123789",
+        "downloads": 180000,
+        "rating": 4.8,
+        "version": "1.3.0",
+        "last_updated": "2023-11-18",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/327",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "fantastical-multiverse",
+        "name": "Fantastical Multiverse",
+        "description": "Adds a variety of playable races from different universes, enriching character customization and world exploration.",
+        "category": "gameplay",
+        "author_name": "DiverseModder",
+        "author_url": "https://www.nexusmods.com/users/456789",
+        "downloads": 140000,
+        "rating": 4.7,
+        "version": "1.5.2",
+        "last_updated": "2023-11-30",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/215",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "lone-wolf",
+        "name": "Lone Wolf",
+        "description": "Optimized for solo adventurers, this mod increases XP rates and raises the level cap to 20, supporting solo gameplay styles.",
+        "category": "gameplay",
+        "author_name": "SoloModder",
+        "author_url": "https://www.nexusmods.com/users/567890",
+        "downloads": 150000,
+        "rating": 4.8,
+        "version": "2.0.0",
+        "last_updated": "2023-12-02",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/815",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "trials-of-tav",
+        "name": "Trials of Tav - a roguelike mode",
+        "description": "Transforms the game into a roguelike experience with 38 maps, progressive difficulty, and randomized loot.",
+        "category": "gameplay",
+        "author_name": "AdventureMaker",
+        "author_url": "https://www.nexusmods.com/users/678901",
+        "downloads": 120000,
+        "rating": 4.6,
+        "version": "1.0.1",
+        "last_updated": "2023-11-25",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/9907",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "hide-as-bonus-action",
+        "name": "Hide as a Bonus Action",
+        "description": "Restores the 'Hide' mechanic to a bonus action, making stealth more dynamic and fluid during combat.",
+        "category": "modifiers",
+        "author_name": "ShadowMaster",
+        "author_url": "https://www.nexusmods.com/users/654321",
+        "downloads": 68000,
+        "rating": 4.6,
+        "version": "1.0.5",
+        "last_updated": "2023-11-20",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/561",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "varied-ac-dex",
+        "name": "Varied AC and Dex Modifiers",
+        "description": "Introduces mechanics from D&D 3rd Edition, diversifying armor class and dexterity interactions.",
+        "category": "modifiers",
+        "author_name": "Krenich",
+        "author_url": "https://www.nexusmods.com/users/987654",
+        "downloads": 56000,
+        "rating": 4.5,
+        "version": "1.0.0",
+        "last_updated": "2024-01-18",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/6004",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "fast-xp",
+        "name": "Fast XP",
+        "description": "Provides accelerated leveling options with double XP modes for early or entire campaigns.",
+        "category": "modifiers",
+        "author_name": "QuickLevelUp",
+        "author_url": "https://www.nexusmods.com/users/456789",
+        "downloads": 67000,
+        "rating": 4.7,
+        "version": "1.0.1",
+        "last_updated": "2023-11-18",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/555",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "bg3-mod-manager",
+        "name": "BG3 Mod Manager",
+        "description": "Official mod management tool for BG3",
+        "category": "prerequisites",
+        "author_name": "LaughingLeader",
+        "author_url": "https://github.com/LaughingLeader",
+        "downloads": 1245789,
+        "rating": 4.9,
+        "version": "1.0.12.0",
+        "last_updated": "2024-10-27",
+        "download_url": "https://bg3modmanager.net/download",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "script-extender",
+        "name": "Script Extender",
+        "description": "Extends scripting capabilities for BG3",
+        "category": "prerequisites",
+        "author_name": "Norbyte",
+        "author_url": "https://github.com/Norbyte",
+        "downloads": 987654,
+        "rating": 4.8,
+        "version": "1.0.0",
+        "last_updated": "2024-10-20",
+        "download_url": "https://github.com/Norbyte/bg3se/releases",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "improved-ui",
+        "name": "Improved UI",
+        "description": "Enhanced user interface modifications",
+        "category": "ui",
+        "author_name": "DJ",
+        "author_url": "https://nexusmods.com/users/DJ",
+        "downloads": 67800,
+        "rating": 4,
+        "version": "2.7.0",
+        "last_updated": "2024-01-01",
+        "download_url": "https://github.com/TheRealDjmr/BG3ImprovedUI/releases/tag/1.5.0.32",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "mod-fixer",
+        "name": "Full Release Mod Fixer",
+        "description": "Fixes compatibility issues for mods",
+        "category": "prerequisites",
+        "author_name": "figs999",
+        "author_url": "https://nexusmods.com/users/figs999",
+        "downloads": 2810,
+        "rating": 4.5,
+        "version": "1.1.0",
+        "last_updated": "2023-09-05",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/141",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "achievement-enabler",
+        "name": "Achievement Enabler",
+        "description": "Enables achievements while using mods",
+        "category": "gameplay",
+        "author_name": "dukethedropkicker",
+        "author_url": "https://nexusmods.com/users/dukethedropkicker",
+        "downloads": 156789,
+        "rating": 4.7,
+        "version": "1.0.0",
+        "last_updated": "2024-01-15",
+        "download_url": "https://github.com/gottyduke/BG3_AchievementEnabler",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "no-intro",
+        "name": "No Intro",
+        "description": "Removes the intro videos, allowing players to start the game faster.",
+        "category": "ui",
+        "author_name": "Caites",
+        "author_url": "https://www.nexusmods.com/users/2134567",
+        "downloads": 75000,
+        "rating": 4.7,
+        "version": "1.0.0",
+        "last_updated": "2023-11-12",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/680",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "customizers-compendium",
+        "name": "Customizer's Compendium",
+        "description": "Adds new customization options to the character creation screen, such as additional hairstyles and visual features.",
+        "category": "ui",
+        "author_name": "Padme4000",
+        "author_url": "https://www.nexusmods.com/users/454321",
+        "downloads": 92000,
+        "rating": 4.8,
+        "version": "2.1.5",
+        "last_updated": "2023-11-30",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/10",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "pavelks-ui-improvements",
+        "name": "Pavelk's UI Improvements",
+        "description": "A modular mod allowing players to tweak different UI elements, including inventory and sidebar design.",
+        "category": "ui",
+        "author_name": "Pavelk",
+        "author_url": "https://www.nexusmods.com/users/342678",
+        "downloads": 86000,
+        "rating": 4.7,
+        "version": "1.4.0",
+        "last_updated": "2023-11-25",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/776",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "vivid-landscapes-ui-addon",
+        "name": "Vivid Landscapes UI Addon",
+        "description": "Enhances the visual style of the UI to match the high-definition textures added by the Vivid Landscapes mod.",
+        "category": "ui",
+        "author_name": "Hein84",
+        "author_url": "https://www.nexusmods.com/users/172346",
+        "downloads": 73000,
+        "rating": 4.6,
+        "version": "1.0.2",
+        "last_updated": "2023-10-15",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/6473",
+        "install_guide": null,
+        "featured": 0
+      },
+      {
+        "id": "enhanced-nude-bodies",
+        "name": "Enhanced Nude Bodies",
+        "description": "Modifies body proportions for female characters, including buttocks, thighs, and overall body shape.",
+        "category": "appearance",
+        "author_name": "BodyRealistic",
+        "author_url": "https://www.nexusmods.com/users/modauthor",
+        "downloads": 60000,
+        "rating": 4.7,
+        "version": "2.0.0",
+        "last_updated": "2024-01-20",
+        "download_url": "https://www.nexusmods.com/baldursgate3/mods/652",
+        "install_guide": null,
+        "featured": 0
+      }
+    ],
+    "mod_features": [
+      {
+        "id": 263,
+        "mod_id": "tavs-hair-salon",
+        "feature": "Adds over 50 new hairstyles."
+      },
+      {
+        "id": 264,
+        "mod_id": "tavs-hair-salon",
+        "feature": "Supports body types 1 and 2."
+      },
+      {
+        "id": 265,
+        "mod_id": "tavs-hair-salon",
+        "feature": "Improved hair physics."
+      },
+      {
+        "id": 266,
+        "mod_id": "orin-hair-variant",
+        "feature": "Offers multiple variations of Orin's hairstyle."
+      },
+      {
+        "id": 267,
+        "mod_id": "orin-hair-variant",
+        "feature": "Customizable with and without accessories."
+      },
+      {
+        "id": 268,
+        "mod_id": "dyes-unlimited",
+        "feature": "Unlimited dye usage for all armor."
+      },
+      {
+        "id": 269,
+        "mod_id": "dyes-unlimited",
+        "feature": "Compatible with other cosmetic mods."
+      },
+      {
+        "id": 270,
+        "mod_id": "shirts-dresses-corsets",
+        "feature": "Introduces elegant dresses, shirts, and corsets."
+      },
+      {
+        "id": 271,
+        "mod_id": "shirts-dresses-corsets",
+        "feature": "Allows players to enhance their character's style in camp."
+      },
+      {
+        "id": 272,
+        "mod_id": "new-character-presets",
+        "feature": "Adds multiple new face presets."
+      },
+      {
+        "id": 273,
+        "mod_id": "new-character-presets",
+        "feature": "Compatible with most existing mods."
+      },
+      {
+        "id": 274,
+        "mod_id": "eldritch-knight-plus",
+        "feature": "Improves spell list and cantrip options."
+      },
+      {
+        "id": 275,
+        "mod_id": "eldritch-knight-plus",
+        "feature": "Adds new passives like Battlemage Casting and Empowered Cantrips."
+      },
+      {
+        "id": 276,
+        "mod_id": "eldritch-knight-plus",
+        "feature": "Balances power scaling across all acts."
+      },
+      {
+        "id": 277,
+        "mod_id": "artificer-class",
+        "feature": "Adds Artificer class with four subclasses."
+      },
+      {
+        "id": 278,
+        "mod_id": "artificer-class",
+        "feature": "Balances crafting and spellcasting mechanics."
+      },
+      {
+        "id": 279,
+        "mod_id": "party-limit-rebalance",
+        "feature": "Increases party size to six for strategic depth."
+      },
+      {
+        "id": 280,
+        "mod_id": "party-limit-rebalance",
+        "feature": "Balances encounter difficulty accordingly."
+      },
+      {
+        "id": 281,
+        "mod_id": "carry-weight-adjustment",
+        "feature": "Adjustable carry weight limits."
+      },
+      {
+        "id": 282,
+        "mod_id": "carry-weight-adjustment",
+        "feature": "Maintains game difficulty balance."
+      },
+      {
+        "id": 283,
+        "mod_id": "mystic-class",
+        "feature": "Supports progression up to level 20 with psionic disciplines."
+      },
+      {
+        "id": 284,
+        "mod_id": "mystic-class",
+        "feature": "Includes custom icons and tooltips for abilities."
+      },
+      {
+        "id": 285,
+        "mod_id": "mystic-class",
+        "feature": "Extensive versatility for role-playing and combat."
+      },
+      {
+        "id": 286,
+        "mod_id": "artificer-class-full",
+        "feature": "Includes Alchemist, Armorer, Artillerist, and Battle Smith subclasses."
+      },
+      {
+        "id": 287,
+        "mod_id": "artificer-class-full",
+        "feature": "Custom icons and tools for enhanced gameplay."
+      },
+      {
+        "id": 288,
+        "mod_id": "warlock-overhaul",
+        "feature": "Enhances Eldritch Invocations for broader utility."
+      },
+      {
+        "id": 289,
+        "mod_id": "warlock-overhaul",
+        "feature": "Adds new pact-specific abilities."
+      },
+      {
+        "id": 290,
+        "mod_id": "druid-2024",
+        "feature": "Includes custom spells like Moonlight Step."
+      },
+      {
+        "id": 291,
+        "mod_id": "druid-2024",
+        "feature": "Adds subclass-specific progression changes."
+      },
+      {
+        "id": 292,
+        "mod_id": "college-of-dance",
+        "feature": "Unique abilities for mobility and battlefield control."
+      },
+      {
+        "id": 293,
+        "mod_id": "college-of-dance",
+        "feature": "Compatible with other bard-centric mods."
+      },
+      {
+        "id": 294,
+        "mod_id": "dice-set-expansion",
+        "feature": "Adds 14 new dice skins."
+      },
+      {
+        "id": 295,
+        "mod_id": "dice-set-expansion",
+        "feature": "Compatible with future dice sets."
+      },
+      {
+        "id": 296,
+        "mod_id": "rewards-dice-emporium",
+        "feature": "Includes various themed dice sets."
+      },
+      {
+        "id": 297,
+        "mod_id": "rewards-dice-emporium",
+        "feature": "Regular updates with new designs."
+      },
+      {
+        "id": 298,
+        "mod_id": "peculiar-dices-collection",
+        "feature": "Features dice with 3D visual effects."
+      },
+      {
+        "id": 299,
+        "mod_id": "peculiar-dices-collection",
+        "feature": "Includes both released and unreleased designs."
+      },
+      {
+        "id": 300,
+        "mod_id": "custom-dice",
+        "feature": "Offers 18 new d20 dice variants."
+      },
+      {
+        "id": 301,
+        "mod_id": "custom-dice",
+        "feature": "Enhances the visual appeal of dice rolls."
+      },
+      {
+        "id": 302,
+        "mod_id": "mystral-magic-full-dice-set",
+        "feature": "Includes 12 recolored dice skins."
+      },
+      {
+        "id": 303,
+        "mod_id": "mystral-magic-full-dice-set",
+        "feature": "Themed around the magical Weave."
+      },
+      {
+        "id": 304,
+        "mod_id": "transmog",
+        "feature": "Preserves equipment stats with different appearances."
+      },
+      {
+        "id": 305,
+        "mod_id": "transmog",
+        "feature": "Works with base and modded equipment."
+      },
+      {
+        "id": 306,
+        "mod_id": "all-items",
+        "feature": "Provides access to all in-game items from the start."
+      },
+      {
+        "id": 307,
+        "mod_id": "all-items",
+        "feature": "Great for testing and creative builds."
+      },
+      {
+        "id": 308,
+        "mod_id": "bags-bags-bags",
+        "feature": "Adds categorized bags for inventory items."
+      },
+      {
+        "id": 309,
+        "mod_id": "bags-bags-bags",
+        "feature": "Improves organization and usability."
+      },
+      {
+        "id": 310,
+        "mod_id": "gold-zero-weight",
+        "feature": "Eliminates weight restrictions for gold."
+      },
+      {
+        "id": 311,
+        "mod_id": "gold-zero-weight",
+        "feature": "Enhances inventory management."
+      },
+      {
+        "id": 312,
+        "mod_id": "noble-tricksters-garments",
+        "feature": "Introduces a new armor set with unique bonuses."
+      },
+      {
+        "id": 313,
+        "mod_id": "noble-tricksters-garments",
+        "feature": "Includes exclusive customization dyes."
+      },
+      {
+        "id": 314,
+        "mod_id": "5e-spells",
+        "feature": "Adds dozens of new spells."
+      },
+      {
+        "id": 315,
+        "mod_id": "5e-spells",
+        "feature": "Balances and improves existing spells."
+      },
+      {
+        "id": 316,
+        "mod_id": "5e-spells",
+        "feature": "Compatible with most mods."
+      },
+      {
+        "id": 317,
+        "mod_id": "party-size-begone",
+        "feature": "Increases party size limit."
+      },
+      {
+        "id": 318,
+        "mod_id": "party-size-begone",
+        "feature": "Only functional in single-player mode."
+      },
+      {
+        "id": 319,
+        "mod_id": "fantastical-multiverse",
+        "feature": "Introduces races from Etharis, Eorzea, and Krynn."
+      },
+      {
+        "id": 320,
+        "mod_id": "fantastical-multiverse",
+        "feature": "Compatible with character appearance mods."
+      },
+      {
+        "id": 321,
+        "mod_id": "lone-wolf",
+        "feature": "Boosts XP rates for solo players."
+      },
+      {
+        "id": 322,
+        "mod_id": "lone-wolf",
+        "feature": "Raises the level cap to 20."
+      },
+      {
+        "id": 323,
+        "mod_id": "trials-of-tav",
+        "feature": "Features 38 unique roguelike maps."
+      },
+      {
+        "id": 324,
+        "mod_id": "trials-of-tav",
+        "feature": "Progressive enemy difficulty."
+      },
+      {
+        "id": 325,
+        "mod_id": "trials-of-tav",
+        "feature": "Randomized loot drops."
+      },
+      {
+        "id": 326,
+        "mod_id": "hide-as-bonus-action",
+        "feature": "Reverts Hide to a bonus action."
+      },
+      {
+        "id": 327,
+        "mod_id": "hide-as-bonus-action",
+        "feature": "Balances stealth mechanics with other abilities."
+      },
+      {
+        "id": 328,
+        "mod_id": "varied-ac-dex",
+        "feature": "Adds mechanics from D&D 3rd Edition."
+      },
+      {
+        "id": 329,
+        "mod_id": "varied-ac-dex",
+        "feature": "Adjusts armor and dexterity interactions."
+      },
+      {
+        "id": 330,
+        "mod_id": "fast-xp",
+        "feature": "Double XP for early levels or full campaigns."
+      },
+      {
+        "id": 331,
+        "mod_id": "fast-xp",
+        "feature": "Customizable XP scaling options."
+      },
+      {
+        "id": 332,
+        "mod_id": "bg3-mod-manager",
+        "feature": "Facilitates organizing mods, allows for easy importing and exporting of mod load orders, automatic recognition of game files, and improves overall mod management. Users can also enable or disable mods as needed."
+      },
+      {
+        "id": 333,
+        "mod_id": "script-extender",
+        "feature": "Lua support"
+      },
+      {
+        "id": 334,
+        "mod_id": "script-extender",
+        "feature": "Osiris script support"
+      },
+      {
+        "id": 335,
+        "mod_id": "script-extender",
+        "feature": "Extended modding capabilities"
+      },
+      {
+        "id": 336,
+        "mod_id": "improved-ui",
+        "feature": "UI optimization"
+      },
+      {
+        "id": 337,
+        "mod_id": "improved-ui",
+        "feature": "Error prevention"
+      },
+      {
+        "id": 338,
+        "mod_id": "improved-ui",
+        "feature": "Story compatibility"
+      },
+      {
+        "id": 339,
+        "mod_id": "mod-fixer",
+        "feature": "mod compatibility fixes"
+      },
+      {
+        "id": 340,
+        "mod_id": "mod-fixer",
+        "feature": "version alignment"
+      },
+      {
+        "id": 341,
+        "mod_id": "mod-fixer",
+        "feature": "error resolution"
+      },
+      {
+        "id": 342,
+        "mod_id": "achievement-enabler",
+        "feature": "achievement support"
+      },
+      {
+        "id": 343,
+        "mod_id": "achievement-enabler",
+        "feature": "mod compatibility"
+      },
+      {
+        "id": 344,
+        "mod_id": "achievement-enabler",
+        "feature": "no restrictions"
+      },
+      {
+        "id": 345,
+        "mod_id": "no-intro",
+        "feature": "Skips all intro videos."
+      },
+      {
+        "id": 346,
+        "mod_id": "no-intro",
+        "feature": "Speeds up game launch times."
+      },
+      {
+        "id": 347,
+        "mod_id": "customizers-compendium",
+        "feature": "Expands customization options."
+      },
+      {
+        "id": 348,
+        "mod_id": "customizers-compendium",
+        "feature": "Compatible with other appearance mods."
+      },
+      {
+        "id": 349,
+        "mod_id": "pavelks-ui-improvements",
+        "feature": "Customizable inventory layout."
+      },
+      {
+        "id": 350,
+        "mod_id": "pavelks-ui-improvements",
+        "feature": "Enhanced readability and visuals."
+      },
+      {
+        "id": 351,
+        "mod_id": "vivid-landscapes-ui-addon",
+        "feature": "Stylized UI matching high-definition landscapes."
+      },
+      {
+        "id": 352,
+        "mod_id": "vivid-landscapes-ui-addon",
+        "feature": "Supports modular installation."
+      },
+      {
+        "id": 353,
+        "mod_id": "enhanced-nude-bodies",
+        "feature": "Realistic body proportions"
+      },
+      {
+        "id": 354,
+        "mod_id": "enhanced-nude-bodies",
+        "feature": "Adjustable body shapes"
+      },
+      {
+        "id": 355,
+        "mod_id": "enhanced-nude-bodies",
+        "feature": "Works with multiple races"
+      }
+    ],
+    "mod_requirements": [
+      {
+        "id": 75,
+        "mod_id": "tavs-hair-salon",
+        "name": "Script Extender",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+        "description": "A required utility for most mods."
+      },
+      {
+        "id": 76,
+        "mod_id": "transmog",
+        "name": "Script Extender",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+        "description": "A required utility for most mods."
+      },
+      {
+        "id": 77,
+        "mod_id": "all-items",
+        "name": "Script Extender",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+        "description": "A required utility for most mods."
+      },
+      {
+        "id": 78,
+        "mod_id": "bags-bags-bags",
+        "name": "Script Extender",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+        "description": "A required utility for most mods."
+      },
+      {
+        "id": 79,
+        "mod_id": "gold-zero-weight",
+        "name": "Baldur's Gate 3 Mod Fixer",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+        "description": "A required utility for most mods."
+      },
+      {
+        "id": 80,
+        "mod_id": "noble-tricksters-garments",
+        "name": "Baldur's Gate 3 Mod Fixer",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+        "description": "You need this for mods to work."
+      },
+      {
+        "id": 81,
+        "mod_id": "noble-tricksters-garments",
+        "name": "Tutorial Chest Summoning",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/457",
+        "description": "Tutorial Chest Summoning"
+      },
+      {
+        "id": 82,
+        "mod_id": "5e-spells",
+        "name": "BG3 Script Extender",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+        "description": "Required for mod functionality"
+      },
+      {
+        "id": 83,
+        "mod_id": "party-size-begone",
+        "name": "BG3 Mod Manager",
+        "url": "https://github.com/LaughingLeader/BG3ModManager",
+        "description": "Required for mod installation"
+      },
+      {
+        "id": 84,
+        "mod_id": "party-size-begone",
+        "name": "BG3 Script Extender",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+        "description": "Required for mod functionality"
+      },
+      {
+        "id": 85,
+        "mod_id": "fantastical-multiverse",
+        "name": "5e Spells",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/125",
+        "description": "Required for additional race abilities"
+      },
+      {
+        "id": 86,
+        "mod_id": "fantastical-multiverse",
+        "name": "ImprovedUI",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/366",
+        "description": "Required for UI compatibility"
+      },
+      {
+        "id": 87,
+        "mod_id": "fantastical-multiverse",
+        "name": "Fantastical Core",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/215",
+        "description": "Core module required for all Fantastical mods"
+      },
+      {
+        "id": 88,
+        "mod_id": "lone-wolf",
+        "name": "BG3 Script Extender",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+        "description": "Required for mod functionality"
+      },
+      {
+        "id": 89,
+        "mod_id": "trials-of-tav",
+        "name": "BG3 Script Extender",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+        "description": "Required for core functionality"
+      },
+      {
+        "id": 90,
+        "mod_id": "bg3-mod-manager",
+        "name": ".NET Framework 4.7.2",
+        "url": "https://dotnet.microsoft.com/download/dotnet-framework/4.7.2",
+        "description": "Required framework"
+      },
+      {
+        "id": 91,
+        "mod_id": "bg3-mod-manager",
+        "name": ".NET 7.0.13",
+        "url": "https://dotnet.microsoft.com/download/dotnet/7.0",
+        "description": "Required framework"
+      },
+      {
+        "id": 92,
+        "mod_id": "script-extender",
+        "name": "BG3 Base Game",
+        "url": null,
+        "description": "Latest version required"
+      },
+      {
+        "id": 93,
+        "mod_id": "vivid-landscapes-ui-addon",
+        "name": "Vivid Landscapes Core",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/43",
+        "description": "Main mod for environment textures."
+      },
+      {
+        "id": 94,
+        "mod_id": "enhanced-nude-bodies",
+        "name": "Script Extender",
+        "url": "https://www.nexusmods.com/baldursgate3/mods/2172",
+        "description": "A required utility for most mods."
+      }
+    ],
+    "mod_images": [
+      {
+        "id": 52,
+        "mod_id": "tavs-hair-salon",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/213_1650381555.jpg",
+        "caption": "Sample hairstyles from Tav's Hair Salon bg3 mods."
+      },
+      {
+        "id": 53,
+        "mod_id": "orin-hair-variant",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/1287/1287-1692634500-2072295486.jpeg",
+        "caption": "Variant of Orin's Hair bg3 mods"
+      },
+      {
+        "id": 54,
+        "mod_id": "dyes-unlimited",
+        "url": "https://preview.redd.it/how-can-i-get-more-drake-general-dye-it-looks-insane-v0-7siidzjcorgb1.png?auto=webp&s=ab33c646781c06a76f9d3053aecec53178d5f41f",
+        "caption": "Everybody Dyes Unlimited Dyeing bg3 mods"
+      },
+      {
+        "id": 55,
+        "mod_id": "shirts-dresses-corsets",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/5981/5981-1705507194-1960238929.png",
+        "caption": "Shirts Dresses Corsets bg3 mods"
+      },
+      {
+        "id": 56,
+        "mod_id": "new-character-presets",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/205/205-1715209290-2043742630.png",
+        "caption": "New Character Creation Presets bg3 mods"
+      },
+      {
+        "id": 57,
+        "mod_id": "eldritch-knight-plus",
+        "url": "https://static1.srcdn.com/wordpress/wp-content/uploads/2024/01/eldritch-knights-combine-combat-and-magic-in-baldurs-gate-3.jpg?q=50&fit=crop&w=1140&h=&dpr=1.5",
+        "caption": "bg3 mods Eldritch Knight Plus"
+      },
+      {
+        "id": 58,
+        "mod_id": "artificer-class",
+        "url": "https://i.ytimg.com/vi/l9nR_IG_Jrk/maxresdefault.jpg",
+        "caption": "bg3 mods Artificer Class Rebalance"
+      },
+      {
+        "id": 59,
+        "mod_id": "party-limit-rebalance",
+        "url": "https://i.ytimg.com/vi/aZJsqikBezk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCax4K6Jf-K4YxB1wSAp8GlaLM5Cw",
+        "caption": "bg3 mods Party Limit Rebalance"
+      },
+      {
+        "id": 60,
+        "mod_id": "carry-weight-adjustment",
+        "url": "https://i.ytimg.com/vi/_FncASMbGmk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC7Ari_emIoEVbg27llb07urXJcbw",
+        "caption": "bg3 mods Carry Weight Adjustment"
+      },
+      {
+        "id": 61,
+        "mod_id": "mystic-class",
+        "url": "https://i.ytimg.com/vi/Wz_r4CqPOXM/maxresdefault.jpg",
+        "caption": "bg3 mods Mystic Class"
+      },
+      {
+        "id": 62,
+        "mod_id": "artificer-class-full",
+        "url": "https://i.ytimg.com/vi/ktGHN0YrWt0/maxresdefault.jpg",
+        "caption": "bg3 mods Artificer Class"
+      },
+      {
+        "id": 63,
+        "mod_id": "warlock-overhaul",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/12618_1727832361.jpg",
+        "caption": "bg3 mods Pactbound - A Warlock Overhaul"
+      },
+      {
+        "id": 64,
+        "mod_id": "druid-2024",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/13197/13197-1730304379-1816863449.png",
+        "caption": "bg3 mods Druid 2024"
+      },
+      {
+        "id": 65,
+        "mod_id": "college-of-dance",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/12558/12558-1727427424-1918863947.png",
+        "caption": "bg3 mods College of Dance - Bard Subclass"
+      },
+      {
+        "id": 66,
+        "mod_id": "dice-set-expansion",
+        "url": "https://cdn.mos.cms.futurecdn.net/bTfmxQyuKFV52iWus9pWhK.jpg",
+        "caption": "bg3 mods Dice Set Expansion"
+      },
+      {
+        "id": 67,
+        "mod_id": "rewards-dice-emporium",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/2609_1698388771.jpg",
+        "caption": "bg3 mods REWard's Dice Emporium"
+      },
+      {
+        "id": 68,
+        "mod_id": "peculiar-dices-collection",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/1771_1693589265.jpg",
+        "caption": "bg3 mods Peculiar Dices Collection"
+      },
+      {
+        "id": 69,
+        "mod_id": "custom-dice",
+        "url": "https://static1.thegamerimages.com/wordpress/wp-content/uploads/2023/12/baldur-s-gate-3-how-to-change-the-appearance-of-your-dice-featured-image.jpg",
+        "caption": "bg3 mods Custom Dice"
+      },
+      {
+        "id": 70,
+        "mod_id": "mystral-magic-full-dice-set",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/5422_1704389852.jpg",
+        "caption": "bg3 mods Bags Bags Bags"
+      },
+      {
+        "id": 71,
+        "mod_id": "transmog",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/2922/2922-1696458319-2051243193.png",
+        "caption": "bg3 mods Transmog"
+      },
+      {
+        "id": 72,
+        "mod_id": "all-items",
+        "url": "https://img.game8.co/3738544/1539a711791057298a3ff68f94d2828e.png/original",
+        "caption": "bg3 mods All Items"
+      },
+      {
+        "id": 73,
+        "mod_id": "bags-bags-bags",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/5422_1704389852.jpg",
+        "caption": "bg3 mods Bags Bags Bags"
+      },
+      {
+        "id": 74,
+        "mod_id": "gold-zero-weight",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/616/616-1691357144-2073999123.jpeg",
+        "caption": "bg3 mods Gold Zero Weight"
+      },
+      {
+        "id": 75,
+        "mod_id": "noble-tricksters-garments",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/734/734-1699894073-214407593.jpeg",
+        "caption": "bg3 mods Noble Trickster's Garments"
+      },
+      {
+        "id": 76,
+        "mod_id": "5e-spells",
+        "url": "https://i.ytimg.com/vi/3J-EjLnDSZA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDeyNgIeqiSQnMj2AlshiQMUui8KA",
+        "caption": "bg3 mods 5e spells"
+      },
+      {
+        "id": 77,
+        "mod_id": "party-size-begone",
+        "url": "https://i.ytimg.com/vi/-dXdCT_5FKo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBP186e2nCcSdLQcK6ycGHj5qLK7A",
+        "caption": "bg3 mods party size begone"
+      },
+      {
+        "id": 78,
+        "mod_id": "fantastical-multiverse",
+        "url": "https://i.ytimg.com/vi/onOQMzzQUhU/maxresdefault.jpg",
+        "caption": "bg3 mods fantastical multiverse"
+      },
+      {
+        "id": 79,
+        "mod_id": "lone-wolf",
+        "url": "https://assetsio.gnwcdn.com/baldurs-gate-3-lone-wolf-mode-mod.png?width=690&quality=80&format=jpg&auto=webp",
+        "caption": "bg3 mods lone wolf"
+      },
+      {
+        "id": 80,
+        "mod_id": "trials-of-tav",
+        "url": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/10/trials-of-tav.jpg?q=70&fit=crop&w=1140&h=&dpr=1",
+        "caption": "bg3 mods Trials of Tav - a roguelike mode"
+      },
+      {
+        "id": 81,
+        "mod_id": "hide-as-bonus-action",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/561/561-1691175316-85546364.jpeg",
+        "caption": "bg3 mods Hide as a Bonus Action"
+      },
+      {
+        "id": 82,
+        "mod_id": "varied-ac-dex",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/6004/6004-1705578757-490220031.jpeg",
+        "caption": "bg3 mods Varied AC and Dex Modifiers"
+      },
+      {
+        "id": 83,
+        "mod_id": "fast-xp",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/555/555-1691149880-602454093.jpeg",
+        "caption": "bg3 mods Fast XP"
+      },
+      {
+        "id": 84,
+        "mod_id": "bg3-mod-manager",
+        "url": "https://bg3modmanager.net/wp-content/uploads/2024/02/Screenshot-2024-02-24-163940.png",
+        "caption": "bg3modmanager.net"
+      },
+      {
+        "id": 85,
+        "mod_id": "script-extender",
+        "url": "https://i.ytimg.com/vi/MV2j4YrSsWA/maxresdefault.jpg",
+        "caption": " Install Baldur's Gate 3 Script Extender + Console Commands"
+      },
+      {
+        "id": 86,
+        "mod_id": "improved-ui",
+        "url": "https://i.imgur.com/6Zso95t.png",
+        "caption": "ImprovedUI | Thunderstore - The Baldur's Gate 3 Mod Database"
+      },
+      {
+        "id": 87,
+        "mod_id": "mod-fixer",
+        "url": "https://i.ytimg.com/vi/5IQxk2KD6oU/maxresdefault.jpg",
+        "caption": "How to Install Baldur's Gate 3 MOD FIXER"
+      },
+      {
+        "id": 88,
+        "mod_id": "achievement-enabler",
+        "url": "https://opengraph.githubassets.com/2a6452f4c3ee9ab894cff744dc0dcd6887a1f819645dd112d988c5c733941257/gottyduke/BG3_AchievementEnabler",
+        "caption": "BG3_AchievementEnabler"
+      },
+      {
+        "id": 89,
+        "mod_id": "no-intro",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/680/680-1723455781-390672827.png",
+        "caption": "bg3 mods No Intro"
+      },
+      {
+        "id": 90,
+        "mod_id": "customizers-compendium",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/3986_1699226194.jpg",
+        "caption": "bg3 mods Customizer's Compendium"
+      },
+      {
+        "id": 91,
+        "mod_id": "pavelks-ui-improvements",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/4597/4597-1723723229-952485260.png",
+        "caption": "bg3 mods Pavelk's UI Improvements"
+      },
+      {
+        "id": 92,
+        "mod_id": "vivid-landscapes-ui-addon",
+        "url": "https://staticdelivery.nexusmods.com/mods/3474/images/headers/6473_1707072376.jpg",
+        "caption": "bg3 mods Vivid Landscapes UI Addon"
+      },
+      {
+        "id": 93,
+        "mod_id": "enhanced-nude-bodies",
+        "url": "https://i.ytimg.com/vi/oEsno8ffkx0/sddefault.jpg",
+        "caption": "bg3 mods Enhanced Nude Bodies Preview"
+      }
+    ],
+    "mod_videos": [
+      {
+        "id": 42,
+        "mod_id": "eldritch-knight-plus",
+        "url": "https://www.youtube.com/watch?v=PhicCh1xw8Q",
+        "title": "BG3 Eldritch Knight Build Guide - Blazing Battlemage",
+        "platform": "youtube"
+      },
+      {
+        "id": 43,
+        "mod_id": "artificer-class",
+        "url": "www.youtube.com/watch?app=desktop&v=l9nR_IG_Jrk",
+        "title": "Baldur's Gate 3: Artificer Class Guide ALL Subclasses | Mod",
+        "platform": "youtube"
+      },
+      {
+        "id": 44,
+        "mod_id": "party-limit-rebalance",
+        "url": "https://www.youtube.com/watch?v=QCa5X2m6dsg",
+        "title": "Baldur's Gate 3 Patch 7 Mod Showcase - Adjustable Party Limit With Wolfheart",
+        "platform": "youtube"
+      },
+      {
+        "id": 45,
+        "mod_id": "carry-weight-adjustment",
+        "url": "https://www.youtube.com/watch?v=_FncASMbGmk",
+        "title": "Baldur's Gate 3 - Carry Weight Increase MOD",
+        "platform": "youtube"
+      },
+      {
+        "id": 46,
+        "mod_id": "mystic-class",
+        "url": "https://www.youtube.com/watch?v=Wz_r4CqPOXM",
+        "title": "Baldurs Gate 3 Mystic Class Guide",
+        "platform": "youtube"
+      },
+      {
+        "id": 47,
+        "mod_id": "artificer-class-full",
+        "url": "https://www.youtube.com/watch?v=ktGHN0YrWt0",
+        "title": "Baldur's Gate 3: ARTIFICER Class Mod Deep Dive & Guide | Full Features & Installation",
+        "platform": "youtube"
+      },
+      {
+        "id": 48,
+        "mod_id": "druid-2024",
+        "url": "https://www.youtube.com/watch?v=tLiT-nk5seM",
+        "title": "Baldur's Gate 3- TOP 10 AMAZING MODS for February 2024 showcase, you NEED to TRY this out! BG3",
+        "platform": "youtube"
+      },
+      {
+        "id": 49,
+        "mod_id": "dice-set-expansion",
+        "url": "https://www.youtube.com/watch?v=p9otigDhOVg",
+        "title": "[BG3] HOW TO GET NEW DICE to spice up your adventure!",
+        "platform": "youtube"
+      },
+      {
+        "id": 50,
+        "mod_id": "rewards-dice-emporium",
+        "url": "https://www.youtube.com/watch?v=5qPudADl_t8",
+        "title": "Baldur's Gate 3 - Where's My Digital Deluxe Edition Custom Dice Skin?",
+        "platform": "youtube"
+      },
+      {
+        "id": 51,
+        "mod_id": "peculiar-dices-collection",
+        "url": "https://www.youtube.com/watch?v=qa6o6HA8xEA",
+        "title": "Baldur's Gate 3 - Peculiar Dices Installation - dice mod bg3",
+        "platform": "youtube"
+      },
+      {
+        "id": 52,
+        "mod_id": "custom-dice",
+        "url": "https://www.youtube.com/watch?v=m16bvANcLm4",
+        "title": "How To Change Custom Dice Skin In Baldur's Gate 3",
+        "platform": "youtube"
+      },
+      {
+        "id": 53,
+        "mod_id": "mystral-magic-full-dice-set",
+        "url": "https://www.youtube.com/watch?v=4ZSlTodJysw",
+        "title": "Baldur's Gate 3 Mods Bags Bags Bags BG3 Mod of the Year?",
+        "platform": "youtube"
+      },
+      {
+        "id": 54,
+        "mod_id": "transmog",
+        "url": "https://www.youtube.com/watch?v=cXt-o-j42nI",
+        "title": "Baldur's Gate 3 Transmog System - Overview&FAST Install!",
+        "platform": "youtube"
+      },
+      {
+        "id": 55,
+        "mod_id": "all-items",
+        "url": "https://www.youtube.com/watch?v=dYTDrxhZoAU",
+        "title": "Add All Items Mod - Baldur's Gate 3",
+        "platform": "youtube"
+      },
+      {
+        "id": 56,
+        "mod_id": "bags-bags-bags",
+        "url": "https://www.youtube.com/watch?v=4ZSlTodJysw",
+        "title": "Baldur's Gate 3 Mods Bags Bags Bags BG3 Mod of the Year?",
+        "platform": "youtube"
+      },
+      {
+        "id": 57,
+        "mod_id": "gold-zero-weight",
+        "url": "https://www.youtube.com/watch?v=S4UkM3kRA1A",
+        "title": "15 BEST Baldur's Gate 3 PC Mods You Absolutely NEED To Try Out",
+        "platform": "youtube"
+      },
+      {
+        "id": 58,
+        "mod_id": "noble-tricksters-garments",
+        "url": "https://www.youtube.com/watch?v=RIS0ZYemoZI",
+        "title": "Baldur's Gate 3 - 17 More AMAZING Mods you NEED to try",
+        "platform": "youtube"
+      },
+      {
+        "id": 59,
+        "mod_id": "5e-spells",
+        "url": "https://www.youtube.com/watch?v=3J-EjLnDSZA",
+        "title": "5E Spells - Cantrips Showcase! Best Baldur's Gate 3 mods!",
+        "platform": "youtube"
+      },
+      {
+        "id": 60,
+        "mod_id": "party-size-begone",
+        "url": "https://www.youtube.com/watch?v=-dXdCT_5FKo",
+        "title": "BG3 Party Limit Begone Legacy MOD (How To)",
+        "platform": "youtube"
+      },
+      {
+        "id": 61,
+        "mod_id": "fantastical-multiverse",
+        "url": "https://www.youtube.com/watch?v=onOQMzzQUhU",
+        "title": "Fantastical Multiverse (54+ Races) - Baldur's Gate 3 Race Mod",
+        "platform": "youtube"
+      },
+      {
+        "id": 62,
+        "mod_id": "lone-wolf",
+        "url": "https://www.youtube.com/watch?app=desktop&v=N12VfAo6WNk",
+        "title": "Can You Play Baldur's Gate 3 Solo? (Lone Wolf)",
+        "platform": "youtube"
+      },
+      {
+        "id": 63,
+        "mod_id": "trials-of-tav",
+        "url": "https://www.youtube.com/watch?v=BttO0z_3CfI",
+        "title": "【Baldur's Gate 3】 Trials of Tav Mod with a Full Party",
+        "platform": "youtube"
+      },
+      {
+        "id": 64,
+        "mod_id": "hide-as-bonus-action",
+        "url": "https://www.youtube.com/watch?v=2fDdeirjE8E",
+        "title": "baldur's gate 3 Hide/stealth is the most op skill",
+        "platform": "youtube"
+      },
+      {
+        "id": 65,
+        "mod_id": "varied-ac-dex",
+        "url": "https://www.youtube.com/watch?v=uRWdLeXUTY8",
+        "title": "Spellcasting Modifier EXPLAINED in Baldur's Gate 3",
+        "platform": "youtube"
+      },
+      {
+        "id": 66,
+        "mod_id": "fast-xp",
+        "url": "https://www.youtube.com/watch?app=desktop&v=kYkgJkrZnmQ",
+        "title": "How much XP and talking MODS - Baldur's Gate 3",
+        "platform": "youtube"
+      },
+      {
+        "id": 67,
+        "mod_id": "bg3-mod-manager",
+        "url": "https://www.youtube.com/watch?v=AZ6kci4NJV0",
+        "title": "How to Mod Baldur's Gate 3 Using BG3 Mod Manager",
+        "platform": "youtube"
+      },
+      {
+        "id": 68,
+        "mod_id": "script-extender",
+        "url": "https://www.youtube.com/watch?v=MV2j4YrSsWA",
+        "title": "How to Mod Baldur's Gate 3 Using BG3 Mod Manager",
+        "platform": "youtube"
+      },
+      {
+        "id": 69,
+        "mod_id": "improved-ui",
+        "url": "https://www.youtube.com/watch?v=ACrua2uOiuA",
+        "title": "Baldur's Gate 3 - Presentation Mode (Improved UI)",
+        "platform": "youtube"
+      },
+      {
+        "id": 70,
+        "mod_id": "mod-fixer",
+        "url": "https://www.youtube.com/watch?v=5IQxk2KD6oU",
+        "title": "How to Install Baldur's Gate 3 MOD FIXER",
+        "platform": "youtube"
+      },
+      {
+        "id": 71,
+        "mod_id": "achievement-enabler",
+        "url": "https://www.youtube.com/watch?app=desktop&v=Dik4Ch4NTOY",
+        "title": "Achievements Mod Enabler Installation Guide",
+        "platform": "youtube"
+      },
+      {
+        "id": 72,
+        "mod_id": "no-intro",
+        "url": "https://www.youtube.com/watch?v=ab0rdJol6cs",
+        "title": "Skipping the Nautiloid",
+        "platform": "youtube"
+      },
+      {
+        "id": 73,
+        "mod_id": "customizers-compendium",
+        "url": "https://www.youtube.com/watch?v=oEilwGe6mM0",
+        "title": "Baldur's Gate 3 - How The Game Can Be Better, And Mods Do That! Character Creation, Spells + More!",
+        "platform": "youtube"
+      },
+      {
+        "id": 74,
+        "mod_id": "pavelks-ui-improvements",
+        "url": "https://www.youtube.com/watch?v=1ZoTxEUZz94",
+        "title": "ESSENTIAL MODS FOR BALDUR'S GATE 3! BEST UI MODS AND MUCH MORE!",
+        "platform": "youtube"
+      },
+      {
+        "id": 75,
+        "mod_id": "vivid-landscapes-ui-addon",
+        "url": "https://www.youtube.com/watch?v=z8YvNBurdYk",
+        "title": "Baldur's Gate 3 ULTIMATE Best Mods You Need to Get NOW! Patch 7 Official and Unofficial MODS",
+        "platform": "youtube"
+      },
+      {
+        "id": 76,
+        "mod_id": "enhanced-nude-bodies",
+        "url": "https://www.youtube.com/watch?v=oEsno8ffkx0",
+        "title": "Baldur's Gate 3 Full Nudity Character Creation",
+        "platform": "youtube"
+      }
+    ],
+    "mod_tags": [
+      {
+        "id": 282,
+        "mod_id": "tavs-hair-salon",
+        "tag": "hair"
+      },
+      {
+        "id": 283,
+        "mod_id": "tavs-hair-salon",
+        "tag": "customization"
+      },
+      {
+        "id": 284,
+        "mod_id": "tavs-hair-salon",
+        "tag": "appearance"
+      },
+      {
+        "id": 285,
+        "mod_id": "orin-hair-variant",
+        "tag": "hair"
+      },
+      {
+        "id": 286,
+        "mod_id": "orin-hair-variant",
+        "tag": "style"
+      },
+      {
+        "id": 287,
+        "mod_id": "orin-hair-variant",
+        "tag": "appearance"
+      },
+      {
+        "id": 288,
+        "mod_id": "dyes-unlimited",
+        "tag": "dyes"
+      },
+      {
+        "id": 289,
+        "mod_id": "dyes-unlimited",
+        "tag": "customization"
+      },
+      {
+        "id": 290,
+        "mod_id": "dyes-unlimited",
+        "tag": "appearance"
+      },
+      {
+        "id": 291,
+        "mod_id": "shirts-dresses-corsets",
+        "tag": "clothing"
+      },
+      {
+        "id": 292,
+        "mod_id": "shirts-dresses-corsets",
+        "tag": "style"
+      },
+      {
+        "id": 293,
+        "mod_id": "shirts-dresses-corsets",
+        "tag": "appearance"
+      },
+      {
+        "id": 294,
+        "mod_id": "new-character-presets",
+        "tag": "face"
+      },
+      {
+        "id": 295,
+        "mod_id": "new-character-presets",
+        "tag": "character creation"
+      },
+      {
+        "id": 296,
+        "mod_id": "new-character-presets",
+        "tag": "appearance"
+      },
+      {
+        "id": 297,
+        "mod_id": "eldritch-knight-plus",
+        "tag": "subclass"
+      },
+      {
+        "id": 298,
+        "mod_id": "eldritch-knight-plus",
+        "tag": "balance"
+      },
+      {
+        "id": 299,
+        "mod_id": "eldritch-knight-plus",
+        "tag": "combat"
+      },
+      {
+        "id": 300,
+        "mod_id": "artificer-class",
+        "tag": "class"
+      },
+      {
+        "id": 301,
+        "mod_id": "artificer-class",
+        "tag": "balance"
+      },
+      {
+        "id": 302,
+        "mod_id": "artificer-class",
+        "tag": "crafting"
+      },
+      {
+        "id": 303,
+        "mod_id": "party-limit-rebalance",
+        "tag": "party"
+      },
+      {
+        "id": 304,
+        "mod_id": "party-limit-rebalance",
+        "tag": "balance"
+      },
+      {
+        "id": 305,
+        "mod_id": "party-limit-rebalance",
+        "tag": "gameplay"
+      },
+      {
+        "id": 306,
+        "mod_id": "carry-weight-adjustment",
+        "tag": "inventory"
+      },
+      {
+        "id": 307,
+        "mod_id": "carry-weight-adjustment",
+        "tag": "balance"
+      },
+      {
+        "id": 308,
+        "mod_id": "carry-weight-adjustment",
+        "tag": "exploration"
+      },
+      {
+        "id": 309,
+        "mod_id": "mystic-class",
+        "tag": "class"
+      },
+      {
+        "id": 310,
+        "mod_id": "mystic-class",
+        "tag": "psionics"
+      },
+      {
+        "id": 311,
+        "mod_id": "mystic-class",
+        "tag": "customization"
+      },
+      {
+        "id": 312,
+        "mod_id": "artificer-class-full",
+        "tag": "class"
+      },
+      {
+        "id": 313,
+        "mod_id": "artificer-class-full",
+        "tag": "crafting"
+      },
+      {
+        "id": 314,
+        "mod_id": "artificer-class-full",
+        "tag": "utility"
+      },
+      {
+        "id": 315,
+        "mod_id": "warlock-overhaul",
+        "tag": "class"
+      },
+      {
+        "id": 316,
+        "mod_id": "warlock-overhaul",
+        "tag": "balance"
+      },
+      {
+        "id": 317,
+        "mod_id": "warlock-overhaul",
+        "tag": "warlock"
+      },
+      {
+        "id": 318,
+        "mod_id": "druid-2024",
+        "tag": "class"
+      },
+      {
+        "id": 319,
+        "mod_id": "druid-2024",
+        "tag": "druid"
+      },
+      {
+        "id": 320,
+        "mod_id": "druid-2024",
+        "tag": "nature"
+      },
+      {
+        "id": 321,
+        "mod_id": "college-of-dance",
+        "tag": "class"
+      },
+      {
+        "id": 322,
+        "mod_id": "college-of-dance",
+        "tag": "bard"
+      },
+      {
+        "id": 323,
+        "mod_id": "college-of-dance",
+        "tag": "subclass"
+      },
+      {
+        "id": 324,
+        "mod_id": "dice-set-expansion",
+        "tag": "dice"
+      },
+      {
+        "id": 325,
+        "mod_id": "dice-set-expansion",
+        "tag": "customization"
+      },
+      {
+        "id": 326,
+        "mod_id": "dice-set-expansion",
+        "tag": "visuals"
+      },
+      {
+        "id": 327,
+        "mod_id": "rewards-dice-emporium",
+        "tag": "dice"
+      },
+      {
+        "id": 328,
+        "mod_id": "rewards-dice-emporium",
+        "tag": "themes"
+      },
+      {
+        "id": 329,
+        "mod_id": "rewards-dice-emporium",
+        "tag": "visuals"
+      },
+      {
+        "id": 330,
+        "mod_id": "peculiar-dices-collection",
+        "tag": "dice"
+      },
+      {
+        "id": 331,
+        "mod_id": "peculiar-dices-collection",
+        "tag": "3D effects"
+      },
+      {
+        "id": 332,
+        "mod_id": "peculiar-dices-collection",
+        "tag": "visuals"
+      },
+      {
+        "id": 333,
+        "mod_id": "custom-dice",
+        "tag": "dice"
+      },
+      {
+        "id": 334,
+        "mod_id": "custom-dice",
+        "tag": "customization"
+      },
+      {
+        "id": 335,
+        "mod_id": "custom-dice",
+        "tag": "visuals"
+      },
+      {
+        "id": 336,
+        "mod_id": "mystral-magic-full-dice-set",
+        "tag": "dice"
+      },
+      {
+        "id": 337,
+        "mod_id": "mystral-magic-full-dice-set",
+        "tag": "magic"
+      },
+      {
+        "id": 338,
+        "mod_id": "mystral-magic-full-dice-set",
+        "tag": "visuals"
+      },
+      {
+        "id": 339,
+        "mod_id": "transmog",
+        "tag": "customization"
+      },
+      {
+        "id": 340,
+        "mod_id": "transmog",
+        "tag": "armor"
+      },
+      {
+        "id": 341,
+        "mod_id": "transmog",
+        "tag": "equipment"
+      },
+      {
+        "id": 342,
+        "mod_id": "all-items",
+        "tag": "items"
+      },
+      {
+        "id": 343,
+        "mod_id": "all-items",
+        "tag": "equipment"
+      },
+      {
+        "id": 344,
+        "mod_id": "all-items",
+        "tag": "testing"
+      },
+      {
+        "id": 345,
+        "mod_id": "bags-bags-bags",
+        "tag": "inventory"
+      },
+      {
+        "id": 346,
+        "mod_id": "bags-bags-bags",
+        "tag": "management"
+      },
+      {
+        "id": 347,
+        "mod_id": "bags-bags-bags",
+        "tag": "equipment"
+      },
+      {
+        "id": 348,
+        "mod_id": "gold-zero-weight",
+        "tag": "inventory"
+      },
+      {
+        "id": 349,
+        "mod_id": "gold-zero-weight",
+        "tag": "gold"
+      },
+      {
+        "id": 350,
+        "mod_id": "gold-zero-weight",
+        "tag": "equipment"
+      },
+      {
+        "id": 351,
+        "mod_id": "noble-tricksters-garments",
+        "tag": "armor"
+      },
+      {
+        "id": 352,
+        "mod_id": "noble-tricksters-garments",
+        "tag": "style"
+      },
+      {
+        "id": 353,
+        "mod_id": "noble-tricksters-garments",
+        "tag": "equipment"
+      },
+      {
+        "id": 354,
+        "mod_id": "5e-spells",
+        "tag": "spells"
+      },
+      {
+        "id": 355,
+        "mod_id": "5e-spells",
+        "tag": "magic"
+      },
+      {
+        "id": 356,
+        "mod_id": "5e-spells",
+        "tag": "gameplay"
+      },
+      {
+        "id": 357,
+        "mod_id": "party-size-begone",
+        "tag": "party"
+      },
+      {
+        "id": 358,
+        "mod_id": "party-size-begone",
+        "tag": "strategy"
+      },
+      {
+        "id": 359,
+        "mod_id": "party-size-begone",
+        "tag": "gameplay"
+      },
+      {
+        "id": 360,
+        "mod_id": "fantastical-multiverse",
+        "tag": "races"
+      },
+      {
+        "id": 361,
+        "mod_id": "fantastical-multiverse",
+        "tag": "customization"
+      },
+      {
+        "id": 362,
+        "mod_id": "fantastical-multiverse",
+        "tag": "gameplay"
+      },
+      {
+        "id": 363,
+        "mod_id": "lone-wolf",
+        "tag": "solo"
+      },
+      {
+        "id": 364,
+        "mod_id": "lone-wolf",
+        "tag": "level cap"
+      },
+      {
+        "id": 365,
+        "mod_id": "lone-wolf",
+        "tag": "gameplay"
+      },
+      {
+        "id": 366,
+        "mod_id": "trials-of-tav",
+        "tag": "roguelike"
+      },
+      {
+        "id": 367,
+        "mod_id": "trials-of-tav",
+        "tag": "maps"
+      },
+      {
+        "id": 368,
+        "mod_id": "trials-of-tav",
+        "tag": "gameplay"
+      },
+      {
+        "id": 369,
+        "mod_id": "hide-as-bonus-action",
+        "tag": "stealth"
+      },
+      {
+        "id": 370,
+        "mod_id": "hide-as-bonus-action",
+        "tag": "modifiers"
+      },
+      {
+        "id": 371,
+        "mod_id": "hide-as-bonus-action",
+        "tag": "combat"
+      },
+      {
+        "id": 372,
+        "mod_id": "varied-ac-dex",
+        "tag": "armor"
+      },
+      {
+        "id": 373,
+        "mod_id": "varied-ac-dex",
+        "tag": "dexterity"
+      },
+      {
+        "id": 374,
+        "mod_id": "varied-ac-dex",
+        "tag": "modifiers"
+      },
+      {
+        "id": 375,
+        "mod_id": "fast-xp",
+        "tag": "leveling"
+      },
+      {
+        "id": 376,
+        "mod_id": "fast-xp",
+        "tag": "modifiers"
+      },
+      {
+        "id": 377,
+        "mod_id": "fast-xp",
+        "tag": "gameplay"
+      },
+      {
+        "id": 378,
+        "mod_id": "bg3-mod-manager",
+        "tag": "essential"
+      },
+      {
+        "id": 379,
+        "mod_id": "bg3-mod-manager",
+        "tag": "tool"
+      },
+      {
+        "id": 380,
+        "mod_id": "bg3-mod-manager",
+        "tag": "management"
+      },
+      {
+        "id": 381,
+        "mod_id": "script-extender",
+        "tag": "essential"
+      },
+      {
+        "id": 382,
+        "mod_id": "script-extender",
+        "tag": "script"
+      },
+      {
+        "id": 383,
+        "mod_id": "script-extender",
+        "tag": "tool"
+      },
+      {
+        "id": 384,
+        "mod_id": "improved-ui",
+        "tag": "ui"
+      },
+      {
+        "id": 385,
+        "mod_id": "improved-ui",
+        "tag": "essential"
+      },
+      {
+        "id": 386,
+        "mod_id": "improved-ui",
+        "tag": "interface"
+      },
+      {
+        "id": 387,
+        "mod_id": "mod-fixer",
+        "tag": "compatibility"
+      },
+      {
+        "id": 388,
+        "mod_id": "mod-fixer",
+        "tag": "fix"
+      },
+      {
+        "id": 389,
+        "mod_id": "mod-fixer",
+        "tag": "tool"
+      },
+      {
+        "id": 390,
+        "mod_id": "achievement-enabler",
+        "tag": "achievement"
+      },
+      {
+        "id": 391,
+        "mod_id": "achievement-enabler",
+        "tag": "gameplay"
+      },
+      {
+        "id": 392,
+        "mod_id": "achievement-enabler",
+        "tag": "utility"
+      },
+      {
+        "id": 393,
+        "mod_id": "no-intro",
+        "tag": "ui"
+      },
+      {
+        "id": 394,
+        "mod_id": "no-intro",
+        "tag": "optimization"
+      },
+      {
+        "id": 395,
+        "mod_id": "no-intro",
+        "tag": "quality of life"
+      },
+      {
+        "id": 396,
+        "mod_id": "customizers-compendium",
+        "tag": "ui"
+      },
+      {
+        "id": 397,
+        "mod_id": "customizers-compendium",
+        "tag": "character customization"
+      },
+      {
+        "id": 398,
+        "mod_id": "customizers-compendium",
+        "tag": "appearance"
+      },
+      {
+        "id": 399,
+        "mod_id": "pavelks-ui-improvements",
+        "tag": "ui"
+      },
+      {
+        "id": 400,
+        "mod_id": "pavelks-ui-improvements",
+        "tag": "modular"
+      },
+      {
+        "id": 401,
+        "mod_id": "pavelks-ui-improvements",
+        "tag": "optimization"
+      },
+      {
+        "id": 402,
+        "mod_id": "vivid-landscapes-ui-addon",
+        "tag": "ui"
+      },
+      {
+        "id": 403,
+        "mod_id": "vivid-landscapes-ui-addon",
+        "tag": "visual enhancement"
+      },
+      {
+        "id": 404,
+        "mod_id": "vivid-landscapes-ui-addon",
+        "tag": "optimization"
+      },
+      {
+        "id": 405,
+        "mod_id": "enhanced-nude-bodies",
+        "tag": "nude"
+      },
+      {
+        "id": 406,
+        "mod_id": "enhanced-nude-bodies",
+        "tag": "appearance"
+      },
+      {
+        "id": 407,
+        "mod_id": "enhanced-nude-bodies",
+        "tag": "body"
+      }
+    ]
+  },
+  "counts": {
+    "categories": 9,
+    "mods": 42,
+    "mod_features": 93,
+    "mod_requirements": 20,
+    "mod_images": 42,
+    "mod_videos": 35,
+    "mod_tags": 126
+  }
+}
