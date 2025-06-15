@@ -210,8 +210,26 @@ export async function getDb() {
       return {
         all: async (query: string, ...params: any[]) => {
           // 简单的表名匹配，返回对应的JSON数据
-          if (query.includes('categories')) return exportedData.tables.categories || [];
-          if (query.includes('mods')) return exportedData.tables.mods || [];
+          if (query.includes('categories')) {
+            // 计算每个分类的模组数量
+            const categories = exportedData.tables.categories || [];
+            const mods = exportedData.tables.mods || [];
+            
+            return categories.map((category: any) => ({
+              ...category,
+              count: mods.filter((mod: any) => mod.category === category.id).length
+            }));
+          }
+          if (query.includes('mods')) {
+            const mods = exportedData.tables.mods || [];
+            // 如果查询包含WHERE category，需要过滤
+            if (query.includes('WHERE category')) {
+              // 从参数中获取category值
+              const categoryParam = params[0];
+              return mods.filter((mod: any) => mod.category === categoryParam);
+            }
+            return mods;
+          }
           if (query.includes('mod_images')) return exportedData.tables.mod_images || [];
           if (query.includes('mod_videos')) return exportedData.tables.mod_videos || [];
           if (query.includes('mod_requirements')) return exportedData.tables.mod_requirements || [];
