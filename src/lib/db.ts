@@ -144,59 +144,108 @@ let db: any = null;
 
 export async function getDb() {
   if (isVercel) {
-    // Vercel环境：使用PostgreSQL
-    const { sql } = require('@vercel/postgres');
-    
-    // 初始化表
-    await createTables();
-    
-    // 返回一个兼容的接口
-    return {
-      all: async (query: string, ...params: any[]) => {
-        // 转换SQLite语法为PostgreSQL语法
-        const pgQuery = query.replace(/\?/g, (match, offset) => {
-          const paramIndex = query.substring(0, offset).split('?').length;
-          return `$${paramIndex}`;
-        });
-        const result = await sql.query(pgQuery, params);
-        return result.rows;
-      },
-      get: async (query: string, ...params: any[]) => {
-        // 转换SQLite语法为PostgreSQL语法
-        const pgQuery = query.replace(/\?/g, (match, offset) => {
-          const paramIndex = query.substring(0, offset).split('?').length;
-          return `$${paramIndex}`;
-        });
-        const result = await sql.query(pgQuery + ' LIMIT 1', params);
-        return result.rows[0] || null;
-      },
-      run: async (query: string, ...params: any[]) => {
-        // 转换SQLite语法为PostgreSQL语法  
-        const pgQuery = query.replace(/\?/g, (match, offset) => {
-          const paramIndex = query.substring(0, offset).split('?').length;
-          return `$${paramIndex}`;
-        });
-        await sql.query(pgQuery, params);
-      },
-      exec: async (query: string) => {
-        await sql.query(query);
-      },
-      prepare: (query: string) => {
-        return {
-          run: async (...params: any[]) => {
-            // 转换SQLite语法为PostgreSQL语法
-            const pgQuery = query.replace(/\?/g, (match, offset) => {
-              const paramIndex = query.substring(0, offset).split('?').length;
-              return `$${paramIndex}`;
-            });
-            await sql.query(pgQuery, params);
+    // Vercel环境：优先尝试PostgreSQL，失败则使用JSON文件
+    try {
+      const { sql } = require('@vercel/postgres');
+      
+      // 测试连接
+      await sql`SELECT 1`;
+      
+      // 初始化表
+      await createTables();
+      
+      // 返回一个兼容的接口
+      return {
+        all: async (query: string, ...params: any[]) => {
+          // 转换SQLite语法为PostgreSQL语法
+          const pgQuery = query.replace(/\?/g, (match, offset) => {
+            const paramIndex = query.substring(0, offset).split('?').length;
+            return `$${paramIndex}`;
+          });
+          const result = await sql.query(pgQuery, params);
+          return result.rows;
+        },
+        get: async (query: string, ...params: any[]) => {
+          // 转换SQLite语法为PostgreSQL语法
+          const pgQuery = query.replace(/\?/g, (match, offset) => {
+            const paramIndex = query.substring(0, offset).split('?').length;
+            return `$${paramIndex}`;
+          });
+          const result = await sql.query(pgQuery + ' LIMIT 1', params);
+          return result.rows[0] || null;
+        },
+        run: async (query: string, ...params: any[]) => {
+          // 转换SQLite语法为PostgreSQL语法  
+          const pgQuery = query.replace(/\?/g, (match, offset) => {
+            const paramIndex = query.substring(0, offset).split('?').length;
+            return `$${paramIndex}`;
+          });
+          await sql.query(pgQuery, params);
+        },
+        exec: async (query: string) => {
+          await sql.query(query);
+        },
+        prepare: (query: string) => {
+          return {
+            run: async (...params: any[]) => {
+              // 转换SQLite语法为PostgreSQL语法
+              const pgQuery = query.replace(/\?/g, (match, offset) => {
+                const paramIndex = query.substring(0, offset).split('?').length;
+                return `$${paramIndex}`;
+              });
+              await sql.query(pgQuery, params);
+            },
+            finalize: async () => {
+              // PostgreSQL不需要finalize
+            }
+          };
+        }
+      };
+    } catch (error) {
+      console.warn('PostgreSQL not available, using JSON file fallback:', error);
+      
+      // 返回基于JSON文件的数据接口
+      const exportedData = require('../../data/exported-data.json');
+      
+      return {
+        all: async (query: string, ...params: any[]) => {
+          // 简单的表名匹配，返回对应的JSON数据
+          if (query.includes('categories')) return exportedData.tables.categories || [];
+          if (query.includes('mods')) return exportedData.tables.mods || [];
+          if (query.includes('mod_images')) return exportedData.tables.mod_images || [];
+          if (query.includes('mod_videos')) return exportedData.tables.mod_videos || [];
+          if (query.includes('mod_requirements')) return exportedData.tables.mod_requirements || [];
+          if (query.includes('mod_features')) return exportedData.tables.mod_features || [];
+          if (query.includes('mod_tags')) return exportedData.tables.mod_tags || [];
+          return [];
+        },
+        get: async (query: string, ...params: any[]) => {
+          // 简单的表名匹配，返回对应的JSON数据
+          if (query.includes('categories')) return exportedData.tables.categories[0] || null;
+          if (query.includes('mods')) return exportedData.tables.mods[0] || null;
+          if (query.includes('mod_images')) return exportedData.tables.mod_images[0] || null;
+          if (query.includes('mod_videos')) return exportedData.tables.mod_videos[0] || null;
+          if (query.includes('mod_requirements')) return exportedData.tables.mod_requirements[0] || null;
+          if (query.includes('mod_features')) return exportedData.tables.mod_features[0] || null;
+          if (query.includes('mod_tags')) return exportedData.tables.mod_tags[0] || null;
+          return null;
+        },
+        run: async () => {
+          // JSON文件是只读的，忽略写操作
+          console.log('Write operation ignored (JSON file mode)');
+        },
+        exec: async () => {
+          // JSON文件是只读的，忽略写操作
+          console.log('Exec operation ignored (JSON file mode)');
+        },
+        prepare: () => ({
+          run: async () => {
+            console.log('Prepared statement ignored (JSON file mode)');
           },
-          finalize: async () => {
-            // PostgreSQL不需要finalize
-          }
-        };
-      }
-    };
+          finalize: async () => {}
+        })
+      };
+    }
   } else {
     // 本地环境：使用SQLite
     if (db) return db;
