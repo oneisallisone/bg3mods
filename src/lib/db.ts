@@ -181,19 +181,34 @@ export async function getDb() {
     // 本地环境：使用SQLite
     if (db) return db;
 
-    const { Database } = require('sqlite3');
-    const { open } = require('sqlite');
-    const path = require('path');
+    try {
+      const { Database } = require('sqlite3');
+      const { open } = require('sqlite');
+      const path = require('path');
 
-    const dbPath = path.join(process.cwd(), 'data', 'bg3mods.db');
-    
-    db = await open({
-      filename: dbPath,
-      driver: Database
-    });
+      const dbPath = path.join(process.cwd(), 'data', 'bg3mods.db');
+      
+      db = await open({
+        filename: dbPath,
+        driver: Database
+      });
 
-    await createTables();
-    return db;
+      await createTables();
+      return db;
+    } catch (error) {
+      // 如果sqlite3不可用（比如在某些部署环境中），返回空数据
+      console.warn('SQLite not available, returning empty data');
+      return {
+        all: async () => [],
+        get: async () => null,
+        run: async () => {},
+        exec: async () => {},
+        prepare: () => ({
+          run: async () => {},
+          finalize: async () => {}
+        })
+      };
+    }
   }
 }
 
