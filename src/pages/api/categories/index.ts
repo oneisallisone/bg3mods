@@ -21,7 +21,7 @@ export default async function handler(
         `);
 
         // 处理结果
-        const processedCategories = categories.map(cat => ({
+        const processedCategories = categories.map((cat: any) => ({
           ...cat,
           count: cat.mod_count || 0
         }));
