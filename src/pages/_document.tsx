@@ -7,6 +7,7 @@ export default function Document() {
       <Head>
         <meta charSet="utf-8" />
         <meta name="theme-color" content="#000000" />
+        <meta name="google-adsense-account" content="ca-pub-6706678412893581" />
         <link rel="icon" type="image/png" href="/icons/icon-16.png" sizes="16x16" />
         <link rel="icon" type="image/png" href="/icons/icon-32.png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
@@ -27,6 +28,10 @@ export default function Document() {
         <meta name="twitter:title" content="BG3 Mods Navigation" />
         <meta name="twitter:description" content="Your ultimate guide to Baldur's Gate 3 mods - discover, manage and enjoy mods easily" />
         <meta name="twitter:image" content="/og-image.jpg" />
+        
+        {/* Google AdSense */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6706678412893581"
+                crossOrigin="anonymous"></script>
       </Head>
       <body>
         <Main />
