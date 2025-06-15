@@ -320,7 +320,7 @@ export async function listMods(category?: string): Promise<Mod[]> {
   
   // 为每个 mod 获取完整信息
   const fullMods = await Promise.all(
-    mods.map(mod => getMod(mod.id))
+    mods.map((mod: any) => getMod(mod.id))
   );
   
   return fullMods.filter((mod): mod is Mod => mod !== null);
