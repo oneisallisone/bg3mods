@@ -1,86 +1,200 @@
-import { Database } from 'sqlite3';
-import { open, Database as SQLiteDatabase } from 'sqlite';
-import path from 'path';
+// 检测运行环境并使用相应的数据库
+const isVercel = !!process.env.VERCEL || !!process.env.POSTGRES_URL;
 
-let db: SQLiteDatabase | null = null;
+export async function createTables() {
+  if (isVercel) {
+    // Vercel环境：使用PostgreSQL
+    const { sql } = require('@vercel/postgres');
+    
+    await sql`
+      CREATE TABLE IF NOT EXISTS categories (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        description TEXT,
+        icon TEXT,
+        count INTEGER DEFAULT 0
+      );
+    `;
+
+    await sql`
+      CREATE TABLE IF NOT EXISTS mods (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        description TEXT,
+        category TEXT,
+        author_name TEXT,
+        author_url TEXT,
+        downloads INTEGER DEFAULT 0,
+        rating REAL DEFAULT 0,
+        version TEXT,
+        last_updated TEXT,
+        download_url TEXT
+      );
+    `;
+
+    await sql`
+      CREATE TABLE IF NOT EXISTS mod_images (
+        id SERIAL PRIMARY KEY,
+        mod_id TEXT,
+        url TEXT NOT NULL,
+        caption TEXT
+      );
+    `;
+
+    await sql`
+      CREATE TABLE IF NOT EXISTS mod_videos (
+        id SERIAL PRIMARY KEY,
+        mod_id TEXT,
+        url TEXT NOT NULL,
+        title TEXT,
+        platform TEXT
+      );
+    `;
+
+    await sql`
+      CREATE TABLE IF NOT EXISTS mod_requirements (
+        id SERIAL PRIMARY KEY,
+        mod_id TEXT,
+        name TEXT NOT NULL,
+        url TEXT,
+        description TEXT
+      );
+    `;
+
+    await sql`
+      CREATE TABLE IF NOT EXISTS mod_features (
+        id SERIAL PRIMARY KEY,
+        mod_id TEXT,
+        feature TEXT NOT NULL
+      );
+    `;
+
+    await sql`
+      CREATE TABLE IF NOT EXISTS mod_tags (
+        id SERIAL PRIMARY KEY,
+        mod_id TEXT,
+        tag TEXT NOT NULL
+      );
+    `;
+  } else {
+    // 本地环境：使用SQLite
+    const database = await getDb();
+    await database.exec(`
+      CREATE TABLE IF NOT EXISTS categories (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        description TEXT,
+        icon TEXT,
+        count INTEGER DEFAULT 0
+      );
+
+      CREATE TABLE IF NOT EXISTS mods (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        description TEXT,
+        category TEXT,
+        author_name TEXT,
+        author_url TEXT,
+        downloads INTEGER DEFAULT 0,
+        rating REAL DEFAULT 0,
+        version TEXT,
+        last_updated TEXT,
+        download_url TEXT
+      );
+
+      CREATE TABLE IF NOT EXISTS mod_images (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        mod_id TEXT,
+        url TEXT NOT NULL,
+        caption TEXT
+      );
+
+      CREATE TABLE IF NOT EXISTS mod_videos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        mod_id TEXT,
+        url TEXT NOT NULL,
+        title TEXT,
+        platform TEXT
+      );
+
+      CREATE TABLE IF NOT EXISTS mod_requirements (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        mod_id TEXT,
+        name TEXT NOT NULL,
+        url TEXT,
+        description TEXT
+      );
+
+      CREATE TABLE IF NOT EXISTS mod_features (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        mod_id TEXT,
+        feature TEXT NOT NULL
+      );
+
+      CREATE TABLE IF NOT EXISTS mod_tags (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        mod_id TEXT,
+        tag TEXT NOT NULL
+      );
+    `);
+  }
+}
+
+let db: any = null;
 
 export async function getDb() {
-  if (db) return db;
+  if (isVercel) {
+    // Vercel环境：使用PostgreSQL
+    const { sql } = require('@vercel/postgres');
+    
+    // 初始化表
+    await createTables();
+    
+    // 返回一个兼容的接口
+    return {
+      all: async (query: string, ...params: any[]) => {
+        const result = await sql.query(query, params);
+        return result.rows;
+      },
+      get: async (query: string, ...params: any[]) => {
+        const result = await sql.query(query + ' LIMIT 1', params);
+        return result.rows[0] || null;
+      },
+      run: async (query: string, ...params: any[]) => {
+        await sql.query(query, params);
+      },
+      exec: async (query: string) => {
+        await sql.query(query);
+      },
+      prepare: (query: string) => {
+        return {
+          run: async (...params: any[]) => {
+            await sql.query(query, params);
+          },
+          finalize: async () => {
+            // PostgreSQL不需要finalize
+          }
+        };
+      }
+    };
+  } else {
+    // 本地环境：使用SQLite
+    if (db) return db;
 
-  const dbPath = path.join(process.cwd(), 'data', 'bg3mods.db');
-  
-  db = await open({
-    filename: dbPath,
-    driver: Database
-  });
+    const { Database } = require('sqlite3');
+    const { open } = require('sqlite');
+    const path = require('path');
 
-  // 创建表
-  await db.exec(`
-    CREATE TABLE IF NOT EXISTS categories (
-      id TEXT PRIMARY KEY,
-      name TEXT NOT NULL,
-      description TEXT,
-      icon TEXT,
-      count INTEGER DEFAULT 0
-    );
+    const dbPath = path.join(process.cwd(), 'data', 'bg3mods.db');
+    
+    db = await open({
+      filename: dbPath,
+      driver: Database
+    });
 
-    CREATE TABLE IF NOT EXISTS mods (
-      id TEXT PRIMARY KEY,
-      name TEXT NOT NULL,
-      description TEXT,
-      category TEXT,
-      author_name TEXT,
-      author_url TEXT,
-      downloads INTEGER DEFAULT 0,
-      rating REAL DEFAULT 0,
-      version TEXT,
-      last_updated TEXT,
-      download_url TEXT,
-      FOREIGN KEY (category) REFERENCES categories(id)
-    );
-
-    CREATE TABLE IF NOT EXISTS mod_images (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      mod_id TEXT,
-      url TEXT NOT NULL,
-      caption TEXT,
-      FOREIGN KEY (mod_id) REFERENCES mods(id)
-    );
-
-    CREATE TABLE IF NOT EXISTS mod_videos (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      mod_id TEXT,
-      url TEXT NOT NULL,
-      title TEXT,
-      platform TEXT,
-      FOREIGN KEY (mod_id) REFERENCES mods(id)
-    );
-
-    CREATE TABLE IF NOT EXISTS mod_requirements (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      mod_id TEXT,
-      name TEXT NOT NULL,
-      url TEXT,
-      description TEXT,
-      FOREIGN KEY (mod_id) REFERENCES mods(id)
-    );
-
-    CREATE TABLE IF NOT EXISTS mod_features (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      mod_id TEXT,
-      feature TEXT NOT NULL,
-      FOREIGN KEY (mod_id) REFERENCES mods(id)
-    );
-
-    CREATE TABLE IF NOT EXISTS mod_tags (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      mod_id TEXT,
-      tag TEXT NOT NULL,
-      FOREIGN KEY (mod_id) REFERENCES mods(id)
-    );
-  `);
-
-  return db;
+    await createTables();
+    return db;
+  }
 }
 
 export async function getAllMods() {
